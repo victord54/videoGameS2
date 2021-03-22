@@ -1,6 +1,0 @@
-{
-	"files.associations": {
-		"*.pseudo": "c",
-		"sdl2-light.h": "c"
-	}
-}
