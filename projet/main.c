@@ -188,13 +188,20 @@ void handle_events(SDL_Event *event,world_t *world){
             world->gameover = 1;
         }
        
-         //si une touche est appuyée
-         if(event->type == SDL_KEYDOWN){
-             //si la touche appuyée est 'D'
-             if(event->key.keysym.sym == SDLK_d){
-                 printf("La touche D est appuyée\n");
+        //si une touche est appuyée
+        if(event->type == SDL_KEYDOWN){
+            //si la touche appuyée est 'D'
+            if(event->key.keysym.sym == SDLK_d){
+                printf("La touche D est appuyée\n");
+                world->vaisseau.x+= MOVING_STEP;
               }
-         }
+            
+            //si la touche appuyée est 'Q'
+            if(event->key.keysym.sym == SDLK_q){
+                printf("La touche Q est appuyée\n");
+                world->vaisseau.x-= MOVING_STEP;
+            }
+        }
     }
 }
 
