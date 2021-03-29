@@ -308,7 +308,7 @@ void refresh_graphics(SDL_Renderer *renderer, world_t *world,textures_t *texture
     apply_sprite(renderer, textures->arrival, &world->arrival);
     for (int i = 0; i < 7; i++){
         for (int j = 0; j < 3; j++){
-            apply_texture(textures->meteorite, renderer,i*METEORITE_SIZE,world->mur.y+j*METEORITE_SIZE);
+            apply_texture(textures->meteorite, renderer,j*METEORITE_SIZE,world->mur.y+i*METEORITE_SIZE);
         }
     }
     //apply_sprite(renderer, textures->meteorite, &world->mur);
