@@ -145,7 +145,15 @@ void init_data(world_t * world){
     
 }
 
-
+void apply_sprite(SDL_Renderer *renderer, SDL_Texture *texture, sprite_t *sprite){
+	SDL_Rect dst = {0, 0, 0, 0};
+    
+	SDL_QueryTexture(texture, NULL, NULL, &sprite->w, &sprite->h);
+	dst.x =sprite->x; 
+	dst.y =sprite->y;
+    
+	SDL_RenderCopy(renderer, texture, NULL, &dst);
+}
 
 
 
@@ -267,8 +275,8 @@ void refresh_graphics(SDL_Renderer *renderer, world_t *world,textures_t *texture
     clear_renderer(renderer);
     
     //application des textures dans le renderer
-    apply_background(renderer, textures->background);
-    /* A COMPLETER */
+	apply_background(renderer, textures->background);
+	apply_sprite(renderer,textures->vaisseau,&world->vaisseau);
     
     // on met à jour l'écran
     update_screen(renderer);
