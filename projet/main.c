@@ -80,10 +80,7 @@ typedef struct textures_s textures_t;
 */
 
 struct world_s{
-    /*
-      A COMPLETER
-     */
-    
+    srites_t vaisseau; /*!< Infomation du vaisseau */
     int gameover; /*!< Champ indiquant si l'on est à la fin du jeu */
 
 };
@@ -94,7 +91,22 @@ struct world_s{
 
 typedef struct world_s world_t;
 
+/**
+ * \brief Représentation une texture du jeu
+*/
 
+struct sprites_s{
+	int x; /*!< Position du sprite sur x */
+	int y; /*!< Position du sprite sur y*/
+	int w; /*!< Largeur du sprite */
+	int h; /*!< Hauteur du sprite */
+};
+
+/**
+ * \brief Type qui correspond aux texuture
+ */
+
+typedef struct sprites_s sprites_t;
 
 
 
@@ -146,7 +158,20 @@ void update_data(world_t *world){
     /* A COMPLETER */
 }
 
-
+/**
+ * \brief La fonction initialise les données d'un sprites celon les valeur rentrée
+ * \param le sprite a initialise
+ * \param le x du sprite
+ * \param le y du sprite
+ * \param la largeur du sprite
+ * \param la hauteur du sprite
+ */
+void init_sprite(sprite_t *sprite, int x, int y, int w, int h){
+	sprite->x=x;
+	sprite->y=y;
+	sprite->w=w;
+	sprite->h=h;
+}
 
 /**
  * \brief La fonction gère les évènements ayant eu lieu et qui n'ont pas encore été traités
@@ -194,7 +219,7 @@ void clean_textures(textures_t *textures){
 */
 
 void  init_textures(SDL_Renderer *renderer, textures_t *textures){
-    textures->background = load_image( "ressources/background.bmp",renderer);
+    textures->background = load_image( "ressources/space-background.bmp",renderer);
     
     /* A COMPLETER */
 
