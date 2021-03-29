@@ -122,17 +122,30 @@ void init_sprite(sprite_t *sprite, int x, int y, int w, int h){
 	sprite->h=h;
 }
 
+
+/**
+ * \brief Fonction qui affiche les infomation d'un sprite
+ * \param sprite a afficher
+ */
+void print_sprite(sprite_t *sprite){
+	printf("Position en x%d\nPosition en y%d\nLargeur du sprite%d\nHauteur du sprite%d\n",sprite->x,sprite->y,sprite->w,sprite->h);
+}
+
+
 /**
  * \brief La fonction initialise les données du monde du jeu
  * \param world les données du monde
  */
 void init_data(world_t * world){
 	//Initialisation du vaisseau
-    init_sprite(&world->vaisseau,SCREEN_WIDTH/2,SCREEN_HEIGHT-(SHIP_SIZE*1.5),SHIP_SIZE,SHIP_SIZE);
+	init_sprite(&world->vaisseau,SCREEN_WIDTH/2,SCREEN_HEIGHT-(SHIP_SIZE*1.5),SHIP_SIZE,SHIP_SIZE);
+	print_sprite(&world->vaisseau);
     	//on n'est pas à la fin du jeu
     world->gameover = 0;
     
 }
+
+
 
 
 
