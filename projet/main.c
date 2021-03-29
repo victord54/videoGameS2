@@ -233,13 +233,13 @@ void handle_events(SDL_Event *event,world_t *world){
             if(event->key.keysym.sym == SDLK_z){
             //On indique la fin du jeu
             printf("La touche Z est appuyée\n");
-            world->vy+=2;
+            world->vy+=1;
             }
 
             if(event->key.keysym.sym == SDLK_s){
             //On indique la fin du jeu
             printf("La touche S est appuyée\n");
-            world->vy-=2;
+            world->vy-=1;
             }
 
             print_sprite(&world->vaisseau); // Affichage coordonnées à chaque déplacement
