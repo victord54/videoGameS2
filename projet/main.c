@@ -190,6 +190,7 @@ int is_game_over(world_t *world){
  */
 void update_data(world_t *world){
     world->arrival.y += world->vy;
+    world->mur.y += world->vy;
 }
 
 
@@ -227,6 +228,18 @@ void handle_events(SDL_Event *event,world_t *world){
             //On indique la fin du jeu
             printf("La touche ECHAP est appuyée\n");
             world->gameover = 1;
+            }
+
+            if(event->key.keysym.sym == SDLK_z){
+            //On indique la fin du jeu
+            printf("La touche Z est appuyée\n");
+            world->vy+=2;
+            }
+
+            if(event->key.keysym.sym == SDLK_s){
+            //On indique la fin du jeu
+            printf("La touche S est appuyée\n");
+            world->vy-=2;
             }
 
             print_sprite(&world->vaisseau); // Affichage coordonnées à chaque déplacement
@@ -293,16 +306,8 @@ void refresh_graphics(SDL_Renderer *renderer, world_t *world,textures_t *texture
 	apply_background(renderer, textures->background);
 	apply_sprite(renderer, textures->vaisseau, &world->vaisseau);
     apply_sprite(renderer, textures->arrival, &world->arrival);
-    
-    for (int i = 0; i < 7; i++)
-    {
-        for (int j = 0; j < 3; j++)
-        {
-            world->mur.x = j*METEORITE_SIZE;
-            world->mur.y = i*METEORITE_SIZE;
-            apply_sprite(renderer, textures->meteorite, &world->mur);
-            }
-        }
+    apply_sprite(renderer, textures->meteorite, &world->mur);
+
     // on met à jour l'écran
     update_screen(renderer);
 }
