@@ -107,20 +107,33 @@ struct world_s{
 
 typedef struct world_s world_t;
 
+/**
+ * \brief La fonction initialise les données d'un sprites celon les valeur rentrée
+ * \param le sprite a initialise
+ * \param le x du sprite
+ * \param le y du sprite
+ * \param la largeur du sprite
+ * \param la hauteur du sprite
+ */
+void init_sprite(sprite_t *sprite, int x, int y, int w, int h){
+	sprite->x=x;
+	sprite->y=y;
+	sprite->w=w;
+	sprite->h=h;
+}
 
 /**
  * \brief La fonction initialise les données du monde du jeu
  * \param world les données du monde
  */
-
-
 void init_data(world_t * world){
 	//Initialisation du vaisseau
-    init_sprite(world->vaisseau,SCREEN_WIDTH/2,SCREEN_HEIGHT-(SHIP_SIZE*1.5),SHIP_SIZE,SHIP_SIZE);
+    init_sprite(&world->vaisseau,SCREEN_WIDTH/2,SCREEN_HEIGHT-(SHIP_SIZE*1.5),SHIP_SIZE,SHIP_SIZE);
     	//on n'est pas à la fin du jeu
     world->gameover = 0;
     
 }
+
 
 
 /**
@@ -157,20 +170,7 @@ void update_data(world_t *world){
     /* A COMPLETER */
 }
 
-/**
- * \brief La fonction initialise les données d'un sprites celon les valeur rentrée
- * \param le sprite a initialise
- * \param le x du sprite
- * \param le y du sprite
- * \param la largeur du sprite
- * \param la hauteur du sprite
- */
-void init_sprite(sprite_t *sprite, int x, int y, int w, int h){
-	sprite->x=x;
-	sprite->y=y;
-	sprite->w=w;
-	sprite->h=h;
-}
+
 
 /**
  * \brief La fonction gère les évènements ayant eu lieu et qui n'ont pas encore été traités
