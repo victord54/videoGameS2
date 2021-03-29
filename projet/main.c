@@ -79,23 +79,11 @@ typedef struct textures_s textures_t;
  * \brief Représentation du monde du jeu
 */
 
-struct world_s{
-    srites_t vaisseau; /*!< Infomation du vaisseau */
-    int gameover; /*!< Champ indiquant si l'on est à la fin du jeu */
-
-};
-
-/**
- * \brief Type qui correspond aux données du monde
- */
-
-typedef struct world_s world_t;
-
 /**
  * \brief Représentation une texture du jeu
 */
 
-struct sprites_s{
+struct sprite_s{
 	int x; /*!< Position du sprite sur x */
 	int y; /*!< Position du sprite sur y*/
 	int w; /*!< Largeur du sprite */
@@ -106,8 +94,18 @@ struct sprites_s{
  * \brief Type qui correspond aux texuture
  */
 
-typedef struct sprites_s sprites_t;
+typedef struct sprite_s sprite_t;
+struct world_s{
+    sprite_t vaisseau; /*!< Infomation du vaisseau */
+    int gameover; /*!< Champ indiquant si l'on est à la fin du jeu */
 
+};
+
+/**
+ * \brief Type qui correspond aux données du monde
+ */
+
+typedef struct world_s world_t;
 
 
 /**
@@ -117,8 +115,9 @@ typedef struct sprites_s sprites_t;
 
 
 void init_data(world_t * world){
-    
-    //on n'est pas à la fin du jeu
+	//Initialisation du vaisseau
+    init_sprite(world->vaisseau,SCREEN_WIDTH/2,SCREEN_HEIGHT-(SHIP_SIZE*1.5),SHIP_SIZE,SHIP_SIZE);
+    	//on n'est pas à la fin du jeu
     world->gameover = 0;
     
 }
