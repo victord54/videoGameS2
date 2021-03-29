@@ -8,7 +8,7 @@
 
 #include "sdl2-light.h"
 
-
+/* ============ DEFINE ============ */
 /**
  * \brief Largeur de l'écran de jeu
  */
@@ -23,88 +23,74 @@
 /**
  * \brief Taille d'un vaisseau
  */
-
 #define SHIP_SIZE 32
 
 
 /**
  * \brief Taille d'un météorite
 */
-
 #define METEORITE_SIZE 32
 
 
 /**
  * \brief Hauteur de la ligne d'arrivée
  */
-
-
 #define FINISH_LINE_HEIGHT 10
 
 
 /**
  * \brief Pas de déplacement horizontal du vaisseau
 */
-
 #define MOVING_STEP 10
 
 
 /**
   * \brief Vitesse initiale de déplacement vertical des éléments du jeu 
 */
-
 #define INITIAL_SPEED 2
 
 
-
-
+/* ============ STRUCT ============ */
 /**
  * \brief Représentation pour stocker les textures nécessaires à l'affichage graphique
 */
-
 struct textures_s{
     SDL_Texture* background; /*!< Texture liée à l'image du fond de l'écran. */
     /* A COMPLETER */
 };
-
-
 /**
  * \brief Type qui correspond aux textures du jeu
 */
-
 typedef struct textures_s textures_t;
 
 
-/**
- * \brief Représentation du monde du jeu
-*/
+
 
 /**
- * \brief Représentation une texture du jeu
+ * \brief Représentation d'une texture du jeu
 */
-
 struct sprite_s{
 	int x; /*!< Position du sprite sur x */
 	int y; /*!< Position du sprite sur y*/
 	int w; /*!< Largeur du sprite */
 	int h; /*!< Hauteur du sprite */
 };
-
 /**
  * \brief Type qui correspond aux texuture
  */
-
 typedef struct sprite_s sprite_t;
+
+/**
+ * \brief Représentation du monde du jeu
+*/
 struct world_s{
     sprite_t vaisseau; /*!< Infomation du vaisseau */
     int gameover; /*!< Champ indiquant si l'on est à la fin du jeu */
-
 };
 
 /**
  * \brief Type qui correspond aux données du monde
  */
-
 typedef struct world_s world_t;
 
 /**
