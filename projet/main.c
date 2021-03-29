@@ -124,7 +124,7 @@ void init_data(world_t * world){
 	//Initialisation du vaisseau
 	init_sprite(&world->vaisseau,SCREEN_WIDTH/2,SCREEN_HEIGHT-(SHIP_SIZE*1.5),SHIP_SIZE,SHIP_SIZE);
 
-	print_sprite(&world->vaisseau);
+    print_sprite(&world->vaisseau); // Position initiale du sprite vaisseau
     
     //on n'est pas à la fin du jeu
     world->gameover = 0;
@@ -183,7 +183,7 @@ void handle_events(SDL_Event *event,world_t *world){
     while( SDL_PollEvent( event ) ) {
         
         //Si l'utilisateur a cliqué sur le X de la fenêtre
-        if( event->type == SDL_QUIT ) {
+        if(event->type == SDL_QUIT) {
             //On indique la fin du jeu
             world->gameover = 1;
         }
@@ -201,6 +201,14 @@ void handle_events(SDL_Event *event,world_t *world){
                 printf("La touche Q est appuyée\n");
                 world->vaisseau.x-= MOVING_STEP;
             }
+
+            if(event->key.keysym.sym == SDLK_ESCAPE){
+            //On indique la fin du jeu
+            printf("La touche ECHAP est appuyée\n");
+            world->gameover = 1;
+            }
+
+            print_sprite(&world->vaisseau);
         }
     }
 }
