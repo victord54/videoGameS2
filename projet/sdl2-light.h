@@ -18,7 +18,6 @@
  * \param renderer le renderer à nettoyer
  * \param window la fenêtre à nettoyer
 */
-
 void clean_sdl(SDL_Renderer *renderer,SDL_Window *window);
 
 /**
@@ -28,8 +27,6 @@ void clean_sdl(SDL_Renderer *renderer,SDL_Window *window);
  * \return la surface SDL contenant l'image avec la couleur RGB (255,0,255) rendue transparente. Elle renvoie NULL si le chargement a échoué
  * (ex. le fichier path n'existe pas)
 */
-
-
 SDL_Texture *load_image(const char path[], SDL_Renderer *renderer);
 
 
@@ -42,14 +39,12 @@ SDL_Texture *load_image(const char path[], SDL_Renderer *renderer);
  * \param height hauteur de l'écran de jeu
  * \return -1 en cas d'erreur, 0 sinon
 */
-
 int init_sdl(SDL_Window **window, SDL_Renderer **renderer, int width, int height);
 
 /**
  * \brief La fonction nettoie une texture en mémoire
  * \param texture la texture à nettoyer
 */
-
 void clean_texture(SDL_Texture *texture);
 
 
@@ -60,7 +55,6 @@ void clean_texture(SDL_Texture *texture);
  * \param x l'abscisse sur le renderer de l'endroit où est appliquée texture (point en haut à gauche de la surface)
  *  \param y l'ordonnée sur le renderer de l'endroit où est appliquée texture (point en haut à gauche de la surface)
 */
-
 void apply_texture(SDL_Texture *texture,SDL_Renderer *renderer,int x, int y);
 
 
@@ -69,22 +63,18 @@ void apply_texture(SDL_Texture *texture,SDL_Renderer *renderer,int x, int y);
  * \brief La fonction vide le contenu graphique du renderer lié à l'écran de jeu
  * \param renderer le renderer de l'écran
 */
-
 void clear_renderer(SDL_Renderer *renderer);
 
 /**
  * \brief La fonction met à jour l'écran avec le contenu du renderer
  * \param renderer le renderer de l'écran
 */
-
 void update_screen(SDL_Renderer *renderer);
 
 /**
  * \brief La fonction met le programme en pause pendant un laps de temps
  * \param time ce laps de temps en milliseconde
 */
-
-
 void pause(int time);
 
 #endif

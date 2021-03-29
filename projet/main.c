@@ -8,100 +8,100 @@
 
 #include "sdl2-light.h"
 
-/* ============ DEFINE ============ */
+/* ======================== DEFINE ======================== */
 /**
- * \brief Largeur de l'écran de jeu
+ * \brief Largeur de l'écran de jeu.
  */
 #define SCREEN_WIDTH 300
 
 /**
- * \brief Hauteur de l'écran de jeu
+ * \brief Hauteur de l'écran de jeu.
  */
 #define SCREEN_HEIGHT 480
 
 
 /**
- * \brief Taille d'un vaisseau
+ * \brief Taille d'un vaisseau.
  */
 #define SHIP_SIZE 32
 
 
 /**
- * \brief Taille d'un météorite
+ * \brief Taille d'un météorite.
 */
 #define METEORITE_SIZE 32
 
 
 /**
- * \brief Hauteur de la ligne d'arrivée
+ * \brief Hauteur de la ligne d'arrivée.
  */
 #define FINISH_LINE_HEIGHT 10
 
 
 /**
- * \brief Pas de déplacement horizontal du vaisseau
+ * \brief Pas de déplacement horizontal du vaisseau.
 */
 #define MOVING_STEP 10
 
 
 /**
-  * \brief Vitesse initiale de déplacement vertical des éléments du jeu 
+  * \brief Vitesse initiale de déplacement vertical des éléments du jeu.
 */
 #define INITIAL_SPEED 2
 
 
-/* ============ STRUCT ============ */
+/* ======================== STRUCT ======================== */
 /**
- * \brief Représentation pour stocker les textures nécessaires à l'affichage graphique
+ * \brief Représentation pour stocker les textures nécessaires à l'affichage graphique.
 */
 struct textures_s{
     SDL_Texture* background; /*!< Texture liée à l'image du fond de l'écran. */
-    SDL_Texture* vaisseau;
-    SDL_Texture* arrival;
+    SDL_Texture* vaisseau; /*!< Texture liée à l'image du vaisseau. */
+    SDL_Texture* arrival; /*!< Texture liée à l'image de la ligne d'arrivée. */
 };
 /**
- * \brief Type qui correspond aux textures du jeu
+ * \brief Type qui correspond aux textures du jeu.
 */
 typedef struct textures_s textures_t;
 
 /**
- * \brief Représentation d'une texture du jeu
+ * \brief Représentation d'une texture du jeu.
 */
 struct sprite_s{
-	int x; /*!< Position du sprite sur x */
-	int y; /*!< Position du sprite sur y */
-	int w; /*!< Largeur du sprite */
-	int h; /*!< Hauteur du sprite */
+	int x; /*!< Position du sprite sur x. */
+	int y; /*!< Position du sprite sur y. */
+	int w; /*!< Largeur du sprite. */
+	int h; /*!< Hauteur du sprite. */
 };
 /**
- * \brief Type qui correspond à une texture
+ * \brief Type qui correspond à une texture.
  */
 typedef struct sprite_s sprite_t;
 
 /**
- * \brief Représentation du monde du jeu
+ * \brief Représentation du monde du jeu.
 */
 struct world_s{
-    sprite_t vaisseau; /*!< Information du vaisseau */
-    sprite_t arrival; /*!< Information de la ligne d'arrivée */
-    int vy; /*!< Vitesse de déplacement verticale */
-    int gameover; /*!< Champ indiquant si l'on est à la fin du jeu */
+    sprite_t vaisseau; /*!< Information du vaisseau. */
+    sprite_t arrival; /*!< Information de la ligne d'arrivée. */
+    int vy; /*!< Vitesse de déplacement verticale. */
+    int gameover; /*!< Champ indiquant si l'on est à la fin du jeu. */
 
 };
 /**
- * \brief Type qui correspond aux données du monde
+ * \brief Type qui correspond aux données du monde.
  */
 typedef struct world_s world_t;
 
 
 /* ============ FONCTIONS ============ */
 /**
- * \brief La fonction initialise les données d'un sprite selon les valeurs entrées
- * \param sprite pointeur vers sprite_t
- * \param x coordonnée x du sprite
- * \param y coordonnée y du sprite
- * \param w largeur du sprite
- * \param h hauteur du sprite
+ * \brief La fonction initialise les données d'un sprite selon les valeurs entrées.
+ * \param sprite Pointeur vers sprite_t pour l'initialisation des données.
+ * \param x Coordonnée x du sprite.
+ * \param y Coordonnée y du sprite.
+ * \param w Largeur du sprite.
+ * \param h Hauteur du sprite.
  */
 void init_sprite(sprite_t *sprite, int x, int y, int w, int h){
 	sprite->x=x;
@@ -112,8 +112,8 @@ void init_sprite(sprite_t *sprite, int x, int y, int w, int h){
 
 
 /**
- * \brief Fonction qui affiche les information d'un sprite
- * \param sprite variable de laquelle on affiche les coordonnées
+ * \brief La fonction affiche les information (coordonées) d'un sprite.
+ * \param sprite Variable de type sprite_t de laquelle on affiche les informations.
  */
 void print_sprite(sprite_t *sprite){
 	printf("Position en x = %d\nPosition en y = %d\nLargeur du sprite = %d\nHauteur du sprite = %d\n",sprite->x,sprite->y,sprite->w,sprite->h);
@@ -121,8 +121,8 @@ void print_sprite(sprite_t *sprite){
 
 
 /**
- * \brief La fonction initialise les données du monde du jeu
- * \param world les données du monde
+ * \brief La fonction initialise les données du monde du jeu.
+ * \param world Les données du monde.
  */
 void init_data(world_t * world){
 	// Initialisation du vaisseau
@@ -145,10 +145,10 @@ void init_data(world_t * world){
 }
 
 /**
- * \brief Fonction qui applique un sprite au renderer
- * \param renderer renderer vers lequel on envoie les textures et les sprites
- * \param texture texture envoyée vers le renderer
- * \param sprite sprite envoyé vers le renderer
+ * \brief La fonction applique un sprite au renderer.
+ * \param renderer Renderer vers lequel on envoie les textures et les sprites.
+ * \param texture Texture envoyée vers le renderer.
+ * \param sprite Sprite envoyé vers le renderer.
  */
 void apply_sprite(SDL_Renderer *renderer, SDL_Texture *texture, sprite_t *sprite){
 	apply_texture(texture, renderer, sprite->x,sprite->y);
@@ -157,19 +157,19 @@ void apply_sprite(SDL_Renderer *renderer, SDL_Texture *texture, sprite_t *sprite
 
 
 /**
- * \brief La fonction nettoie les données du monde
- * \param world les données du monde
+ * \brief La fonction nettoie les données du monde.
+ * \param world Les données du monde.
  */
 void clean_data(world_t *world){
-    /* utile uniquement si vous avez fait de l'allocation dynamique (malloc); la fonction ici doit permettre de libérer la mémoire (free) */ 
+    /* Utile uniquement si vous avez fait de l'allocation dynamique (malloc); la fonction ici doit permettre de libérer la mémoire (free) */ 
 }
 
 
 
 /**
- * \brief La fonction indique si le jeu est fini en fonction des données du monde
- * \param world les données du monde
- * \return 1 si le jeu est fini, 0 sinon
+ * \brief La fonction indique si le jeu est fini en fonction des données du monde.
+ * \param world Les données du monde.
+ * \return 1 si le jeu est fini, 0 sinon.
  */
 int is_game_over(world_t *world){
     return world->gameover;
@@ -178,8 +178,8 @@ int is_game_over(world_t *world){
 
 
 /**
- * \brief La fonction met à jour les données en tenant compte de la physique du monde
- * \param les données du monde
+ * \brief La fonction met à jour les données en tenant compte de la physique du monde.
+ * \param world Les données du monde.
  */
 void update_data(world_t *world){
     world->arrival.y += world->vy;
@@ -188,9 +188,9 @@ void update_data(world_t *world){
 
 
 /**
- * \brief La fonction gère les évènements ayant eu lieu et qui n'ont pas encore été traités
- * \param event paramètre qui contient les événements
- * \param world les données du monde
+ * \brief La fonction gère les évènements ayant eu lieu et qui n'ont pas encore été traités.
+ * \param event Paramètre qui contient les événements.
+ * \param world Les données du monde.
  */
 void handle_events(SDL_Event *event,world_t *world){
     Uint8 *keystates;
@@ -230,8 +230,8 @@ void handle_events(SDL_Event *event,world_t *world){
 
 
 /**
- * \brief La fonction nettoie les textures
- * \param textures les textures
+ * \brief La fonction nettoie les textures.
+ * \param textures Les textures.
 */
 void clean_textures(textures_t *textures){
     clean_texture(textures->background);
@@ -242,9 +242,9 @@ void clean_textures(textures_t *textures){
 
 
 /**
- * \brief La fonction initialise les textures nécessaires à l'affichage graphique du jeu
- * \param screen la surface correspondant à l'écran de jeu
- * \param textures les textures du jeu
+ * \brief La fonction initialise les textures nécessaires à l'affichage graphique du jeu.
+ * \param screen La surface correspondant à l'écran de jeu.
+ * \param textures Les textures du jeu.
 */
 void  init_textures(SDL_Renderer *renderer, textures_t *textures){
     textures->background = load_image( "ressources/space-background.bmp",renderer);
@@ -255,9 +255,9 @@ void  init_textures(SDL_Renderer *renderer, textures_t *textures){
 
 
 /**
- * \brief La fonction applique la texture du fond sur le renderer lié à l'écran de jeu
- * \param renderer le renderer
- * \param texture la texture liée au fond
+ * \brief La fonction applique la texture du fond sur le renderer lié à l'écran de jeu.
+ * \param renderer Le renderer.
+ * \param texture La texture liée au fond.
 */
 void apply_background(SDL_Renderer *renderer, SDL_Texture *texture){
     if(texture != NULL){
@@ -270,10 +270,10 @@ void apply_background(SDL_Renderer *renderer, SDL_Texture *texture){
 
 
 /**
- * \brief La fonction rafraichit l'écran en fonction de l'état des données du monde
- * \param renderer le renderer lié à l'écran de jeu
- * \param world les données du monde
- * \param textures les textures
+ * \brief La fonction rafraichit l'écran en fonction de l'état des données du monde.
+ * \param renderer Le renderer lié à l'écran de jeu.
+ * \param world Les données du monde.
+ * \param textures Les textures.
  */
 void refresh_graphics(SDL_Renderer *renderer, world_t *world,textures_t *textures){
     
@@ -292,11 +292,11 @@ void refresh_graphics(SDL_Renderer *renderer, world_t *world,textures_t *texture
 
 
 /**
-* \brief fonction qui nettoie le jeu: nettoyage de la partie graphique (SDL), nettoyage des textures, nettoyage des données
-* \param window la fenêtre du jeu
-* \param renderer le renderer
-* \param textures les textures
-* \param world le monde
+* \brief La fonction nettoie le jeu: nettoyage de la partie graphique (SDL), nettoyage des textures, nettoyage des données.
+* \param window La fenêtre du jeu.
+* \param renderer Le renderer.
+* \param textures Les textures.
+* \param world Le monde.
 */
 void clean(SDL_Window *window, SDL_Renderer * renderer, textures_t *textures, world_t * world){
     clean_data(world);
@@ -307,11 +307,11 @@ void clean(SDL_Window *window, SDL_Renderer * renderer, textures_t *textures, wo
 
 
 /**
- * \brief fonction qui initialise le jeu: initialisation de la partie graphique (SDL), chargement des textures, initialisation des données
- * \param window la fenêtre du jeu
- * \param renderer le renderer
- * \param textures les textures
- * \param world le monde
+ * \brief La fonction initialise le jeu: initialisation de la partie graphique (SDL), chargement des textures, initialisation des données.
+ * \param window La fenêtre du jeu.
+ * \param renderer Le renderer.
+ * \param textures Les textures.
+ * \param world Le monde.
  */
 void init(SDL_Window **window, SDL_Renderer ** renderer, textures_t *textures, world_t * world){
     init_sdl(window,renderer,SCREEN_WIDTH, SCREEN_HEIGHT);
@@ -321,9 +321,12 @@ void init(SDL_Window **window, SDL_Renderer ** renderer, textures_t *textures, w
 
 
 /**
- *  \brief programme principal qui implémente la boucle du jeu
+ *  \brief Programme principal qui implémente la boucle du jeu.
+ * \param argc Taille du tableau argv.
+ * \param argv Pointeur vers un tableau de char de taille argc.
+ * \return 0, si il n'y a pas eu d'erreurs.
  */
-int main( int argc, char* args[] )
+int main( int argc, char* argv[] )
 {
     SDL_Event event;
     world_t world;
