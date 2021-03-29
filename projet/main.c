@@ -130,13 +130,17 @@ void init_data(world_t * world){
 }
 
 void apply_sprite(SDL_Renderer *renderer, SDL_Texture *texture, sprite_t *sprite){
+
+	apply_texture(texture, renderer,sprite->x-(SHIP_SIZE/2),sprite->y-(SHIP_SIZE/2));
+/*
 	SDL_Rect dst = {0, 0, 0, 0};
     
-	SDL_QueryTexture(texture, NULL, NULL, &sprite->w, &sprite->h);
+	SDL_QueryTexture(texture, NULL, NULL, &dst.w, &dst.h);
 	dst.x =sprite->x; 
 	dst.y =sprite->y;
     
 	SDL_RenderCopy(renderer, texture, NULL, &dst);
+*/
 }
 
 
