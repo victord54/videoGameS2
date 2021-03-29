@@ -8,75 +8,16 @@
 
 #include "sdl2-light.h"
 
-
-/**
- * \brief Largeur de l'écran
-*/
-#define SCREEN_WIDTH 320
-
-/**
- * \brief Hauteur de l'écran
-*/
-#define SCREEN_HEIGHT 240
-
-/**
- * \brief Taille du sprite
-*/
-#define SPRITE_SIZE 32
-
-/**
- * \brief Pas de déplacement du sprite
-*/
-#define MOVING_STEP 10
-
-/**
- * \brief Représentation pour stocker les textures nécessaires à l'affichage graphique
-*/
-struct textures_s{
-    SDL_Texture* background; /*!< Texture liée à l'image du fond de l'écran. */
-    SDL_Texture* sprite; /*!< Texture liée au personnage. */
-    /* A COMPLETER */
-};
-
-
-/**
- * \brief Type qui correspond aux textures du jeu
-*/
-typedef struct textures_s textures_t;
-
-
-/**
- * \brief Représentation du monde du jeu
-*/
-struct world_s{
-    int gameover; /*!< Champ indiquant si l'on est à la fin du jeu */
-    int x; /*!< Coordonnée x du personnage. */
-    int y; /*!< Coordonnée y du personnage. */
-
-};
-/**
- * \brief Type qui correspond aux données du monde
- */
-
-typedef struct world_s world_t;
-
-
-
-
-
 /**
  * \brief La fonction initialise les données du monde du jeu
  * \param world les données du monde
  */
-void init_data(world_t * world){
-    
+void init_data(world_t * world){  
     //on n'est pas à la fin du jeu
     world->gameover = 0;
     world->x = SCREEN_WIDTH/2 - SPRITE_SIZE/2;
-    world->y = SCREEN_HEIGHT/2 - SPRITE_SIZE/2;
-    
+    world->y = SCREEN_HEIGHT/2 - SPRITE_SIZE/2;  
 }
-
 
 /**
  * \brief La fonction nettoie les données du monde
@@ -84,10 +25,7 @@ void init_data(world_t * world){
  */
 void clean_data(world_t *world){
     /* utile uniquement si vous avez fait de l'allocation dynamique (malloc); la fonction ici doit permettre de libérer la mémoire (free) */
-    
 }
-
-
 
 /**
  * \brief La fonction indique si le jeu est fini en fonction des données du monde
@@ -98,8 +36,6 @@ int is_game_over(world_t *world){
     return world->gameover;
 }
 
-
-
 /**
  * \brief La fonction met à jour les données en tenant compte de la physique du monde
  * \param les données du monde
@@ -107,8 +43,6 @@ int is_game_over(world_t *world){
 void update_data(world_t *world){
     /* A COMPLETER */
 }
-
-
 
 /**
  * \brief La fonction gère les évènements ayant eu lieu et qui n'ont pas encore été traités
@@ -157,8 +91,7 @@ void handle_events(SDL_Event *event,world_t *world){
             {
                 printf("La touche ECHAP est appuyée\n");
                 world->gameover = 1;
-            }
-              
+            } 
          }
     }
 }
@@ -186,8 +119,7 @@ void  init_textures(SDL_Renderer *renderer, textures_t *textures){
     textures->sprite = load_image("ressources/sprite.bmp",renderer);
     
     /* A COMPLETER */
-
-    
+  
 }
 
 
@@ -201,9 +133,6 @@ void apply_background(SDL_Renderer *renderer, textures_t *textures){
       apply_texture(textures->background, renderer, 0, 0);
     }
 }
-
-
-
 
 
 /**
@@ -260,35 +189,34 @@ void init(SDL_Window **window, SDL_Renderer ** renderer, textures_t *textures, w
 /**
  *  \brief programme principal qui implémente la boucle du jeu
  */
-int main( int argc, char* args[] )
-{
+int main( int argc, char* args[] ){
+        //Valeur du jeu
     SDL_Event event;
     world_t world;
     textures_t textures;
     SDL_Renderer *renderer;
     SDL_Window *window;
 
-    //initialisation du jeu
+        //Initialisation du jeu
     init(&window,&renderer,&textures,&world);
     
     while(!is_game_over(&world)){ //tant que le jeu n'est pas fini
         
-        //gestion des évènements
+            //gestion des évènements
         handle_events(&event,&world);
         
-        //mise à jour des données liée à la physique du monde
+            //mise à jour des données liée à la physique du monde
         update_data(&world);
         
-        //rafraichissement de l'écran
+            //rafraichissement de l'écran
         refresh_graphics(renderer,&world,&textures);
         
-        // pause de 10 ms pour controler la vitesse de rafraichissement
+            // pause de 10 ms pour controler la vitesse de rafraichissement
         pause(10);
     }
-    
-    //nettoyage final
+
+        //nettoyage final
     clean(window,renderer,&textures,&world);
-    
-    
+
     return 0;
 }

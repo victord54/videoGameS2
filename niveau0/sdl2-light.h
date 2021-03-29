@@ -10,9 +10,7 @@
 #ifndef __SDL2_LIGHT__H__
 #define __SDL2_LIGHT__H__
 
-#include <SDL2/SDL.h>
-
-
+#include "param.h"
 /**
  * \brief La fonction nettoie le renderer et la fenêtre du jeu en mémoire
  * \param renderer le renderer à nettoyer

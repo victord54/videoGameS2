@@ -1,7 +1,7 @@
 CFLAGS = -O3 `sdl2-config --cflags`
 LDFLAGS = `sdl2-config --libs` -lSDL2_ttf -lm
 
-INC = sdl2-light.h
+INC = sdl2-light.h param.h
 SRC = main.c sdl2-light.c
 OBJ = $(SRC:%.c=%.o)
 
