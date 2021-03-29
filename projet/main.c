@@ -63,9 +63,6 @@ struct textures_s{
 */
 typedef struct textures_s textures_t;
 
-
-
-
 /**
  * \brief Représentation d'une texture du jeu
 */
