@@ -84,6 +84,7 @@ typedef struct sprite_s sprite_t;
 struct world_s{
     sprite_t vaisseau; /*!< Information du vaisseau */
     sprite_t arrival; /*!< Information de la ligne d'arrivée */
+    int vy; /*!< Vitesse de déplacement verticale */
     int gameover; /*!< Champ indiquant si l'on est à la fin du jeu */
 
 };
@@ -124,17 +125,22 @@ void print_sprite(sprite_t *sprite){
  * \param world les données du monde
  */
 void init_data(world_t * world){
-	//Initialisation du vaisseau
+	// Initialisation du vaisseau
 	init_sprite(&world->vaisseau,SCREEN_WIDTH/2 - SHIP_SIZE/2,SCREEN_HEIGHT - SHIP_SIZE*2,SHIP_SIZE,SHIP_SIZE);
+
+    // Initialisation de la ligne d'arrivée
     init_sprite(&world->arrival,0,FINISH_LINE_HEIGHT,SCREEN_WIDTH,FINISH_LINE_HEIGHT);
 
     print_sprite(&world->vaisseau); // Position initiale du sprite vaisseau
     printf("=======================\n");
 
-    print_sprite(&world->arrival);
+    print_sprite(&world->arrival); // Position initiale du sprite arrival
     printf("=======================\n");
+
+    // Initialisation de la vy
+    world->vy = INITIAL_SPEED;
     
-    //on n'est pas à la fin du jeu
+    // On n'est pas à la fin du jeu
     world->gameover = 0;
 }
 
@@ -176,7 +182,7 @@ int is_game_over(world_t *world){
  * \param les données du monde
  */
 void update_data(world_t *world){
-    /* A COMPLETER */
+    world->arrival.y += world->vy;
 }
 
 
