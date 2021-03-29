@@ -64,7 +64,7 @@
 
 struct textures_s{
     SDL_Texture* background; /*!< Texture liée à l'image du fond de l'écran. */
-    /* A COMPLETER */
+    SDL_Texture* vaisseau;
 };
 
 
@@ -219,7 +219,7 @@ void handle_events(SDL_Event *event,world_t *world){
 
 void clean_textures(textures_t *textures){
     clean_texture(textures->background);
-    /* A COMPLETER */
+    clean_texture(textures->vaisseau);
 }
 
 
@@ -233,9 +233,8 @@ void clean_textures(textures_t *textures){
 void  init_textures(SDL_Renderer *renderer, textures_t *textures){
     textures->background = load_image( "ressources/space-background.bmp",renderer);
     
-    /* A COMPLETER */
+    textures->vaisseau = load_image( "ressources/spaceship.bmp",renderer);
 
-    
 }
 
 
