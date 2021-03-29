@@ -57,6 +57,7 @@
 struct textures_s{
     SDL_Texture* background; /*!< Texture liée à l'image du fond de l'écran. */
     SDL_Texture* vaisseau;
+    SDL_Texture* arrival;
 };
 /**
  * \brief Type qui correspond aux textures du jeu
@@ -81,8 +82,10 @@ typedef struct sprite_s sprite_t;
  * \brief Représentation du monde du jeu
 */
 struct world_s{
-    sprite_t vaisseau; /*!< Infomation du vaisseau */
+    sprite_t vaisseau; /*!< Information du vaisseau */
+    sprite_t arrival; /*!< Information de la ligne d'arrivée */
     int gameover; /*!< Champ indiquant si l'on est à la fin du jeu */
+
 };
 /**
  * \brief Type qui correspond aux données du monde
@@ -122,9 +125,14 @@ void print_sprite(sprite_t *sprite){
  */
 void init_data(world_t * world){
 	//Initialisation du vaisseau
-	init_sprite(&world->vaisseau,SCREEN_WIDTH/2,SCREEN_HEIGHT-(SHIP_SIZE*1.5),SHIP_SIZE,SHIP_SIZE);
+	init_sprite(&world->vaisseau,SCREEN_WIDTH/2 - SHIP_SIZE/2,SCREEN_HEIGHT - SHIP_SIZE*2,SHIP_SIZE,SHIP_SIZE);
+    init_sprite(&world->arrival,0,FINISH_LINE_HEIGHT,SCREEN_WIDTH,FINISH_LINE_HEIGHT);
 
     print_sprite(&world->vaisseau); // Position initiale du sprite vaisseau
+    printf("=======================\n");
+
+    print_sprite(&world->arrival);
+    printf("=======================\n");
     
     //on n'est pas à la fin du jeu
     world->gameover = 0;
@@ -137,7 +145,7 @@ void init_data(world_t * world){
  * \param sprite sprite envoyé vers le renderer
  */
 void apply_sprite(SDL_Renderer *renderer, SDL_Texture *texture, sprite_t *sprite){
-	apply_texture(texture, renderer,sprite->x-(SHIP_SIZE/2),sprite->y-(SHIP_SIZE/2));
+	apply_texture(texture, renderer, sprite->x,sprite->y);
 }
 
 
@@ -208,7 +216,8 @@ void handle_events(SDL_Event *event,world_t *world){
             world->gameover = 1;
             }
 
-            print_sprite(&world->vaisseau);
+            print_sprite(&world->vaisseau); // Affichage coordonnées à chaque déplacement
+            printf("=======================\n");
         }
     }
 }
@@ -221,6 +230,7 @@ void handle_events(SDL_Event *event,world_t *world){
 void clean_textures(textures_t *textures){
     clean_texture(textures->background);
     clean_texture(textures->vaisseau);
+    clean_texture(textures->arrival);
 }
 
 
@@ -232,8 +242,8 @@ void clean_textures(textures_t *textures){
 */
 void  init_textures(SDL_Renderer *renderer, textures_t *textures){
     textures->background = load_image( "ressources/space-background.bmp",renderer);
-    
     textures->vaisseau = load_image( "ressources/spaceship.bmp",renderer);
+    textures->arrival = load_image( "ressources/finish_line.bmp",renderer);
 
 }
 
@@ -266,7 +276,8 @@ void refresh_graphics(SDL_Renderer *renderer, world_t *world,textures_t *texture
     
     //application des textures dans le renderer
 	apply_background(renderer, textures->background);
-	apply_sprite(renderer,textures->vaisseau,&world->vaisseau);
+	apply_sprite(renderer, textures->vaisseau, &world->vaisseau);
+    apply_sprite(renderer, textures->arrival, &world->arrival);
     
     // on met à jour l'écran
     update_screen(renderer);
