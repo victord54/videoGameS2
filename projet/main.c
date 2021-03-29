@@ -1,54 +1,159 @@
 /**
  * \file main.c
- * \brief Programme principal initial du niveau 0
+ * \brief Programme principal initial du niveau 1
  * \author Mathieu Constant
  * \version 1.0
- * \date 18 mars 2020
+ * \date 18 mars 2021
  */
 
 #include "sdl2-light.h"
+
+
+/**
+ * \brief Largeur de l'écran de jeu
+ */
+#define SCREEN_WIDTH 300
+
+/**
+ * \brief Hauteur de l'écran de jeu
+ */
+#define SCREEN_HEIGHT 480
+
+
+/**
+ * \brief Taille d'un vaisseau
+ */
+
+#define SHIP_SIZE 32
+
+
+/**
+ * \brief Taille d'un météorite
+*/
+
+#define METEORITE_SIZE 32
+
+
+/**
+ * \brief Hauteur de la ligne d'arrivée
+ */
+
+
+#define FINISH_LINE_HEIGHT 10
+
+
+/**
+ * \brief Pas de déplacement horizontal du vaisseau
+*/
+
+#define MOVING_STEP 10
+
+
+/**
+  * \brief Vitesse initiale de déplacement vertical des éléments du jeu 
+*/
+
+#define INITIAL_SPEED 2
+
+
+
+
+/**
+ * \brief Représentation pour stocker les textures nécessaires à l'affichage graphique
+*/
+
+struct textures_s{
+    SDL_Texture* background; /*!< Texture liée à l'image du fond de l'écran. */
+    /* A COMPLETER */
+};
+
+
+/**
+ * \brief Type qui correspond aux textures du jeu
+*/
+
+typedef struct textures_s textures_t;
+
+
+/**
+ * \brief Représentation du monde du jeu
+*/
+
+struct world_s{
+    /*
+      A COMPLETER
+     */
+    
+    int gameover; /*!< Champ indiquant si l'on est à la fin du jeu */
+
+};
+
+/**
+ * \brief Type qui correspond aux données du monde
+ */
+
+typedef struct world_s world_t;
+
+
+
+
 
 /**
  * \brief La fonction initialise les données du monde du jeu
  * \param world les données du monde
  */
-void init_data(world_t * world){  
+
+
+void init_data(world_t * world){
+    
     //on n'est pas à la fin du jeu
     world->gameover = 0;
-    world->x = SCREEN_WIDTH/2 - SPRITE_SIZE/2;
-    world->y = SCREEN_HEIGHT/2 - SPRITE_SIZE/2;  
+    
 }
+
 
 /**
  * \brief La fonction nettoie les données du monde
  * \param world les données du monde
  */
+
+
 void clean_data(world_t *world){
     /* utile uniquement si vous avez fait de l'allocation dynamique (malloc); la fonction ici doit permettre de libérer la mémoire (free) */
+    
 }
+
+
 
 /**
  * \brief La fonction indique si le jeu est fini en fonction des données du monde
  * \param world les données du monde
  * \return 1 si le jeu est fini, 0 sinon
  */
+
 int is_game_over(world_t *world){
     return world->gameover;
 }
+
+
 
 /**
  * \brief La fonction met à jour les données en tenant compte de la physique du monde
  * \param les données du monde
  */
+
 void update_data(world_t *world){
     /* A COMPLETER */
 }
+
+
 
 /**
  * \brief La fonction gère les évènements ayant eu lieu et qui n'ont pas encore été traités
  * \param event paramètre qui contient les événements
  * \param world les données du monde
  */
+
 void handle_events(SDL_Event *event,world_t *world){
     Uint8 *keystates;
     while( SDL_PollEvent( event ) ) {
@@ -60,38 +165,11 @@ void handle_events(SDL_Event *event,world_t *world){
         }
        
          //si une touche est appuyée
-         if(event->type == SDL_KEYDOWN)
-         {
-            //si la touche appuyée est 'D'
-            if(event->key.keysym.sym == SDLK_z)
-            {
-                printf("La touche Z est appuyée\n");
-                world->y-=MOVING_STEP;
-            }
-            
-            if(event->key.keysym.sym == SDLK_s)
-            {
-                printf("La touche S est appuyée\n");
-                world->y+=MOVING_STEP;
-            }
-
-            if(event->key.keysym.sym == SDLK_q)
-            {
-                printf("La touche Q est appuyée\n");
-                world->x-=MOVING_STEP;
-            }
-
-            if(event->key.keysym.sym == SDLK_d)
-            {
-                printf("La touche D est appuyée\n");
-                world->x+=MOVING_STEP;
-            }
-
-            if(event->key.keysym.sym == SDLK_ESCAPE)
-            {
-                printf("La touche ECHAP est appuyée\n");
-                world->gameover = 1;
-            } 
+         if(event->type == SDL_KEYDOWN){
+             //si la touche appuyée est 'D'
+             if(event->key.keysym.sym == SDLK_d){
+                 printf("La touche D est appuyée\n");
+              }
          }
     }
 }
@@ -101,54 +179,59 @@ void handle_events(SDL_Event *event,world_t *world){
  * \brief La fonction nettoie les textures
  * \param textures les textures
 */
+
 void clean_textures(textures_t *textures){
     clean_texture(textures->background);
-    clean_texture(textures->sprite);
     /* A COMPLETER */
 }
 
 
 
 /**
- * \brief La fonction initialise les texures
+ * \brief La fonction initialise les textures nécessaires à l'affichage graphique du jeu
  * \param screen la surface correspondant à l'écran de jeu
  * \param textures les textures du jeu
 */
+
 void  init_textures(SDL_Renderer *renderer, textures_t *textures){
     textures->background = load_image( "ressources/background.bmp",renderer);
-    textures->sprite = load_image("ressources/sprite.bmp",renderer);
     
     /* A COMPLETER */
-  
+
+    
 }
 
 
 /**
  * \brief La fonction applique la texture du fond sur le renderer lié à l'écran de jeu
  * \param renderer le renderer
- * \param textures les textures du jeu
+ * \param texture la texture liée au fond
 */
-void apply_background(SDL_Renderer *renderer, textures_t *textures){
-    if(textures->background != NULL){
-      apply_texture(textures->background, renderer, 0, 0);
+
+void apply_background(SDL_Renderer *renderer, SDL_Texture *texture){
+    if(texture != NULL){
+      apply_texture(texture, renderer, 0, 0);
     }
 }
 
 
+
+
+
 /**
  * \brief La fonction rafraichit l'écran en fonction de l'état des données du monde
- * \param renderer le renderer
+ * \param renderer le renderer lié à l'écran de jeu
  * \param world les données du monde
- * \param textures les textures du jeu
+ * \param textures les textures
  */
+
 void refresh_graphics(SDL_Renderer *renderer, world_t *world,textures_t *textures){
     
     //on vide le renderer
     clear_renderer(renderer);
     
     //application des textures dans le renderer
-    apply_background(renderer, textures);
-    apply_texture(textures->sprite,renderer,world->x,world->y);
+    apply_background(renderer, textures->background);
     /* A COMPLETER */
     
     // on met à jour l'écran
@@ -164,6 +247,7 @@ void refresh_graphics(SDL_Renderer *renderer, world_t *world,textures_t *texture
 * \param textures les textures
 * \param world le monde
 */
+
 void clean(SDL_Window *window, SDL_Renderer * renderer, textures_t *textures, world_t * world){
     clean_data(world);
     clean_textures(textures);
@@ -177,8 +261,9 @@ void clean(SDL_Window *window, SDL_Renderer * renderer, textures_t *textures, wo
  * \param window la fenêtre du jeu
  * \param renderer le renderer
  * \param textures les textures
- * \param wordl le monde
+ * \param world le monde
  */
+
 void init(SDL_Window **window, SDL_Renderer ** renderer, textures_t *textures, world_t * world){
     init_sdl(window,renderer,SCREEN_WIDTH, SCREEN_HEIGHT);
     init_data(world);
@@ -189,34 +274,37 @@ void init(SDL_Window **window, SDL_Renderer ** renderer, textures_t *textures, w
 /**
  *  \brief programme principal qui implémente la boucle du jeu
  */
-int main( int argc, char* args[] ){
-        //Valeur du jeu
+
+
+int main( int argc, char* args[] )
+{
     SDL_Event event;
     world_t world;
     textures_t textures;
     SDL_Renderer *renderer;
     SDL_Window *window;
 
-        //Initialisation du jeu
+    //initialisation du jeu
     init(&window,&renderer,&textures,&world);
     
     while(!is_game_over(&world)){ //tant que le jeu n'est pas fini
         
-            //gestion des évènements
+        //gestion des évènements
         handle_events(&event,&world);
         
-            //mise à jour des données liée à la physique du monde
+        //mise à jour des données liée à la physique du monde
         update_data(&world);
         
-            //rafraichissement de l'écran
+        //rafraichissement de l'écran
         refresh_graphics(renderer,&world,&textures);
         
-            // pause de 10 ms pour controler la vitesse de rafraichissement
+        // pause de 10 ms pour controler la vitesse de rafraichissement
         pause(10);
     }
-
-        //nettoyage final
+    
+    //nettoyage final
     clean(window,renderer,&textures,&world);
-
+    
+    
     return 0;
 }

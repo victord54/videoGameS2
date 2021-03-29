@@ -7,6 +7,10 @@
 */
 
 #include "sdl2-light.h"
+#include <stdio.h>
+#include <stdlib.h>
+
+
 
 int init_sdl(SDL_Window **window, SDL_Renderer **renderer, int width, int height)
 {
