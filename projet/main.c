@@ -68,7 +68,7 @@ typedef struct textures_s textures_t;
 */
 struct sprite_s{
 	int x; /*!< Position du sprite sur x */
-	int y; /*!< Position du sprite sur y*/
+	int y; /*!< Position du sprite sur y */
 	int w; /*!< Largeur du sprite */
 	int h; /*!< Hauteur du sprite */
 };
@@ -92,12 +92,12 @@ typedef struct world_s world_t;
 
 /* ============ FONCTIONS ============ */
 /**
- * \brief La fonction initialise les données d'un sprites celon les valeur rentrée
- * \param le sprite a initialise
- * \param le x du sprite
- * \param le y du sprite
- * \param la largeur du sprite
- * \param la hauteur du sprite
+ * \brief La fonction initialise les données d'un sprite selon les valeurs entrées
+ * \param sprite pointeur vers sprite_t
+ * \param x coordonnée x du sprite
+ * \param y coordonnée y du sprite
+ * \param w largeur du sprite
+ * \param h hauteur du sprite
  */
 void init_sprite(sprite_t *sprite, int x, int y, int w, int h){
 	sprite->x=x;
@@ -108,11 +108,11 @@ void init_sprite(sprite_t *sprite, int x, int y, int w, int h){
 
 
 /**
- * \brief Fonction qui affiche les infomation d'un sprite
- * \param sprite a afficher
+ * \brief Fonction qui affiche les information d'un sprite
+ * \param sprite variable de laquelle on affiche les coordonnées
  */
 void print_sprite(sprite_t *sprite){
-	printf("Position en x%d\nPosition en y%d\nLargeur du sprite%d\nHauteur du sprite%d\n",sprite->x,sprite->y,sprite->w,sprite->h);
+	printf("Position en x = %d\nPosition en y = %d\nLargeur du sprite = %d\nHauteur du sprite = %d\n",sprite->x,sprite->y,sprite->w,sprite->h);
 }
 
 
@@ -123,24 +123,21 @@ void print_sprite(sprite_t *sprite){
 void init_data(world_t * world){
 	//Initialisation du vaisseau
 	init_sprite(&world->vaisseau,SCREEN_WIDTH/2,SCREEN_HEIGHT-(SHIP_SIZE*1.5),SHIP_SIZE,SHIP_SIZE);
+
 	print_sprite(&world->vaisseau);
-    	//on n'est pas à la fin du jeu
-    world->gameover = 0;
     
+    //on n'est pas à la fin du jeu
+    world->gameover = 0;
 }
 
+/**
+ * \brief Fonction qui applique un sprite au renderer
+ * \param renderer renderer vers lequel on envoie les textures et les sprites
+ * \param texture texture envoyée vers le renderer
+ * \param sprite sprite envoyé vers le renderer
+ */
 void apply_sprite(SDL_Renderer *renderer, SDL_Texture *texture, sprite_t *sprite){
-
 	apply_texture(texture, renderer,sprite->x-(SHIP_SIZE/2),sprite->y-(SHIP_SIZE/2));
-/*
-	SDL_Rect dst = {0, 0, 0, 0};
-    
-	SDL_QueryTexture(texture, NULL, NULL, &dst.w, &dst.h);
-	dst.x =sprite->x; 
-	dst.y =sprite->y;
-    
-	SDL_RenderCopy(renderer, texture, NULL, &dst);
-*/
 }
 
 
