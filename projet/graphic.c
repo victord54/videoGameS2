@@ -1,3 +1,11 @@
+/**
+ * \file graphic.c
+ * \brief Module gérant l'affichage SDL2
+ * \author Victor Dallé
+ * \version 1.0
+ * \date 1 avril 2021
+ */
+
 #include "param.h"
 #include "graphic.h"
 

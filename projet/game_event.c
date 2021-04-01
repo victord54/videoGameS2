@@ -1,3 +1,11 @@
+/**
+ * \file game_event.c
+ * \brief Module de gestions des événements
+ * \author Victor Dallé
+ * \version 1.0
+ * \date 1 avril 2021
+ */
+
 #include "game_event.h"
 #include "param.h"
 
