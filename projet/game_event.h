@@ -1,6 +1,8 @@
 #ifndef DEF_GAME_EVENT_H
 #define DEF_GAME_EVENT_H
 
+#include "param.h"
+
 /**
  * \brief La fonction initialise les données d'un sprite selon les valeurs entrées.
  * \param sprite Pointeur vers sprite_t pour l'initialisation des données.

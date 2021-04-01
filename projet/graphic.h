@@ -1,6 +1,8 @@
 #ifndef DEF_GRAPHIC_H
 #define DEF_GRAPHIC_H
 
+#include "param.h"
+
 /**
  * \brief La fonction nettoie les textures.
  * \param textures Les textures.
