@@ -292,9 +292,9 @@ void apply_background(SDL_Renderer *renderer, SDL_Texture *texture){
  * \param textures Les textures.
  * \param renderer Le renderer lié à l'écran de jeu.
  * \param world Les données du monde.
- * \param x La position du mur sur l'axe des abcisse 
- * \param y La position du mur sur l'axe des ordonée   
- * \param height La longeur du mur.
+ * \param x La position du mur sur l'axe des abscisses.
+ * \param y La position du mur sur l'axe des ordonnées.
+ * \param height La longueur du mur.
  * \param width La largeur du mur.
  */
 
