@@ -10,6 +10,9 @@
 #ifndef __PARAM__H__
 #define __PARAM__H__
 
+/* ======================== INCLUDE ======================== */
+#include <SDL2/SDL.h>
+
 /* ======================== DEFINE ======================== */
 /**
  * \brief Largeur de l'écran de jeu.
