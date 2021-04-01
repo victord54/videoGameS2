@@ -13,6 +13,9 @@ PROG = spacecorridor
 spacecorridor: $(OBJ)
 	gcc $(CFLAGS) $(OBJ) $(LDFLAGS) -o $@
 
+tests: 
+	gcc main.c game_event.o -o tests
+
 doc: $(PROG)
 	doxygen ./$(PROG)
 	make -C latex

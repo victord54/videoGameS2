@@ -16,5 +16,19 @@
  */
 int main( int argc, char* argv[] ){
 
+
+    /**
+    * \brief Fonction de test pour init_sprite et print_sprite.
+    * \param sprite Sprite qui sera initialisé et afficher
+    * \param x Position du sprite sur x.
+    * \param y Position du sprite sur y.
+    * \param w Largeur du sprite.
+    * \param h Hauteur du sprite.
+    */
+    void test_init_sprite_param(sprite_s sprite,int x,int y,int w,int h){
+
+
+    }
+
     return 0;
 }
