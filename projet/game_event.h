@@ -1,3 +1,11 @@
+/**
+ * \file game_event.h
+ * \brief Entête du module de gestions des événements
+ * \author Victor Dallé
+ * \version 1.0
+ * \date 1 avril 2021
+ */
+
 #ifndef DEF_GAME_EVENT_H
 #define DEF_GAME_EVENT_H
 

@@ -1,3 +1,11 @@
+/**
+ * \file graphic.c
+ * \brief Entête du module gérant l'affichage SDL2
+ * \author Victor Dallé
+ * \version 1.0
+ * \date 1 avril 2021
+ */
+
 #ifndef DEF_GRAPHIC_H
 #define DEF_GRAPHIC_H
 
