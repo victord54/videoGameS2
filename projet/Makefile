@@ -5,6 +5,10 @@ INC = param.h sdl2-light.h graphic.h game_event.h
 SRC = main.c sdl2-light.c graphic.c game_event.c
 OBJ = $(SRC:%.c=%.o)
 
+INC_TESTS = param.h game_event.h
+SRC_TESTS = tests.c game_event.c
+OBJ_TESTS = $(SRC_TESTS:%.c=%.o)
+
 PROG = spacecorridor
 
 %.o: %.c $(INC)
@@ -13,8 +17,8 @@ PROG = spacecorridor
 spacecorridor: $(OBJ)
 	gcc $(CFLAGS) $(OBJ) $(LDFLAGS) -o $@
 
-tests: 
-	gcc main.c game_event.o -o tests
+tests: $(OBJ_TESTS)
+	gcc $(CFLAGS) $(OBJ_TESTS) $(LDFLAGS) -o $@	
 
 doc: $(PROG)
 	doxygen ./$(PROG)
@@ -23,4 +27,7 @@ doc: $(PROG)
 clean:
 	rm -f *~ *.o $(PROG)
 	rm -rf latex html
+
+
+
 
