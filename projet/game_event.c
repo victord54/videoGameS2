@@ -7,7 +7,6 @@
  */
 
 #include "game_event.h"
-#include "param.h"
 
 void init_sprite(sprite_t *sprite, int x, int y, int w, int h){
 	sprite->x=x;
