@@ -58,3 +58,5 @@ void clean(SDL_Window *window, SDL_Renderer * renderer, textures_t *textures, wo
  * \param world Le monde.
  */
 void init(SDL_Window **window, SDL_Renderer ** renderer, textures_t *textures, world_t * world);
+
+#endif
