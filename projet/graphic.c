@@ -6,7 +6,6 @@
  * \date 1 avril 2021
  */
 
-#include "param.h"
 #include "graphic.h"
 
 void clean_textures(textures_t *textures){
