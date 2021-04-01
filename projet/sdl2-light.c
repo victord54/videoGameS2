@@ -7,8 +7,7 @@
 */
 
 #include "sdl2-light.h"
-#include <stdio.h>
-#include <stdlib.h>
+
 
 
 
