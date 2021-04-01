@@ -287,8 +287,22 @@ void apply_background(SDL_Renderer *renderer, SDL_Texture *texture){
     }
 }
 
+/**
+ * \brief La fonction applique la texture des meteorite sur le renderer
+ * \param textures Les textures.
+ * \param renderer Le renderer lié à l'écran de jeu.
+ * \param world Les données du monde.
+ * \param longeur du mur.
+ * \param largeur du mur.
+ */
 
-
+void apply_wall(textures_t *textures,SDL_Renderer *renderer,world_t *world,int longeur,int largeur){
+	for (int i = 0; i < longeur; i++){
+     		for (int j = 0; j < largeur; j++){
+			apply_texture(textures->meteorite, renderer, world->mur.x+j*METEORITE_SIZE, world->mur.y+i*METEORITE_SIZE);
+		}
+	}
+}
 
 
 /**
@@ -305,13 +319,9 @@ void refresh_graphics(SDL_Renderer *renderer, world_t *world,textures_t *texture
     //application des textures dans le renderer
 	apply_background(renderer, textures->background);
 	apply_sprite(renderer, textures->vaisseau, &world->vaisseau);
-    apply_sprite(renderer, textures->arrival, &world->arrival);
-    for (int i = 0; i < 7; i++){
-        for (int j = 0; j < 3; j++){
-            apply_texture(textures->meteorite, renderer, world->mur.x+j*METEORITE_SIZE, world->mur.y+i*METEORITE_SIZE);
-        }
-    }
-    //apply_sprite(renderer, textures->meteorite, &world->mur);
+   	apply_sprite(renderer, textures->arrival, &world->arrival);
+	apply_wall(textures,renderer,world,7,3);
+
     // on met à jour l'écran
     update_screen(renderer);
 }
