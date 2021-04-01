@@ -10,8 +10,9 @@
 #define DEF_GRAPHIC_H
 
 #include "param.h"
-#include <SDL2/SDL.h>
+#include "sdl2-light.h"
 
+/* ========== FONCTIONS ========== */
 /**
  * \brief La fonction nettoie les textures.
  * \param textures Les textures.

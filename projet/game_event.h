@@ -10,6 +10,9 @@
 #define DEF_GAME_EVENT_H
 
 #include "param.h"
+#include "sdl2-light.h"
+
+/* ========== FONCTIONS ========== */
 
 /**
  * \brief La fonction initialise les données d'un sprite selon les valeurs entrées.
