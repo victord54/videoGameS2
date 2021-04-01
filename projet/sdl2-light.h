@@ -11,6 +11,7 @@
 #define __SDL2_LIGHT__H__
 
 #include "param.h"
+#include <SDL2/SDL.h>
 
 
 /**

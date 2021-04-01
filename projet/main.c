@@ -7,8 +7,7 @@
  */
 
 #include "param.h"
-#include "graphic.h"
-#include "game_event.h"
+#include <SDL2/SDL.h>
 
 /**
  *  \brief Programme principal qui implémente la boucle du jeu.

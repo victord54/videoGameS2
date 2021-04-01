@@ -10,6 +10,7 @@
 #define DEF_GRAPHIC_H
 
 #include "param.h"
+#include <SDL2/SDL.h>
 
 /**
  * \brief La fonction nettoie les textures.
