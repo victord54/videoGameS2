@@ -11,6 +11,8 @@ OBJ_TESTS = $(SRC_TESTS:%.c=%.o)
 
 PROG = spacecorridor
 
+PROG_TEST = tests
+
 %.o: %.c $(INC)
 	gcc $(CFLAGS) -c $<
 
@@ -25,7 +27,7 @@ doc: $(PROG)
 	make -C latex
 
 clean:
-	rm -f *~ *.o $(PROG)
+	rm -f *~ *.o $(PROG) $(PROG_TEST) 
 	rm -rf latex html
 
 
