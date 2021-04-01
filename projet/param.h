@@ -21,9 +21,10 @@
     /*=========== END BASIQUE ===========*/
 
     /*============== MODULE =============*/
-    
+
 #include "sdl2-light.h"
 #include "graphic.h"
+#include "game_event.h"
 
     /*============ END MODULE ===========*/
 
