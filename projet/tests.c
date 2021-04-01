@@ -7,6 +7,7 @@
 */
 
 #include "param.h"
+#include "game_event.h"
 
 /**
  *  \brief Programme principal qui implémente la boucle du jeu.

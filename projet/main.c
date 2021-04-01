@@ -6,8 +6,7 @@
  * \date 18 mars 2021
  */
 
-#include "param.h"
-#include <SDL2/SDL.h>
+#include "main.h"
 
 /**
  *  \brief Programme principal qui implémente la boucle du jeu.
