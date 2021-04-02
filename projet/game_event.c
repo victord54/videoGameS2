@@ -58,6 +58,8 @@ void handle_events(SDL_Event *event, world_t *world){
             printf("La touche S est appuyée\n");
             world->vy=world->vy-1;
             }
+
+            out_of_screen(world);
         }
     }
 }
@@ -84,4 +86,17 @@ void init_data(world_t * world){
 
     // Initialisation d'un mur de météorites.
     init_sprite(&world->mur, SCREEN_WIDTH/2 - 3*METEORITE_SIZE/2, SCREEN_HEIGHT/2 - 7*METEORITE_SIZE/2, METEORITE_SIZE, METEORITE_SIZE);
+}
+
+void out_of_screen(world_t *world)
+{
+    if (world->vaisseau.x < 0)
+    {
+        world->vaisseau.x = 0;
+    }
+
+    if (world->vaisseau.x + SHIP_SIZE > SCREEN_WIDTH)
+    {
+        world->vaisseau.x = SCREEN_WIDTH - SHIP_SIZE;
+    }
 }

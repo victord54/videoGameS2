@@ -29,7 +29,3 @@ doc: $(PROG)
 clean:
 	rm -f *~ *.o $(PROG) $(PROG_TEST) 
 	rm -rf latex html
-
-
-
-

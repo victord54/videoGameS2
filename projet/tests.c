@@ -47,6 +47,24 @@ void test_init_sprite(){
 	printf("=========================\n");
 }
 
+void test_out_of_screen_param(world_t *world)
+{
+	out_of_screen(world);
+	printf("x = %d \ny = %d\n",world->vaisseau.x, world->vaisseau.y);
+	printf("=========================\n");
+}
+
+void test_out_of_screen()
+{
+	world_t world;
+	world.vaisseau.x = 0;
+	world.vaisseau.y = 0;
+	test_out_of_screen_param(&world);
+	world.vaisseau.x = 300;
+	world.vaisseau.y = 0;
+	test_out_of_screen_param(&world);
+}
+
 
 
 /**
@@ -56,7 +74,9 @@ void test_init_sprite(){
  * \return 0, si il n'y a pas eu d'erreurs.
  */
 int main( int argc, char* argv[]){
-	test_init_sprite();
+	//test_init_sprite();
+
+	test_out_of_screen();
 	
     return 0;
 }

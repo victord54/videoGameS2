@@ -50,4 +50,10 @@ void init_sprite(sprite_t *sprite, int x, int y, int w, int h);
  */
 void init_data(world_t * world);
 
+/**
+ * \brief Fonction qui detecte si le vaisseau est hors de l'écran.
+ * \param world Structure des données du monde.
+ */
+void out_of_screen(world_t *world);
+
 #endif
