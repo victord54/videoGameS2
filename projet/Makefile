@@ -11,7 +11,7 @@ OBJ_TESTS = $(SRC_TESTS:%.c=%.o)
 
 PROG = spacecorridor
 
-PROG_TEST = tests
+PROG_TEST = test
 
 %.o: %.c $(INC)
 	gcc $(CFLAGS) -c $<
