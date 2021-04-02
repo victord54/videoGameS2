@@ -8,49 +8,9 @@
 
 #include "game_event.h"
 
-void init_sprite(sprite_t *sprite, int x, int y, int w, int h){
-	sprite->x=x;
-	sprite->y=y;
-	sprite->w=w;
-	sprite->h=h;
-}
 
 void print_sprite(sprite_t *sprite){
 	printf("Position en x = %d\nPosition en y = %d\nLargeur du sprite = %d\nHauteur du sprite = %d\n",sprite->x,sprite->y,sprite->w,sprite->h);
-}
-
-void init_data(world_t * world){
-    // On n'est pas à la fin du jeu
-    world->gameover = 0;
-
-	// Initialisation du vaisseau
-	init_sprite(&world->vaisseau,SCREEN_WIDTH/2 - SHIP_SIZE/2,SCREEN_HEIGHT - SHIP_SIZE*2,SHIP_SIZE,SHIP_SIZE);
-
-    // Initialisation de la ligne d'arrivée
-    init_sprite(&world->arrival,0,FINISH_LINE_HEIGHT,SCREEN_WIDTH,FINISH_LINE_HEIGHT);
-
-    // Position initiale du sprite vaisseau
-    print_sprite(&world->vaisseau);
-    printf("=======================\n");
-
-    // Position initiale du sprite arrival
-    print_sprite(&world->arrival);
-    printf("=======================\n");
-
-    // Initialisation de la vy
-    world->vy = INITIAL_SPEED;
-
-    // Initialisation d'un mur de météorites.
-    init_sprite(&world->mur, SCREEN_WIDTH/2 - 3*METEORITE_SIZE/2, SCREEN_HEIGHT/2 - 7*METEORITE_SIZE/2, METEORITE_SIZE, METEORITE_SIZE);
-
-}
-
-void apply_sprite(SDL_Renderer *renderer, SDL_Texture *texture, sprite_t *sprite){
-	apply_texture(texture, renderer, sprite->x,sprite->y);
-}
-
-void clean_data(world_t *world){
-    /* Utile uniquement si vous avez fait de l'allocation dynamique (malloc); la fonction ici doit permettre de libérer la mémoire (free) */ 
 }
 
 int is_game_over(world_t *world){

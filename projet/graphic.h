@@ -27,6 +27,30 @@ void clean_textures(textures_t *textures);
 void  init_textures(SDL_Renderer *renderer, textures_t *textures);
 
 /**
+ * \brief La fonction initialise les données d'un sprite selon les valeurs entrées.
+ * \param sprite Pointeur vers sprite_t pour l'initialisation des données.
+ * \param x Coordonnée x du sprite.
+ * \param y Coordonnée y du sprite.
+ * \param w Largeur du sprite.
+ * \param h Hauteur du sprite.
+ */
+void init_sprite(sprite_t *sprite, int x, int y, int w, int h);
+
+/**
+ * \brief La fonction initialise les données du monde du jeu.
+ * \param world Les données du monde.
+ */
+void init_data(world_t * world);
+
+/**
+ * \brief La fonction applique un sprite au renderer.
+ * \param renderer Renderer vers lequel on envoie les textures et les sprites.
+ * \param texture Texture envoyée vers le renderer.
+ * \param sprite Sprite envoyé vers le renderer.
+ */
+void apply_sprite(SDL_Renderer *renderer, SDL_Texture *texture, sprite_t *sprite);
+
+/**
  * \brief La fonction applique la texture du fond sur le renderer lié à l'écran de jeu.
  * \param renderer Le renderer.
  * \param texture La texture liée au fond.
@@ -52,6 +76,12 @@ void apply_wall(textures_t *textures,SDL_Renderer *renderer,world_t *world,int x
  * \param textures Les textures.
  */
 void refresh_graphics(SDL_Renderer *renderer, world_t *world,textures_t *textures);
+
+/**
+ * \brief La fonction nettoie les données du monde.
+ * \param world Les données du monde.
+ */
+void clean_data(world_t *world);
 
 /**
 * \brief La fonction nettoie le jeu: nettoyage de la partie graphique (SDL), nettoyage des textures, nettoyage des données.

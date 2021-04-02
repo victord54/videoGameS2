@@ -15,40 +15,10 @@
 /* ========== FONCTIONS ========== */
 
 /**
- * \brief La fonction initialise les données d'un sprite selon les valeurs entrées.
- * \param sprite Pointeur vers sprite_t pour l'initialisation des données.
- * \param x Coordonnée x du sprite.
- * \param y Coordonnée y du sprite.
- * \param w Largeur du sprite.
- * \param h Hauteur du sprite.
- */
-void init_sprite(sprite_t *sprite, int x, int y, int w, int h);
-
-/**
  * \brief La fonction affiche les information (coordonées) d'un sprite.
  * \param sprite Variable de type sprite_t de laquelle on affiche les informations.
  */
 void print_sprite(sprite_t *sprite);
-
-/**
- * \brief La fonction initialise les données du monde du jeu.
- * \param world Les données du monde.
- */
-void init_data(world_t * world);
-
-/**
- * \brief La fonction applique un sprite au renderer.
- * \param renderer Renderer vers lequel on envoie les textures et les sprites.
- * \param texture Texture envoyée vers le renderer.
- * \param sprite Sprite envoyé vers le renderer.
- */
-void apply_sprite(SDL_Renderer *renderer, SDL_Texture *texture, sprite_t *sprite);
-
-/**
- * \brief La fonction nettoie les données du monde.
- * \param world Les données du monde.
- */
-void clean_data(world_t *world);
 
 /**
  * \brief La fonction indique si le jeu est fini en fonction des données du monde.
