@@ -8,11 +8,6 @@
 
 #include "game_event.h"
 
-
-void print_sprite(sprite_t *sprite){
-	printf("Position en x = %d\nPosition en y = %d\nLargeur du sprite = %d\nHauteur du sprite = %d\n",sprite->x,sprite->y,sprite->w,sprite->h);
-}
-
 int is_game_over(world_t *world){
     return world->gameover;
 }
@@ -20,15 +15,14 @@ int is_game_over(world_t *world){
 void update_data(world_t *world){
     world->arrival.y += world->vy;
     world->mur.y += world->vy;
-
 }
 
-void handle_events(SDL_Event *event,world_t *world){
-    Uint8 *keystates;
-    while( SDL_PollEvent( event ) ) {
+void handle_events(SDL_Event *event, world_t *world){
+    //Uint8 *keystates;
+    while( SDL_PollEvent(event)){
         
         //Si l'utilisateur a cliqué sur le X de la fenêtre
-        if(event->type == SDL_QUIT) {
+        if(event->type == SDL_QUIT){
             //On indique la fin du jeu
             world->gameover = 1;
         }
@@ -64,9 +58,30 @@ void handle_events(SDL_Event *event,world_t *world){
             printf("La touche S est appuyée\n");
             world->vy=world->vy-1;
             }
-
-            print_sprite(&world->vaisseau); // Affichage coordonnées à chaque déplacement
-            printf("=======================\n");
         }
     }
+}
+
+void init_sprite(sprite_t *sprite, int x, int y, int w, int h){
+	sprite->x=x;
+	sprite->y=y;
+	sprite->w=w;
+	sprite->h=h;
+}
+
+void init_data(world_t * world){
+    // On n'est pas à la fin du jeu
+    world->gameover = 0;
+
+	// Initialisation du vaisseau
+	init_sprite(&world->vaisseau,SCREEN_WIDTH/2 - SHIP_SIZE/2,SCREEN_HEIGHT - SHIP_SIZE*2,SHIP_SIZE,SHIP_SIZE);
+
+    // Initialisation de la ligne d'arrivée
+    init_sprite(&world->arrival,0,FINISH_LINE_HEIGHT,SCREEN_WIDTH,FINISH_LINE_HEIGHT);
+
+    // Initialisation de la vy
+    world->vy = INITIAL_SPEED;
+
+    // Initialisation d'un mur de météorites.
+    init_sprite(&world->mur, SCREEN_WIDTH/2 - 3*METEORITE_SIZE/2, SCREEN_HEIGHT/2 - 7*METEORITE_SIZE/2, METEORITE_SIZE, METEORITE_SIZE);
 }

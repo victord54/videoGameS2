@@ -11,6 +11,7 @@
 
 #include "param.h"
 #include "sdl2-light.h"
+#include "game_event.h"
 
 /* ========== FONCTIONS ========== */
 /**
@@ -25,22 +26,6 @@ void clean_textures(textures_t *textures);
  * \param textures Les textures du jeu.
 */
 void  init_textures(SDL_Renderer *renderer, textures_t *textures);
-
-/**
- * \brief La fonction initialise les données d'un sprite selon les valeurs entrées.
- * \param sprite Pointeur vers sprite_t pour l'initialisation des données.
- * \param x Coordonnée x du sprite.
- * \param y Coordonnée y du sprite.
- * \param w Largeur du sprite.
- * \param h Hauteur du sprite.
- */
-void init_sprite(sprite_t *sprite, int x, int y, int w, int h);
-
-/**
- * \brief La fonction initialise les données du monde du jeu.
- * \param world Les données du monde.
- */
-void init_data(world_t * world);
 
 /**
  * \brief La fonction applique un sprite au renderer.

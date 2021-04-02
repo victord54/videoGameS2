@@ -19,7 +19,7 @@ PROG_TEST = tests
 spacecorridor: $(OBJ)
 	gcc $(CFLAGS) $(OBJ) $(LDFLAGS) -o $@
 
-tests: $(OBJ_TESTS)
+test: $(OBJ_TESTS)
 	gcc $(CFLAGS) $(OBJ_TESTS) $(LDFLAGS) -o $@	
 
 doc: $(PROG)

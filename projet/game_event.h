@@ -15,12 +15,6 @@
 /* ========== FONCTIONS ========== */
 
 /**
- * \brief La fonction affiche les information (coordonées) d'un sprite.
- * \param sprite Variable de type sprite_t de laquelle on affiche les informations.
- */
-void print_sprite(sprite_t *sprite);
-
-/**
  * \brief La fonction indique si le jeu est fini en fonction des données du monde.
  * \param world Les données du monde.
  * \return 1 si le jeu est fini, 0 sinon.
@@ -39,5 +33,21 @@ void update_data(world_t *world);
  * \param world Les données du monde.
  */
 void handle_events(SDL_Event *event,world_t *world);
+
+/**
+ * \brief La fonction initialise les données d'un sprite selon les valeurs entrées.
+ * \param sprite Pointeur vers sprite_t pour l'initialisation des données.
+ * \param x Coordonnée x du sprite.
+ * \param y Coordonnée y du sprite.
+ * \param w Largeur du sprite.
+ * \param h Hauteur du sprite.
+ */
+void init_sprite(sprite_t *sprite, int x, int y, int w, int h);
+
+/**
+ * \brief La fonction initialise les données du monde du jeu.
+ * \param world Les données du monde.
+ */
+void init_data(world_t * world);
 
 #endif
