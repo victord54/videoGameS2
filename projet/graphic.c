@@ -34,7 +34,12 @@ void apply_background(SDL_Renderer *renderer, SDL_Texture *texture){
 }
 
 void apply_wall(textures_t *textures,SDL_Renderer *renderer,world_t *world,int x,int y,int height,int width){
-	for (int i = 0; i < height; i++){
+    
+        //change x et y pour correctement afficher le mur.
+    x=x-(1*METEORITE_SIZE);
+    y=y-(3*METEORITE_SIZE);
+	
+    for (int i = 0; i < height; i++){
      		for (int j = 0; j < width; j++){
 			apply_texture(textures->meteorite, renderer,x+j*METEORITE_SIZE,y+i*METEORITE_SIZE);
 		}

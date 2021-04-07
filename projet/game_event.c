@@ -86,7 +86,7 @@ void init_data(world_t * world){
     world->vy = INITIAL_SPEED;
 
     // Initialisation d'un mur de météorites.
-    init_sprite(&world->mur, SCREEN_WIDTH/2 - 3*METEORITE_SIZE/2, SCREEN_HEIGHT/2 - 7*METEORITE_SIZE/2, METEORITE_SIZE, METEORITE_SIZE);
+    init_sprite(&world->mur, SCREEN_WIDTH/2, SCREEN_HEIGHT/2, 3*METEORITE_SIZE, 7*METEORITE_SIZE);
 }
 
 void out_of_screen(world_t *world)
