@@ -102,23 +102,25 @@ void out_of_screen(world_t *world)
 }
 
 int sprites_collide(sprite_t *sp1, sprite_t *sp2){
-    int x1,x2,y1,y2,w1,w2,h1,h2;
-
+    int tempx,tempy,x1,x2,y1,y2,w1,w2,h1,h2;
     x1=sp1->x;
     y1=sp1->y;
     w1=sp1->w;
     h1=sp1->h;
-
     x2=sp2->x;
     y2=sp2->y;
     w2=sp2->w;
     h2=sp2->h;
-        //Test sur x
-    if((x2-(w2/2))<(x1-(w1/2))<(x2+(w2/2))||(x2-(w2/2))<(x1+(w1/2))<(x2+(w2/2))||(x1-(w1/2))<(x2-(w2/2))<(x1+(w1/2))||(x1-(w1/2))<(x2+(w2/2))<(x1+(w1/2))){
-            //Test sur y
-        if((y2-(h2/2))<(y1-(h1/2))<(y2+(h2/2))||(y2-(h2/2))<(y1+(h1/2))<(y2+(h2/2))||(y1-(h1/2))<(y2-(h2/2))<(y1+(h1/2))||(y1-(h1/2))<(y2+(h2/2))<(y1+(h1/2))){
-            return(1);
-        }
+    tempx=x1-x2;
+    if(tempx<0){
+        tempx=tempx*-1;
+    }
+    tempy=y1-y2;
+    if(tempy<0){
+        tempy=tempy*-1;
+    }
+    if((tempx<=((w1+w2)/2))&&(tempy<=((h1+h2)/2))){
+        return(1);
     }
     return(0);
 }

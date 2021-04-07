@@ -80,18 +80,18 @@ void test_sprites_collide_param(sprite_t sprite1,sprite_t sprite2){
 void test_sprites_collide(){
 	sprite_t spr1,spr2;
 		//Pas de colision avec même zone x
-	spr1.x=1;
-	spr1.y=1;
+	spr1.x=0;
+	spr1.y=0;
 	spr1.h=2;
 	spr1.w=2;
 	spr2.x=2;
-	spr2.y=3;
+	spr2.y=4;
 	spr2.h=2;
 	spr2.w=2;
 	test_sprites_collide_param(spr1,spr2);
 
 		//Pas de colision avec même zone y
-	spr2.x=3;
+	spr2.x=4;
 	spr2.y=2;
 	test_sprites_collide_param(spr1,spr2);
 
@@ -152,9 +152,9 @@ int main( int argc, char* argv[]){
 
 	//test_out_of_screen();
 	
-	//test_sprites_collide();
+	test_sprites_collide();
 
-	test_handle_sprites_collision();
+	//test_handle_sprites_collision();
     
 	return 0;
 }
