@@ -103,7 +103,7 @@ void out_of_screen(world_t *world)
 }
 
 int sprites_collide(sprite_t *sp1, sprite_t *sp2){
-    int tempx,tempy,x1,x2,y1,y2,w1,w2,h1,h2;
+    int tempx,tempy,x1,x2,y1,y2,w1,w2,h1,h2,col_x = 0,col_y = 0;
     x1=sp1->x;
     y1=sp1->y;
     w1=sp1->w;
@@ -113,11 +113,15 @@ int sprites_collide(sprite_t *sp1, sprite_t *sp2){
     w2=sp2->w;
     h2=sp2->h;
     
-    if (((x2 > x1 && x2 < x1 + w1) || (x2 + w2 > x1 && x2 + w2 < x1 + w1)) && ((y2 > y1 && y2 < y1 + h1) || (y2 + h2 > y1 && y2 + h2 < y1 + h1)))
-    {
+    if ((x2 > x1 && x2 < x1 + w1) || (x2 + w2 > x1 && x2 + w2 < x1 + w1))
+        col_x = 1;
+
+    if ((y2 > y1 && y2 < y1 + h1) || (y2 + h2 > y1 && y2 + h2 < y1 + h1))
+        col_y = 1;
+    
+    if (col_x && col_y)
         return 1;
-    }
-    return(0);
+    return 0;
 }
 
 void handle_sprites_collision(world_t *world,sprite_t *sp1, sprite_t *sp2){
