@@ -86,7 +86,7 @@ void init_data(world_t * world){
     world->vy = INITIAL_SPEED;
 
     // Initialisation d'un mur de météorites.
-    init_sprite(&world->mur, SCREEN_WIDTH/2 - 3*METEORITE_SIZE/2, SCREEN_HEIGHT/2 - 7*METEORITE_SIZE/2, METEORITE_SIZE, METEORITE_SIZE);
+    init_sprite(&world->mur, SCREEN_WIDTH/2 - 3*METEORITE_SIZE/2, SCREEN_HEIGHT/2 - 7*METEORITE_SIZE/2, 3*METEORITE_SIZE, 7*METEORITE_SIZE);
 }
 
 void out_of_screen(world_t *world)
@@ -112,16 +112,10 @@ int sprites_collide(sprite_t *sp1, sprite_t *sp2){
     y2=sp2->y;
     w2=sp2->w;
     h2=sp2->h;
-    tempx=x1-x2;
-    if(tempx<0){
-        tempx=tempx*-1;
-    }
-    tempy=y1-y2;
-    if(tempy<0){
-        tempy=tempy*-1;
-    }
-    if((tempx<=((w1+w2)/2))&&(tempy<=((h1+h2)/2))){
-        return(1);
+    
+    if (((x2 > x1 && x2 < x1 + w1) || (x2 + w2 > x1 && x2 + w2 < x1 + w1)) && ((y2 > y1 && y2 < y1 + h1) || (y2 + h2 > y1 && y2 + h2 < y1 + h1)))
+    {
+        return 1;
     }
     return(0);
 }
