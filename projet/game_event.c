@@ -100,3 +100,14 @@ void out_of_screen(world_t *world)
         world->vaisseau.x = SCREEN_WIDTH - SHIP_SIZE;
     }
 }
+
+int sprites_collide(sprite_t *sp1, sprite_t *sp2){
+        //regarde les collision sur x 
+    if((sp1->x-(sp1->w/2))>(sp2->x-(sp2->w/2))&&(sp1->x-(sp1->w/2))<(sp2->x+(sp2->w/2))||(sp1->x+(sp1->w/2))>(sp2->x-(sp2->w/2))&&(sp1->x+(sp1->w/2))<(sp2->x+(sp2->w/2))){
+            //regarde les collision sur y
+        if((sp1->y-(sp1->h/2))>(sp2->y-(sp2->h/2))&&(sp1->y-(sp1->h/2))<(sp2->y+(sp2->h/2))||(sp1->y+(sp1->h/2))>(sp2->y-(sp2->h/2))&&(sp1->y+(sp1->h/2))<(sp2->y+(sp2->h/2))){
+            return(1);
+        }
+    }
+    return(0);
+}
