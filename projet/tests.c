@@ -106,8 +106,8 @@ void test_sprites_collide(){
 	test_sprites_collide_param(spr1,spr2);
 }
 
-void test_handle_sprites_collision_param(world_t world,sprite_t spr1, sprite_t spr2){
-	handle_sprites_collision(&world,&spr1,&spr2);
+void test_handle_sprites_collision_param(world_t world,sprite_t spr1, sprite_t spr2,int disp){
+	handle_sprites_collision(&world,&spr1,&spr2,&disp);
 	if(world.vy!=0){
 		printf("	Pas de collision.\n");
 	}
@@ -123,6 +123,7 @@ void test_handle_sprites_collision_param(world_t world,sprite_t spr1, sprite_t s
 void test_handle_sprites_collision(){
 	world_t world;
 	sprite_t spr1,spr2;
+	int disp=0;
 
 		//Pas de colision
 	world.vy=10;
@@ -136,12 +137,12 @@ void test_handle_sprites_collision(){
 	spr2.h=2;
 	spr2.w=2;
 
-	test_handle_sprites_collision_param(world,spr1,spr2);
+	test_handle_sprites_collision_param(world,spr1,spr2,disp);
 
 		//Test de colision
 	spr2.x=2;
 	spr2.y=2;
-	test_handle_sprites_collision_param(world,spr1,spr2);
+	test_handle_sprites_collision_param(world,spr1,spr2,disp);
 
 
 }

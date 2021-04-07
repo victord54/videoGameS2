@@ -70,7 +70,8 @@ int sprites_collide(sprite_t *sp1, sprite_t *sp2);
  * \param world Structure des données du monde.
  * \param sp1 premier sprite 
  * \param sp2 second prite 
+ * \param make_disappear détermine la visibilité du premie sprite de la fonction
  */
-void handle_sprites_collision(world_t *world,sprite_t *sp1, sprite_t *sp2);
+void handle_sprites_collision(world_t *world,sprite_t *sp1, sprite_t *sp2,int *make_disappear);
 
 #endif
