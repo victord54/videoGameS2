@@ -111,3 +111,9 @@ int sprites_collide(sprite_t *sp1, sprite_t *sp2){
     }
     return(0);
 }
+
+void handle_sprites_collision(world_t *world,sprite_t *sp1, sprite_t *sp2){
+    if(sprites_collide(sp1,sp2)==1){
+        world->vy=0;
+    }
+}

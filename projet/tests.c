@@ -101,6 +101,46 @@ void test_sprites_collide(){
 	test_sprites_collide_param(spr1,spr2);
 }
 
+void test_handle_sprites_collision_param(world_t world,sprite_t spr1, sprite_t spr2){
+	handle_sprites_collision(&world,&spr1,&spr2);
+	if(world.vy!=0){
+		printf("	Pas de collision.\n");
+	}
+	if(world.vy==0){
+		printf("	Collision.\n");
+	}
+	printf("Vitesse du monde vy=%d\n",world.vy);
+	print_sprite(&spr1);
+	print_sprite(&spr2);
+	printf("=========================\n");
+}
+
+void test_handle_sprites_collision(){
+	world_t world;
+	sprite_t spr1,spr2;
+
+		//Pas de colision
+	world.vy=10;
+
+	spr1.x=1;
+	spr1.y=1;
+	spr1.h=2;
+	spr1.w=2;
+	spr2.x=2;
+	spr2.y=3;
+	spr2.h=2;
+	spr2.w=2;
+
+	test_handle_sprites_collision_param(world,spr1,spr2);
+
+		//Test de colision
+	spr2.x=2;
+	spr2.y=2;
+	test_handle_sprites_collision_param(world,spr1,spr2);
+
+
+}
+
 /**
  *  \brief Main pour le programme de test pour le module game_event.h 
  * \param argc Taille du tableau argv.
@@ -112,6 +152,9 @@ int main( int argc, char* argv[]){
 
 	//test_out_of_screen();
 	
-	test_sprites_collide();
-    return 0;
+	//test_sprites_collide();
+
+	test_handle_sprites_collision();
+    
+	return 0;
 }

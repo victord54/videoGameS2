@@ -64,4 +64,13 @@ void out_of_screen(world_t *world);
  */
 int sprites_collide(sprite_t *sp1, sprite_t *sp2);
 
+
+/**
+ * \brief Fonction qui change la vitesse du monde en cas de collision.
+ * \param world Structure des données du monde.
+ * \param sp1 premier sprite 
+ * \param sp2 second prite 
+ */
+void handle_sprites_collision(world_t *world,sprite_t *sp1, sprite_t *sp2);
+
 #endif
