@@ -80,8 +80,8 @@ void test_sprites_collide_param(sprite_t sprite1,sprite_t sprite2){
 void test_sprites_collide(){
 	sprite_t spr1,spr2;
 		//Pas de colision avec même zone x
-	spr1.x=0;
-	spr1.y=0;
+	spr1.x=1;
+	spr1.y=1;
 	spr1.h=2;
 	spr1.w=2;
 	spr2.x=2;
@@ -93,6 +93,11 @@ void test_sprites_collide(){
 		//Pas de colision avec même zone y
 	spr2.x=4;
 	spr2.y=2;
+	test_sprites_collide_param(spr1,spr2);
+
+	spr1.w=4;
+	spr2.x=2;
+	spr2.y=4;
 	test_sprites_collide_param(spr1,spr2);
 
 		//Test de colision
