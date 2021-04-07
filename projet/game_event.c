@@ -102,10 +102,21 @@ void out_of_screen(world_t *world)
 }
 
 int sprites_collide(sprite_t *sp1, sprite_t *sp2){
-        //regarde les collision sur x 
-    if((sp1->x-(sp1->w/2))>(sp2->x-(sp2->w/2))&&(sp1->x-(sp1->w/2))<(sp2->x+(sp2->w/2))||(sp1->x+(sp1->w/2))>(sp2->x-(sp2->w/2))&&(sp1->x+(sp1->w/2))<(sp2->x+(sp2->w/2))){
-            //regarde les collision sur y
-        if((sp1->y-(sp1->h/2))>(sp2->y-(sp2->h/2))&&(sp1->y-(sp1->h/2))<(sp2->y+(sp2->h/2))||(sp1->y+(sp1->h/2))>(sp2->y-(sp2->h/2))&&(sp1->y+(sp1->h/2))<(sp2->y+(sp2->h/2))){
+    int x1,x2,y1,y2,w1,w2,h1,h2;
+
+    x1=sp1->x;
+    y1=sp1->y;
+    w1=sp1->w;
+    h1=sp1->h;
+
+    x2=sp2->x;
+    y2=sp2->y;
+    w2=sp2->w;
+    h2=sp2->h;
+        //Test sur x
+    if((x2-(w2/2))<(x1-(w1/2))<(x2+(w2/2))||(x2-(w2/2))<(x1+(w1/2))<(x2+(w2/2))||(x1-(w1/2))<(x2-(w2/2))<(x1+(w1/2))||(x1-(w1/2))<(x2+(w2/2))<(x1+(w1/2))){
+            //Test sur y
+        if((y2-(h2/2))<(y1-(h1/2))<(y2+(h2/2))||(y2-(h2/2))<(y1+(h1/2))<(y2+(h2/2))||(y1-(h1/2))<(y2-(h2/2))<(y1+(h1/2))||(y1-(h1/2))<(y2+(h2/2))<(y1+(h1/2))){
             return(1);
         }
     }
