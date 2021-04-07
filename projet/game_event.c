@@ -15,6 +15,7 @@ int is_game_over(world_t *world){
 void update_data(world_t *world){
     world->arrival.y += world->vy;
     world->mur.y += world->vy;
+    handle_sprites_collision(world, &world->vaisseau, &world->mur);
 }
 
 void handle_events(SDL_Event *event, world_t *world){
