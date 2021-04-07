@@ -56,4 +56,12 @@ void init_data(world_t * world);
  */
 void out_of_screen(world_t *world);
 
+/**
+ * \brief Fonction qui detecte si deux sprite sont en collision.
+ * \param sp1 premier sprite 
+ * \param sp2 second prite 
+ * \return 1 si collision est 0 si aucun collision.
+ */
+int sprites_collide(sprite_t *sp1, sprite_t *sp2);
+
 #endif

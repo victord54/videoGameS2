@@ -65,7 +65,41 @@ void test_out_of_screen()
 	test_out_of_screen_param(&world);
 }
 
+void test_sprites_collide_param(sprite_t sprite1,sprite_t sprite2){
+	if(sprites_collide(&sprite1,&sprite2)==0){
+		printf("	Pas de collision.\n");
+	}
+	if(sprites_collide(&sprite1,&sprite2)==1){
+		printf("	Collision.\n");
+	}
+	print_sprite(&sprite1);
+	print_sprite(&sprite2);
+	printf("=========================\n");
+}
 
+void test_sprites_collide(){
+	sprite_t spr1,spr2;
+		//Pas de colision avec même zone x
+	spr1.x=1;
+	spr1.y=1;
+	spr1.h=2;
+	spr1.w=2;
+	spr2.x=2;
+	spr2.y=3;
+	spr2.h=2;
+	spr2.w=2;
+	test_sprites_collide_param(spr1,spr2);
+
+		//Pas de colision avec même zone y
+	spr2.x=3;
+	spr2.y=2;
+	test_sprites_collide_param(spr1,spr2);
+
+		//Test de colision
+	spr2.x=2;
+	spr2.y=2;
+	test_sprites_collide_param(spr1,spr2);
+}
 
 /**
  *  \brief Main pour le programme de test pour le module game_event.h 
@@ -76,7 +110,8 @@ void test_out_of_screen()
 int main( int argc, char* argv[]){
 	//test_init_sprite();
 
-	test_out_of_screen();
+	//test_out_of_screen();
 	
+	test_sprites_collide();
     return 0;
 }
