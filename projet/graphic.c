@@ -23,7 +23,8 @@ void  init_textures(SDL_Renderer *renderer, textures_t *textures){
 
 }
 
-void apply_sprite(SDL_Renderer *renderer, SDL_Texture *texture, sprite_t *sprite,int *make_disappear){
+void apply_sprite(SDL_Renderer *renderer, SDL_Texture *texture, sprite_t *sprite,int make_disappear){
+
 if(make_disappear==0){
 	    apply_texture(texture, renderer, sprite->x,sprite->y);
     }
@@ -55,8 +56,8 @@ void refresh_graphics(SDL_Renderer *renderer, world_t *world,textures_t *texture
     
     //application des textures dans le renderer
 	apply_background(renderer, textures->background);
-	apply_sprite(renderer, textures->vaisseau, &world->vaisseau,&world->make_disappear);
-   	apply_sprite(renderer, textures->arrival, &world->arrival,0);
+	apply_sprite(renderer, textures->vaisseau, &world->vaisseau,world->make_disappear);
+   	apply_sprite(renderer, textures->arrival,&world->arrival,0);
 	apply_wall(textures,renderer,world, world->mur.x,world->mur.y,7,3);
 
     // on met à jour l'écran
