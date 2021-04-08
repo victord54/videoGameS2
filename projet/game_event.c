@@ -88,7 +88,7 @@ void init_data(world_t * world){
     world->vy = INITIAL_SPEED;
 
     // Initialisation d'un mur de météorites.
-    init_sprite(&world->mur, SCREEN_WIDTH/2, SCREEN_HEIGHT/2, 3*METEORITE_SIZE, 7*METEORITE_SIZE);
+    init_sprite(&world->mur, SCREEN_WIDTH/2 - 3*METEORITE_SIZE/2, SCREEN_HEIGHT/2 - 7*METEORITE_SIZE/2, 3*METEORITE_SIZE, 7*METEORITE_SIZE);
 }
 
 void out_of_screen(world_t *world)
@@ -105,7 +105,7 @@ void out_of_screen(world_t *world)
 }
 
 int sprites_collide(sprite_t *sp1, sprite_t *sp2){
-    int tempx,tempy,x1,x2,y1,y2,w1,w2,h1,h2;
+    int tempx,tempy,x1,x2,y1,y2,w1,w2,h1,h2,col_x = 0,col_y = 0;
     x1=sp1->x;
     y1=sp1->y;
     w1=sp1->w;
@@ -114,23 +114,37 @@ int sprites_collide(sprite_t *sp1, sprite_t *sp2){
     y2=sp2->y;
     w2=sp2->w;
     h2=sp2->h;
-    tempx=x1-x2;
-    if(tempx<0){
-        tempx=tempx*-1;
+    
+    if ((x2 > x1 && x2 < x1 + w1) || (x2 + w2 > x1 && x2 + w2 < x1 + w1))
+    {
+        col_x = 1;
+        printf("col_x = %d\n", col_x);
     }
-    tempy=y1-y2;
-    if(tempy<0){
-        tempy=tempy*-1;
+
+    if ((y2 > y1 && y2 < y1 + h1) || (y2 + h2 > y1 && y2 + h2 < y1 + h1))
+    {
+        col_y = 1;
+        printf("col_y = %d\n", col_y);
     }
-    if((tempx<=((w1+w2)/2))&&(tempy<=((h1+h2)/2))){
-        return(1);
+    
+    if (col_x && col_y)
+    {
+        return 1;
     }
-    return(0);
+    return 0;
 }
 
-void handle_sprites_collision(world_t *world,sprite_t *sp1, sprite_t *sp2,int *make_disappear){
-    
-    if(sprites_collide(sp1,sp2)==1){
+void print_sprite(sprite_t *sprite)
+{
+    printf("Position en x = %d \nPosition en y %d \nLargueur = %d \nHauteur = %d\n", sprite->x, sprite->y, sprite->w, sprite->h);
+}
+
+void handle_sprites_collision(world_t *world,sprite_t *sp1, sprite_t *sp2){
+    print_sprite(sp1);
+    printf("----\n");
+    print_sprite(sp2);
+    printf("===\n");
+    if (sprites_collide(sp1,sp2)){
         world->vy=0;
 
         *make_disappear=1;
