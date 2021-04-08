@@ -107,7 +107,7 @@ void test_sprites_collide(){
 }
 
 void test_handle_sprites_collision_param(world_t world,sprite_t spr1, sprite_t spr2,int disp){
-	handle_sprites_collision(&world,&spr1,&spr2,&disp);
+	handle_sprites_collision(&world,&spr1,&spr2,&world.make_disappear);
 	if(world.vy!=0){
 		printf("	Pas de collision\n");
 	}
@@ -115,6 +115,7 @@ void test_handle_sprites_collision_param(world_t world,sprite_t spr1, sprite_t s
 		printf("	Collision\n");
 	}
 	printf("Vitesse du monde vy=%d\n",world.vy);
+	printf("world.make_disappear=%d\n",world.make_disappear);
 	print_sprite(&spr1);
 	print_sprite(&spr2);
 	printf("=========================\n");
@@ -123,11 +124,11 @@ void test_handle_sprites_collision_param(world_t world,sprite_t spr1, sprite_t s
 void test_handle_sprites_collision(){
 	world_t world;
 	sprite_t spr1,spr2;
-	int disp=0;
+	
 
 	//Test de collision
 	world.vy=10;
-
+	world.make_disappear=0;
 	//Collision
 	spr1.x=0;
 	spr1.y=0;
@@ -138,17 +139,17 @@ void test_handle_sprites_collision(){
 	spr2.h=1;
 	spr2.w=1;
 
-	test_handle_sprites_collision_param(world,spr1,spr2,disp);
+	test_handle_sprites_collision_param(world,spr1,spr2,world.make_disappear);
 
 	//Pas de collision
 	spr2.x=5;
 	spr2.y=2;
-	test_handle_sprites_collision_param(world,spr1,spr2,disp);
+	test_handle_sprites_collision_param(world,spr1,spr2,world.make_disappear);
 
 	//Pas de collision
 	spr2.x=2;
 	spr2.y=5;
-	test_handle_sprites_collision_param(world,spr1,spr2);
+	test_handle_sprites_collision_param(world,spr1,spr2,world.make_disappear);
 }
 
 /**
