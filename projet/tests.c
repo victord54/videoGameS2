@@ -19,7 +19,7 @@ void print_sprite(sprite_t *sprite)
 }
 
 /**
- * \brief Fonction de test pour init_sprit
+ * \brief Fonction de test_param pour init_sprite.
  * \param sprite Le sprite qui sera initialisé et testé.
  * \param x Position de l'abscisse.
  * \param y Position de l'ordonnée.
@@ -47,6 +47,11 @@ void test_init_sprite(){
 	printf("=========================\n");
 }
 
+
+/**
+ * @brief Fonction de test pour la sortie de l'écran du vaisseau.
+ * @param world Données du monde.
+ */
 void test_out_of_screen_param(world_t *world)
 {
 	out_of_screen(world);
@@ -65,6 +70,11 @@ void test_out_of_screen()
 	test_out_of_screen_param(&world);
 }
 
+/**
+ * @brief Fonction de test pour la collision de 2 sprites.
+ * @param sprite1 Premier sprite.
+ * @param sprite2 Deuxième sprite.
+ */
 void test_sprites_collide_param(sprite_t sprite1,sprite_t sprite2){
 	if(sprites_collide(&sprite1,&sprite2)==0){
 		printf("	Pas de collision.\n");
@@ -106,6 +116,13 @@ void test_sprites_collide(){
 	test_sprites_collide_param(spr1,spr2);
 }
 
+/**
+ * @brief Fonction de test effectuant des modifs sur data world lors d'une collision.
+ * @param world Données du monde.
+ * @param spr1 Premier sprite.
+ * @param spr2 Deuxième sprite.
+ * @param disp disparition (bool) du vaisseau.
+ */
 void test_handle_sprites_collision_param(world_t world,sprite_t spr1, sprite_t spr2,int disp){
 	handle_sprites_collision(&world,&spr1,&spr2,&world.make_disappear);
 	if(world.vy!=0){
