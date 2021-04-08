@@ -25,7 +25,9 @@ test: $(OBJ_TESTS)
 doc: $(PROG)
 	doxygen ./$(PROG)
 	make -C latex
+	mv latex/refman.pdf refman.pdf
+
 
 clean:
-	rm -f *~ *.o $(PROG) $(PROG_TEST) 
+	rm -f *~ *.o $(PROG) $(PROG_TEST)
 	rm -rf latex html
