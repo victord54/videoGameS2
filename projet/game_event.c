@@ -117,13 +117,11 @@ int sprites_collide(sprite_t *sp1, sprite_t *sp2){
     if ((x2 > x1 && x2 < x1 + w1) || (x2 + w2 > x1 && x2 + w2 < x1 + w1))
     {
         col_x = 1;
-        printf("col_x = %d\n", col_x);
     }
 
     if ((y2 > y1 && y2 < y1 + h1) || (y2 + h2 > y1 && y2 + h2 < y1 + h1))
     {
         col_y = 1;
-        printf("col_y = %d\n", col_y);
     }
     
     if (col_x && col_y)
@@ -133,16 +131,7 @@ int sprites_collide(sprite_t *sp1, sprite_t *sp2){
     return 0;
 }
 
-void print_sprite(sprite_t *sprite)
-{
-    printf("Position en x = %d \nPosition en y %d \nLargueur = %d \nHauteur = %d\n", sprite->x, sprite->y, sprite->w, sprite->h);
-}
-
 void handle_sprites_collision(world_t *world,sprite_t *sp1, sprite_t *sp2, int *make_disappear){
-    print_sprite(sp1);
-    printf("----\n");
-    print_sprite(sp2);
-    printf("===\n");
     if (sprites_collide(sp1,sp2)){
         world->vy=0;
 
