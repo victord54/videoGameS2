@@ -15,8 +15,10 @@ int is_game_over(world_t *world){
 void update_data(world_t *world){
     world->arrival.y += world->vy;
     world->mur.y += world->vy;
+        //On utilise not_disappear quand la collision ne doit pas changer l'affichage
+    int not_disappear;
     handle_sprites_collision(world, &world->mur, &world->vaisseau,&world->make_disappear);
-    handle_sprites_collision(world, &world->arrival, &world->vaisseau, &world->make_disappear);
+    handle_sprites_collision(world, &world->arrival, &world->vaisseau,&not_disappear);
 }
 
 void handle_events(SDL_Event *event, world_t *world){
