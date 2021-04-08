@@ -63,7 +63,7 @@
 /**
  * \brief Nombre de mur de météorite.
  */
-#define METEORITE_WALL_NUMBER 4
+#define METEORITE_WALL_NUMBER 16
 
 /* ====================== END DEFINE ====================== */
 
