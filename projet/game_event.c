@@ -14,10 +14,14 @@ int is_game_over(world_t *world){
 
 void update_data(world_t *world){
     world->arrival.y += world->vy;
-    world->mur.y += world->vy;
+    for(int i=0;i<2;i++){
+        world->mur[i].y += world->vy;
+    }
         //On utilise not_disappear quand la collision ne doit pas changer l'affichage
     int not_disappear;
-    handle_sprites_collision(world, &world->mur, &world->vaisseau,&world->make_disappear);
+    for(int i=0;i<2;i++){
+        handle_sprites_collision(world, &world->mur[i], &world->vaisseau,&world->make_disappear);
+    }
     handle_sprites_collision(world, &world->arrival, &world->vaisseau,&not_disappear);
 }
 
@@ -90,7 +94,8 @@ void init_data(world_t * world){
     world->vy = INITIAL_SPEED;
 
     // Initialisation d'un mur de météorites.
-    init_sprite(&world->mur, SCREEN_WIDTH/2 - 3*METEORITE_SIZE/2, SCREEN_HEIGHT/2 - 7*METEORITE_SIZE/2, 3*METEORITE_SIZE, 7*METEORITE_SIZE);
+    init_sprite(&world->mur[0],0*METEORITE_SIZE,3*METEORITE_SIZE,3*METEORITE_SIZE,6*METEORITE_SIZE);
+    init_sprite(&world->mur[1],6*METEORITE_SIZE,3*METEORITE_SIZE,3*METEORITE_SIZE,6*METEORITE_SIZE);
 }
 
 void out_of_screen(world_t *world)
