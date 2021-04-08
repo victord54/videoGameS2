@@ -14,12 +14,12 @@ int is_game_over(world_t *world){
 
 void update_data(world_t *world){
     world->arrival.y += world->vy;
-    for(int i=0;i<2;i++){
+    for(int i=0;i<METEORITE_WALL_NUMBER;i++){
         world->mur[i].y += world->vy;
     }
         //On utilise not_disappear quand la collision ne doit pas changer l'affichage
     int not_disappear;
-    for(int i=0;i<2;i++){
+    for(int i=0;i<METEORITE_WALL_NUMBER;i++){
         handle_sprites_collision(world, &world->mur[i], &world->vaisseau,&world->make_disappear);
     }
     handle_sprites_collision(world, &world->arrival, &world->vaisseau,&not_disappear);
@@ -88,14 +88,21 @@ void init_data(world_t * world){
 	init_sprite(&world->vaisseau,SCREEN_WIDTH/2 - SHIP_SIZE/2,SCREEN_HEIGHT - SHIP_SIZE*2,SHIP_SIZE,SHIP_SIZE);
 
     // Initialisation de la ligne d'arrivée
-    init_sprite(&world->arrival,0,FINISH_LINE_HEIGHT,SCREEN_WIDTH,FINISH_LINE_HEIGHT);
+    init_sprite(&world->arrival,0,FINISH_LINE_HEIGHT-SCREEN_HEIGHT,SCREEN_WIDTH,FINISH_LINE_HEIGHT);
 
     // Initialisation de la vy
     world->vy = INITIAL_SPEED;
 
     // Initialisation d'un mur de météorites.
+        //taille d'un ecran 9*14
+        //position x du mur 
+        //position y du mur 
+        //nombre de meteore en x
+        //nombre de meteore en y
     init_sprite(&world->mur[0],0*METEORITE_SIZE,3*METEORITE_SIZE,3*METEORITE_SIZE,6*METEORITE_SIZE);
     init_sprite(&world->mur[1],6*METEORITE_SIZE,3*METEORITE_SIZE,3*METEORITE_SIZE,6*METEORITE_SIZE);
+    init_sprite(&world->mur[2],3*METEORITE_SIZE,9*METEORITE_SIZE-SCREEN_HEIGHT,6*METEORITE_SIZE,4*METEORITE_SIZE);
+    init_sprite(&world->mur[3],0*METEORITE_SIZE,1*METEORITE_SIZE-SCREEN_HEIGHT,6*METEORITE_SIZE,4*METEORITE_SIZE);
 }
 
 void out_of_screen(world_t *world)

@@ -59,7 +59,11 @@
 /**
  * \brief Nombre de mur de météorite.
  */
-#define METEORITE_WALL_NUMBER 20
+#define MAX_METEORITE_WALL_NUMBER 20
+/**
+ * \brief Nombre de mur de météorite.
+ */
+#define METEORITE_WALL_NUMBER 4
 
 /* ====================== END DEFINE ====================== */
 
@@ -101,7 +105,7 @@ struct world_s{
     sprite_t vaisseau; /*!< Information du vaisseau. */
     sprite_t arrival; /*!< Information de la ligne d'arrivée. */
     int vy; /*!< Vitesse de déplacement verticale. */
-    sprite_t mur[METEORITE_WALL_NUMBER]; /*!< Informations sur un mur d'astéroides. */
+    sprite_t mur[MAX_METEORITE_WALL_NUMBER]; /*!< Informations sur un mur d'astéroides. */
     int make_disappear; /*!< Informe si le vaisseau doit être visible ou pas */
 };
 /**
