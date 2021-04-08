@@ -32,8 +32,9 @@ void  init_textures(SDL_Renderer *renderer, textures_t *textures);
  * \param renderer Renderer vers lequel on envoie les textures et les sprites.
  * \param texture Texture envoyée vers le renderer.
  * \param sprite Sprite envoyé vers le renderer.
+ * \param make_disappear Déside si le sprite et afficher ou pas.
  */
-void apply_sprite(SDL_Renderer *renderer, SDL_Texture *texture, sprite_t *sprite);
+void apply_sprite(SDL_Renderer *renderer, SDL_Texture *texture, sprite_t *sprite,int make_disappear);
 
 /**
  * \brief La fonction applique la texture du fond sur le renderer lié à l'écran de jeu.

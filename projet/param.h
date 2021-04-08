@@ -97,6 +97,7 @@ struct world_s{
     sprite_t arrival; /*!< Information de la ligne d'arrivée. */
     int vy; /*!< Vitesse de déplacement verticale. */
     sprite_t mur; /*!< Informations sur un mur d'astéroides. */
+    int make_disappear; /*!< Informe si le vaisseau doit être visible ou pas */
 };
 /**
  * \brief Type qui correspond aux données du monde.

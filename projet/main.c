@@ -29,13 +29,13 @@ int main( int argc, char* argv[] )
         
         //gestion des évènements
         handle_events(&event,&world);
-        
+   
         //mise à jour des données liée à la physique du monde
         update_data(&world);
-        
+
         //rafraichissement de l'écran
         refresh_graphics(renderer,&world,&textures);
-        
+   
         // pause de 8 ms pour controler la vitesse de rafraichissement
         pause(8);
     }

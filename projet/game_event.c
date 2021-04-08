@@ -15,7 +15,8 @@ int is_game_over(world_t *world){
 void update_data(world_t *world){
     world->arrival.y += world->vy;
     world->mur.y += world->vy;
-    handle_sprites_collision(world, &world->mur,&world->vaisseau);
+
+    handle_sprites_collision(world, &world->vaisseau, &world->mur,&world->make_disappear);
 }
 
 void handle_events(SDL_Event *event, world_t *world){
@@ -75,6 +76,7 @@ void init_sprite(sprite_t *sprite, int x, int y, int w, int h){
 void init_data(world_t * world){
     // On n'est pas à la fin du jeu
     world->gameover = 0;
+    world->make_disappear=0;
 
 	// Initialisation du vaisseau
 	init_sprite(&world->vaisseau,SCREEN_WIDTH/2 - SHIP_SIZE/2,SCREEN_HEIGHT - SHIP_SIZE*2,SHIP_SIZE,SHIP_SIZE);
@@ -144,5 +146,7 @@ void handle_sprites_collision(world_t *world,sprite_t *sp1, sprite_t *sp2){
     printf("===\n");
     if (sprites_collide(sp1,sp2)){
         world->vy=0;
+
+        *make_disappear=1;
     }
 }
