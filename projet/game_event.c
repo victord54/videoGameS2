@@ -15,8 +15,7 @@ int is_game_over(world_t *world){
 void update_data(world_t *world){
     world->arrival.y += world->vy;
     world->mur.y += world->vy;
-
-    handle_sprites_collision(world, &world->vaisseau, &world->mur,&world->make_disappear);
+    handle_sprites_collision(world, &world->mur, &world->vaisseau,&world->make_disappear);
 }
 
 void handle_events(SDL_Event *event, world_t *world){
@@ -139,7 +138,7 @@ void print_sprite(sprite_t *sprite)
     printf("Position en x = %d \nPosition en y %d \nLargueur = %d \nHauteur = %d\n", sprite->x, sprite->y, sprite->w, sprite->h);
 }
 
-void handle_sprites_collision(world_t *world,sprite_t *sp1, sprite_t *sp2){
+void handle_sprites_collision(world_t *world,sprite_t *sp1, sprite_t *sp2, int *make_disappear){
     print_sprite(sp1);
     printf("----\n");
     print_sprite(sp2);
