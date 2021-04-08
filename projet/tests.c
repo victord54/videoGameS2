@@ -132,7 +132,7 @@ void test_handle_sprites_collision(){
 	spr1.y=0;
 	spr1.h=7;
 	spr1.w=3;
-	spr2.x=2;
+	spr2.x=1;
 	spr2.y=3;
 	spr2.h=1;
 	spr2.w=1;
