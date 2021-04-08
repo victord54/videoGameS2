@@ -16,6 +16,7 @@ void update_data(world_t *world){
     world->arrival.y += world->vy;
     world->mur.y += world->vy;
     handle_sprites_collision(world, &world->mur, &world->vaisseau,&world->make_disappear);
+    handle_sprites_collision(world, &world->arrival, &world->vaisseau, &world->make_disappear);
 }
 
 void handle_events(SDL_Event *event, world_t *world){
