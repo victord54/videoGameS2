@@ -28,13 +28,6 @@ int is_game_over(world_t *world);
 void update_data(world_t *world);
 
 /**
- * \brief La fonction gère les évènements ayant eu lieu et qui n'ont pas encore été traités.
- * \param event Paramètre qui contient les événements.
- * \param world Les données du monde.
- */
-void handle_events(SDL_Event *event,world_t *world);
-
-/**
  * \brief La fonction initialise les données d'un sprite selon les valeurs entrées.
  * \param sprite Pointeur vers sprite_t pour l'initialisation des données.
  * \param x Coordonnée x du sprite.
