@@ -14,9 +14,8 @@ int is_game_over(world_t *world){
 
 void update_data(world_t *world){
     world->arrival.y += world->vy;
-    for(int i=0;i<METEORITE_WALL_NUMBER;i++){
-        world->mur[i].y += world->vy;
-    }
+    update_walls(world);
+
         //On utilise not_disappear quand la collision ne doit pas changer l'affichage
     int not_disappear;
     for(int i=0;i<METEORITE_WALL_NUMBER;i++){
@@ -47,31 +46,7 @@ void init_data(world_t * world){
     world->vy = INITIAL_SPEED;
 
     // Initialisation d'un mur de météorites.
-        //taille d'un ecran 9*14
-        //position x du mur, position y du mur, nombre de meteore en x, nombre de meteore en y
-    
-            //Placement meteorite niveau 1
-        //Ecran 1
-    init_sprite(&world->mur[0],0*METEORITE_SIZE,2*METEORITE_SIZE,3*METEORITE_SIZE,6*METEORITE_SIZE);
-    init_sprite(&world->mur[1],6*METEORITE_SIZE,2*METEORITE_SIZE,3*METEORITE_SIZE,6*METEORITE_SIZE);
-        //Ecran 2
-    init_sprite(&world->mur[2],0*METEORITE_SIZE,3*METEORITE_SIZE-SCREEN_HEIGHT,6*METEORITE_SIZE,3*METEORITE_SIZE);
-    init_sprite(&world->mur[3],3*METEORITE_SIZE,9*METEORITE_SIZE-SCREEN_HEIGHT,6*METEORITE_SIZE,3*METEORITE_SIZE);
-        //Ecran 3
-    init_sprite(&world->mur[4],0*METEORITE_SIZE,1*METEORITE_SIZE-SCREEN_HEIGHT*2,3*METEORITE_SIZE,1*METEORITE_SIZE);
-    init_sprite(&world->mur[5],6*METEORITE_SIZE,1*METEORITE_SIZE-SCREEN_HEIGHT*2,3*METEORITE_SIZE,1*METEORITE_SIZE);
-    init_sprite(&world->mur[6],3*METEORITE_SIZE,5*METEORITE_SIZE-SCREEN_HEIGHT*2,6*METEORITE_SIZE,3*METEORITE_SIZE);
-    init_sprite(&world->mur[7],6*METEORITE_SIZE,8*METEORITE_SIZE-SCREEN_HEIGHT*2,3*METEORITE_SIZE,6*METEORITE_SIZE);
-    init_sprite(&world->mur[8],0*METEORITE_SIZE,11*METEORITE_SIZE-SCREEN_HEIGHT*2,3*METEORITE_SIZE,3*METEORITE_SIZE);
-        //Ecran 4
-    init_sprite(&world->mur[9],2*METEORITE_SIZE,0*METEORITE_SIZE-SCREEN_HEIGHT*3,2*METEORITE_SIZE,1*METEORITE_SIZE);
-    init_sprite(&world->mur[10],0*METEORITE_SIZE,4*METEORITE_SIZE-SCREEN_HEIGHT*3,2*METEORITE_SIZE,1*METEORITE_SIZE);
-    init_sprite(&world->mur[11],2*METEORITE_SIZE,8*METEORITE_SIZE-SCREEN_HEIGHT*3,2*METEORITE_SIZE,1*METEORITE_SIZE);
-    init_sprite(&world->mur[12],0*METEORITE_SIZE,13*METEORITE_SIZE-SCREEN_HEIGHT*3,2*METEORITE_SIZE,1*METEORITE_SIZE);
-    init_sprite(&world->mur[13],4*METEORITE_SIZE,0*METEORITE_SIZE-SCREEN_HEIGHT*3,1*METEORITE_SIZE,13*METEORITE_SIZE);
-    init_sprite(&world->mur[14],5*METEORITE_SIZE,4*METEORITE_SIZE-SCREEN_HEIGHT*3,3*METEORITE_SIZE,1*METEORITE_SIZE);
-    init_sprite(&world->mur[15],7*METEORITE_SIZE,13*METEORITE_SIZE-SCREEN_HEIGHT*3,2*METEORITE_SIZE,1*METEORITE_SIZE);
-
+    init_walls(world);
 }
 
 void out_of_screen(world_t *world)
@@ -120,5 +95,40 @@ void handle_sprites_collision(world_t *world,sprite_t *sp1, sprite_t *sp2, int *
         world->vy=0;
 
         *make_disappear=1;
+    }
+}
+
+void init_walls(world_t *world){
+    
+        //taille d'un ecran 9*14
+        //position x du mur, position y du mur, nombre de meteore en x, nombre de meteore en y
+    
+            //Placement meteorite niveau 1
+        //Ecran 1
+    init_sprite(&world->mur[0],0*METEORITE_SIZE,2*METEORITE_SIZE,3*METEORITE_SIZE,6*METEORITE_SIZE);
+    init_sprite(&world->mur[1],6*METEORITE_SIZE,2*METEORITE_SIZE,3*METEORITE_SIZE,6*METEORITE_SIZE);
+        //Ecran 2
+    init_sprite(&world->mur[2],0*METEORITE_SIZE,3*METEORITE_SIZE-SCREEN_HEIGHT,6*METEORITE_SIZE,3*METEORITE_SIZE);
+    init_sprite(&world->mur[3],3*METEORITE_SIZE,9*METEORITE_SIZE-SCREEN_HEIGHT,6*METEORITE_SIZE,3*METEORITE_SIZE);
+        //Ecran 3
+    init_sprite(&world->mur[4],0*METEORITE_SIZE,1*METEORITE_SIZE-SCREEN_HEIGHT*2,3*METEORITE_SIZE,1*METEORITE_SIZE);
+    init_sprite(&world->mur[5],6*METEORITE_SIZE,1*METEORITE_SIZE-SCREEN_HEIGHT*2,3*METEORITE_SIZE,1*METEORITE_SIZE);
+    init_sprite(&world->mur[6],3*METEORITE_SIZE,5*METEORITE_SIZE-SCREEN_HEIGHT*2,6*METEORITE_SIZE,3*METEORITE_SIZE);
+    init_sprite(&world->mur[7],6*METEORITE_SIZE,8*METEORITE_SIZE-SCREEN_HEIGHT*2,3*METEORITE_SIZE,6*METEORITE_SIZE);
+    init_sprite(&world->mur[8],0*METEORITE_SIZE,11*METEORITE_SIZE-SCREEN_HEIGHT*2,3*METEORITE_SIZE,3*METEORITE_SIZE);
+        //Ecran 4
+    init_sprite(&world->mur[9],2*METEORITE_SIZE,0*METEORITE_SIZE-SCREEN_HEIGHT*3,2*METEORITE_SIZE,1*METEORITE_SIZE);
+    init_sprite(&world->mur[10],0*METEORITE_SIZE,4*METEORITE_SIZE-SCREEN_HEIGHT*3,2*METEORITE_SIZE,1*METEORITE_SIZE);
+    init_sprite(&world->mur[11],2*METEORITE_SIZE,8*METEORITE_SIZE-SCREEN_HEIGHT*3,2*METEORITE_SIZE,1*METEORITE_SIZE);
+    init_sprite(&world->mur[12],0*METEORITE_SIZE,13*METEORITE_SIZE-SCREEN_HEIGHT*3,2*METEORITE_SIZE,1*METEORITE_SIZE);
+    init_sprite(&world->mur[13],4*METEORITE_SIZE,0*METEORITE_SIZE-SCREEN_HEIGHT*3,1*METEORITE_SIZE,13*METEORITE_SIZE);
+    init_sprite(&world->mur[14],5*METEORITE_SIZE,4*METEORITE_SIZE-SCREEN_HEIGHT*3,3*METEORITE_SIZE,1*METEORITE_SIZE);
+    init_sprite(&world->mur[15],7*METEORITE_SIZE,13*METEORITE_SIZE-SCREEN_HEIGHT*3,2*METEORITE_SIZE,1*METEORITE_SIZE);
+    
+}
+
+void update_walls(world_t *world){
+    for(int i=0;i<METEORITE_WALL_NUMBER;i++){
+        world->mur[i].y=world->vy+world->mur[i].y;
     }
 }

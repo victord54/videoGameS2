@@ -53,9 +53,8 @@ void refresh_graphics(SDL_Renderer *renderer, world_t *world,textures_t *texture
 	apply_background(renderer, textures->background);
 	apply_sprite(renderer, textures->vaisseau, &world->vaisseau,world->make_disappear);
    	apply_sprite(renderer, textures->arrival,&world->arrival,0);
-    for(int i=0;i<METEORITE_WALL_NUMBER;i++){  
-	    apply_wall(textures,renderer,world, world->mur[i].x,world->mur[i].y,world->mur[i].h/METEORITE_SIZE,world->mur[i].w/METEORITE_SIZE);
-    }
+    apply_walls(renderer,textures,world);
+    
     // on met à jour l'écran
     update_screen(renderer);
 }
@@ -74,4 +73,10 @@ void init(SDL_Window **window, SDL_Renderer ** renderer, textures_t *textures, w
     init_sdl(window,renderer,SCREEN_WIDTH, SCREEN_HEIGHT);
     init_data(world);
     init_textures(*renderer,textures);
+}
+
+void apply_walls(SDL_Renderer ** renderer, textures_t *textures, world_t * world){
+     for(int i=0;i<METEORITE_WALL_NUMBER;i++){  
+	    apply_wall(textures,renderer,world, world->mur[i].x,world->mur[i].y,world->mur[i].h/METEORITE_SIZE,world->mur[i].w/METEORITE_SIZE);
+    }
 }

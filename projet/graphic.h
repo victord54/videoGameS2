@@ -87,4 +87,11 @@ void clean(SDL_Window *window, SDL_Renderer * renderer, textures_t *textures, wo
  */
 void init(SDL_Window **window, SDL_Renderer ** renderer, textures_t *textures, world_t * world);
 
+/**
+ * \brief La fonction applique la texture des murs
+ * \param renderer Le renderer.
+ * \param textures Les textures.
+ * \param world Le monde.
+ */
+void apply_walls(SDL_Renderer **renderer,textures_t *textures,world_t * world);
 #endif

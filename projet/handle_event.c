@@ -52,7 +52,6 @@ void handle_events(SDL_Event *event, world_t *world){
             printf("La touche S est appuyée\n");
             world->vy=world->vy-1;
             }
-
             out_of_screen(world);
         }
     }

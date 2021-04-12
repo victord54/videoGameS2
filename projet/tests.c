@@ -182,7 +182,7 @@ int main( int argc, char* argv[]){
 	
 	//test_sprites_collide();
 
-	test_handle_sprites_collision();
+	//test_handle_sprites_collision();
     
 	return 0;
 }
