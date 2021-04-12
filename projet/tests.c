@@ -15,8 +15,9 @@
  */
 void print_sprite(sprite_t *sprite)
 {
-	printf("Position en x = %d \nPosition en y %d \nLargueur = %d \nHauteur = %d\n", sprite->x, sprite->y, sprite->w, sprite->h);
+	printf("Position en x = %d \nPosition en y = %d \nLargueur = %d \nHauteur = %d\n", sprite->x, sprite->y, sprite->w, sprite->h);
 }
+
 
 /**
  * \brief Fonction de test_param pour init_sprite.
@@ -169,14 +170,40 @@ void test_handle_sprites_collision(){
 	test_handle_sprites_collision_param(world,spr1,spr2,world.make_disappear);
 }
 
-void test_update_walls_param(world_t *world){
-
+void test_init_walls_param(world_t *world){
+	init_walls(world);
 
 }
-void test_update_walls(){
-	world_t monde;
 
-	monde->mur[10];
+void test_init_walls(){
+	world_t world;
+	test_init_walls_param(&world);
+	for(int i=0;i<METEORITE_WALL_NUMBER;i++){
+		printf("=========================\nMur numéro %d\n",i);
+		print_sprite(&world.mur[i]);
+		printf("=========================\n");
+	}
+}
+
+void test_update_walls_param(world_t *world){
+	update_walls(world);
+}
+void test_update_walls(){
+	world_t world;
+	world.vy=200;
+	test_init_walls_param(&world);
+	for(int i=0;i<METEORITE_WALL_NUMBER;i++){
+		printf("=========================\nMur numéro %d pre update\n",i);
+		print_sprite(&world.mur[i]);
+		printf("=========================\n");
+	}
+	test_update_walls_param(&world);
+	for(int i=0;i<METEORITE_WALL_NUMBER;i++){
+		printf("=========================\nMur numéro %d post update\n",i);
+		print_sprite(&world.mur[i]);
+		printf("=========================\n");
+	}
+
 }
 
 /**
@@ -193,6 +220,9 @@ int main( int argc, char* argv[]){
 	//test_sprites_collide();
 
 	//test_handle_sprites_collision();
+
+	//test_init_walls();
     
+	test_update_walls();
 	return 0;
 }

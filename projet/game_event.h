@@ -89,4 +89,5 @@ void init_walls(world_t *world);
  * \param world Structure des données du monde.
  */
 void update_walls(world_t *world);
+
 #endif
