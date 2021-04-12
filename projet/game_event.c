@@ -48,22 +48,22 @@ void init_data(world_t * world){
 
     // Initialisation d'un mur de météorites.
         //taille d'un ecran 9*14
-        //position x du mur 
-        //position y du mur 
-        //nombre de meteore en x
-        //nombre de meteore en y
+        //position x du mur, position y du mur, nombre de meteore en x, nombre de meteore en y
+    
+            //Placement meteorite niveau 1
+        //Ecran 1
     init_sprite(&world->mur[0],0*METEORITE_SIZE,2*METEORITE_SIZE,3*METEORITE_SIZE,6*METEORITE_SIZE);
     init_sprite(&world->mur[1],6*METEORITE_SIZE,2*METEORITE_SIZE,3*METEORITE_SIZE,6*METEORITE_SIZE);
-
+        //Ecran 2
     init_sprite(&world->mur[2],0*METEORITE_SIZE,3*METEORITE_SIZE-SCREEN_HEIGHT,6*METEORITE_SIZE,3*METEORITE_SIZE);
     init_sprite(&world->mur[3],3*METEORITE_SIZE,9*METEORITE_SIZE-SCREEN_HEIGHT,6*METEORITE_SIZE,3*METEORITE_SIZE);
-
+        //Ecran 3
     init_sprite(&world->mur[4],0*METEORITE_SIZE,1*METEORITE_SIZE-SCREEN_HEIGHT*2,3*METEORITE_SIZE,1*METEORITE_SIZE);
     init_sprite(&world->mur[5],6*METEORITE_SIZE,1*METEORITE_SIZE-SCREEN_HEIGHT*2,3*METEORITE_SIZE,1*METEORITE_SIZE);
     init_sprite(&world->mur[6],3*METEORITE_SIZE,5*METEORITE_SIZE-SCREEN_HEIGHT*2,6*METEORITE_SIZE,3*METEORITE_SIZE);
     init_sprite(&world->mur[7],6*METEORITE_SIZE,8*METEORITE_SIZE-SCREEN_HEIGHT*2,3*METEORITE_SIZE,6*METEORITE_SIZE);
     init_sprite(&world->mur[8],0*METEORITE_SIZE,11*METEORITE_SIZE-SCREEN_HEIGHT*2,3*METEORITE_SIZE,3*METEORITE_SIZE);
-
+        //Ecran 4
     init_sprite(&world->mur[9],2*METEORITE_SIZE,0*METEORITE_SIZE-SCREEN_HEIGHT*3,2*METEORITE_SIZE,1*METEORITE_SIZE);
     init_sprite(&world->mur[10],0*METEORITE_SIZE,4*METEORITE_SIZE-SCREEN_HEIGHT*3,2*METEORITE_SIZE,1*METEORITE_SIZE);
     init_sprite(&world->mur[11],2*METEORITE_SIZE,8*METEORITE_SIZE-SCREEN_HEIGHT*3,2*METEORITE_SIZE,1*METEORITE_SIZE);
