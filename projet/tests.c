@@ -169,6 +169,16 @@ void test_handle_sprites_collision(){
 	test_handle_sprites_collision_param(world,spr1,spr2,world.make_disappear);
 }
 
+void test_update_walls_param(world_t *world){
+
+
+}
+void test_update_walls(){
+	world_t monde;
+
+	monde->mur[10];
+}
+
 /**
  *  \brief Main pour le programme de test pour le module game_event.h 
  * \param argc Taille du tableau argv.
