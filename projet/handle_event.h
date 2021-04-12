@@ -1,7 +1,7 @@
 /**
  * @file handle_event.h
- * @author Victor Dallé
- * @brief Fichier .h du module handle_event
+ * @author Victor Dallé / Yann Periney
+ * @brief En-tête du module gérant les entrées utilisateur.
  * @version 0.1
  * @date 2021-04-12
  * 

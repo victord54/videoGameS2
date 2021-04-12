@@ -1,10 +1,13 @@
 /**
- * \file tests.c
- * \brief Fichier de test pour les fonction de game_event
- * \author Periney Yann Victor Dallé
- * \version 1
- * \date 1 avril 2021
-*/
+ * @file tests.c
+ * @author Yann Periney / Victor Dallé
+ * @brief Fichier de test pour les fonctions du module game_event.
+ * @version 0.1
+ * @date 2021-03-01
+ * 
+ * @copyright Copyright (c) 2021
+ * 
+ */
 
 #include "param.h"
 #include "game_event.h"

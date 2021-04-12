@@ -12,4 +12,6 @@
 ## Le but du jeu
 
 L'objectif principal de ce jeu est d'atteindre la ligne d'arrivée tout en évitant les météorites qui vous barrent le passage.
+Pour les éviter, vous devez vous déplacer avec les touches citées plus haut.
+
 

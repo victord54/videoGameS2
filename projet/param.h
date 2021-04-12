@@ -1,10 +1,13 @@
 /**
- * \file param.h
- * \brief Fichier qui contient les different constante librerie et structure
- * \author Periney Yann
- * \version 1
- * \date 1 avril 2021
-*/
+ * @file param.h
+ * @author Yann Periney / Victor Dallé
+ * @brief Fichier en-tête avec toutes les constantes et les structures
+ * @version 0.1
+ * @date 2021-04-01
+ * 
+ * @copyright Copyright (c) 2021
+ * 
+ */
 
 
 #ifndef __PARAM__H__

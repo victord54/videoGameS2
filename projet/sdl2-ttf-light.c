@@ -1,16 +1,21 @@
+/**
+ * @file sdl2-ttf-light.c
+ * @author Mathieu Constant
+ * @brief Module de gestion du texte de SDL2.
+ * @version 0.1
+ * @date 2021-04-12
+ * 
+ * @copyright Copyright (c) 2021
+ * 
+ */
+
 #include "sdl2-ttf-light.h"
-
-
-
-
 
 void init_ttf(){
     if(TTF_Init()==-1) {
         printf("TTF_Init: %s\n", TTF_GetError());
     }
 }
-
-
 
 TTF_Font * load_font(const char *path, int font_size){
     TTF_Font *font = TTF_OpenFont(path, font_size);
@@ -19,10 +24,6 @@ TTF_Font * load_font(const char *path, int font_size){
     }
     return font;
 }
-
-
-
-
 
 void apply_text(SDL_Renderer *renderer,int x, int y, int w, int h, const char *text, TTF_Font *font){
     SDL_Color color = { 255, 0, 255 };

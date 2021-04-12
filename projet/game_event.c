@@ -1,9 +1,12 @@
 /**
- * \file game_event.c
- * \brief Module de gestions des événements
- * \author Victor Dallé
- * \version 1.0
- * \date 1 avril 2021
+ * @file game_event.c
+ * @author Victor Dallé / Yann Periney
+ * @brief Module de gestion des évènements du jeu.
+ * @version 0.1
+ * @date 2021-04-01
+ * 
+ * @copyright Copyright (c) 2021
+ * 
  */
 
 #include "game_event.h"

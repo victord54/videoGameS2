@@ -1,9 +1,12 @@
 /**
- * \file main.c
- * \brief Entête du main
- * \author Victor Dallé
- * \version 1.0
- * \date 1 avril 2021
+ * @file main.h
+ * @author Victor Dallé / Yann Periney
+ * @brief En-tête du programme principal.
+ * @version 0.1
+ * @date 2021-03-18
+ * 
+ * @copyright Copyright (c) 2021
+ * 
  */
 
 #ifndef DEF_MAIN_H
@@ -18,6 +21,7 @@
 #include "game_event.h"
 #include "graphic.h"
 #include "handle_event.h"
+#include "log.h"
 
 
 #endif

@@ -1,3 +1,14 @@
+/**
+ * @file sdl2-ttf-light.h
+ * @author Mathieu Constant
+ * @brief En-tête du module de gestion du texte de SDL2.
+ * @version 0.1
+ * @date 2021-04-12
+ * 
+ * @copyright Copyright (c) 2021
+ * 
+ */
+
 #ifndef __SDL2_TTF_LIGHT__H
 #define __SDL2_TTF_LIGHT__H
 

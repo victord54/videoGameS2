@@ -1,9 +1,12 @@
 /**
- * \file graphic.c
- * \brief Entête du module gérant l'affichage SDL2
- * \author Victor Dallé
- * \version 1.0
- * \date 1 avril 2021
+ * @file graphic.h
+ * @author Victor Dallé / Yann Periney
+ * @brief En-tête du module gérant la partie graphique du jeu.
+ * @version 0.1
+ * @date 2021-04-01
+ * 
+ * @copyright Copyright (c) 2021
+ * 
  */
 
 #ifndef DEF_GRAPHIC_H
@@ -13,6 +16,7 @@
 #include "sdl2-light.h"
 #include "game_event.h"
 #include "sdl2-ttf-light.h"
+#include "log.h"
 
 /* ========== FONCTIONS ========== */
 /**

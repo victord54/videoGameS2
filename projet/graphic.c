@@ -1,11 +1,13 @@
 /**
- * \file graphic.c
- * \brief Module gérant l'affichage SDL2
- * \author Victor Dallé
- * \version 1.0
- * \date 1 avril 2021
+ * @file graphic.c
+ * @author Victor Dallé / Yann Periney
+ * @brief Module gérant la partie graphique du jeu.
+ * @version 0.1
+ * @date 2021-04-01
+ * 
+ * @copyright Copyright (c) 2021
+ * 
  */
-
 #include "graphic.h"
 
 void clean_textures(textures_t *textures){
@@ -47,7 +49,7 @@ void apply_wall(textures_t *textures,SDL_Renderer *renderer,world_t *world,int x
 }
 
 void refresh_graphics(SDL_Renderer *renderer, world_t *world,textures_t *textures){
-    unsigned int lastTime = 0, currentTime;
+    int lastTime = 0, currentTime;
     char str[20];
     //on vide le renderer
     clear_renderer(renderer);
@@ -66,10 +68,11 @@ void refresh_graphics(SDL_Renderer *renderer, world_t *world,textures_t *texture
         }
         else if (world->gameover && world->vaisseau.y <= world->arrival.y+FINISH_LINE_HEIGHT)
         {
-            lastTime = currentTime;
-            sprintf(str, "Time : %d",currentTime/1000);
+            lastTime = currentTime/1000;
+            sprintf(str, "Time : %d",currentTime);
             apply_text(renderer, SCREEN_WIDTH/2-100, SCREEN_HEIGHT/2-30, 200, 60, str, textures->font);
             apply_text(renderer, SCREEN_WIDTH/2-50, SCREEN_HEIGHT/2+30, 100, 60, "Win !", textures->font);
+            record(lastTime);
         }
         else if (world->gameover)
         {
