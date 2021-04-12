@@ -12,6 +12,7 @@
 
 /* ======================== INCLUDE ======================== */
 #include <SDL2/SDL.h>
+#include <SDL2/SDL_ttf.h>
 
 /* ======================== END INCLUDE ==================== */
 
@@ -77,6 +78,7 @@ struct textures_s{
     SDL_Texture* vaisseau; /*!< Texture liée à l'image du vaisseau. */
     SDL_Texture* arrival; /*!< Texture liée à l'image de la ligne d'arrivée. */
     SDL_Texture* meteorite; /*!< Texture liée à l'image d'un météorite. */
+    TTF_Font* font; /*!< Texture liée à la police utilisée. */
 };
 /**
  * \brief Type qui correspond aux textures du jeu.

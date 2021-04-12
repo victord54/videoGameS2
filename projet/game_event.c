@@ -93,7 +93,7 @@ int sprites_collide(sprite_t *sp1, sprite_t *sp2){
 void handle_sprites_collision(world_t *world,sprite_t *sp1, sprite_t *sp2, int *make_disappear){
     if (sprites_collide(sp1,sp2)){
         world->vy=0;
-
+        world->gameover = 1;
         *make_disappear=1;
     }
 }

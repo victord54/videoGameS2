@@ -13,13 +13,15 @@ void clean_textures(textures_t *textures){
     clean_texture(textures->vaisseau);
     clean_texture(textures->arrival);
     clean_texture(textures->meteorite);
+    clean_font(textures->font);
 }
 
-void  init_textures(SDL_Renderer *renderer, textures_t *textures){
+void init_textures(SDL_Renderer *renderer, textures_t *textures){
     textures->background = load_image("ressources/space-background.bmp",renderer);
     textures->vaisseau = load_image("ressources/spaceship.bmp",renderer);
     textures->arrival = load_image("ressources/finish_line.bmp",renderer);
     textures->meteorite = load_image("ressources/meteorite.bmp",renderer);
+    textures->font = load_font("ressources/arial.ttf",14);
 
 }
 
@@ -45,7 +47,8 @@ void apply_wall(textures_t *textures,SDL_Renderer *renderer,world_t *world,int x
 }
 
 void refresh_graphics(SDL_Renderer *renderer, world_t *world,textures_t *textures){
-    
+    unsigned int lastTime = 0, currentTime;
+    char str[20];
     //on vide le renderer
     clear_renderer(renderer);
     
@@ -54,6 +57,27 @@ void refresh_graphics(SDL_Renderer *renderer, world_t *world,textures_t *texture
 	apply_sprite(renderer, textures->vaisseau, &world->vaisseau,world->make_disappear);
    	apply_sprite(renderer, textures->arrival,&world->arrival,0);
     apply_walls(renderer,textures,world);
+    currentTime = SDL_GetTicks();
+        if (!world->gameover)
+        {
+            lastTime = currentTime;
+            sprintf(str, "Time : %d",currentTime/1000);
+            apply_text(renderer, 0, 0, 200, 60, str, textures->font);
+        }
+        else if (world->gameover && world->vaisseau.y <= world->arrival.y+FINISH_LINE_HEIGHT)
+        {
+            lastTime = currentTime;
+            sprintf(str, "Time : %d",currentTime/1000);
+            apply_text(renderer, SCREEN_WIDTH/2-100, SCREEN_HEIGHT/2-30, 200, 60, str, textures->font);
+            apply_text(renderer, SCREEN_WIDTH/2-50, SCREEN_HEIGHT/2+30, 100, 60, "Win !", textures->font);
+        }
+        else if (world->gameover)
+        {
+            lastTime = currentTime;
+            sprintf(str, "Time : %d",currentTime/1000);
+            apply_text(renderer, SCREEN_WIDTH/2-100, SCREEN_HEIGHT/2-30, 200, 60, str, textures->font);
+            apply_text(renderer, SCREEN_WIDTH/2-50, SCREEN_HEIGHT/2+30, 100, 60, "Lost !", textures->font);
+        }
     
     // on met à jour l'écran
     update_screen(renderer);
@@ -72,6 +96,7 @@ void clean(SDL_Window *window, SDL_Renderer * renderer, textures_t *textures, wo
 void init(SDL_Window **window, SDL_Renderer ** renderer, textures_t *textures, world_t * world){
     init_sdl(window,renderer,SCREEN_WIDTH, SCREEN_HEIGHT);
     init_data(world);
+    init_ttf();
     init_textures(*renderer,textures);
 }
 

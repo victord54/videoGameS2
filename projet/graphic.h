@@ -12,6 +12,7 @@
 #include "param.h"
 #include "sdl2-light.h"
 #include "game_event.h"
+#include "sdl2-ttf-light.h"
 
 /* ========== FONCTIONS ========== */
 /**
