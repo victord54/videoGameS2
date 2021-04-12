@@ -38,6 +38,17 @@ void update_data(world_t *world);
 void init_sprite(sprite_t *sprite, int x, int y, int w, int h);
 
 /**
+ * \brief La fonction initialise les données d'un sprite de meteore selon les valeurs entrées.
+ * \param sprite Pointeur vers sprite_t pour l'initialisation des données.
+ * \param x Coordonnée x du sprite.
+ * \param y Coordonnée y du sprite.
+ * \param w Largeur du sprite.
+ * \param h Hauteur du sprite.
+ * \param screen_nbr L'ecran ou le meteore doit être placer
+ */
+void init_sprite_meteore(sprite_t *sprite, int x, int y, int w, int h,int screen_nbr);
+
+/**
  * \brief La fonction initialise les données du monde du jeu.
  * \param world Les données du monde.
  */
