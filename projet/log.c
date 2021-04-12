@@ -29,7 +29,7 @@ void record(int time)
                 *enter = '\0';
         }
         
-        fprintf(fichier, "%s a fini le niveau en %d secondes.\n",nom,time);
+        fprintf(fichier, "%s a fini le niveau en %d secondes.\n", nom, time);
         fclose(fichier);
     }
     else
