@@ -17,6 +17,7 @@
 #include "param.h"
 #include "game_event.h"
 #include "graphic.h"
+#include "handle_event.h"
 
 
 #endif

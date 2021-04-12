@@ -17,6 +17,11 @@
  * \param event Paramètre qui contient les événements.
  * \param world Les données du monde.
  */
+
+#include <SDL2/SDL.h>
+#include "param.h"
+#include "game_event.h"
+
 void handle_events(SDL_Event *event,world_t *world);
 
 #endif
