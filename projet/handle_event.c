@@ -25,31 +25,26 @@ void handle_events(SDL_Event *event, world_t *world){
         if(event->type == SDL_KEYDOWN){
             //si la touche appuyée est 'D'
             if(event->key.keysym.sym == SDLK_d){
-                printf("La touche D est appuyée\n");
                 world->vaisseau.x+= MOVING_STEP;
               }
             
             //si la touche appuyée est 'Q'
             if(event->key.keysym.sym == SDLK_q){
-                printf("La touche Q est appuyée\n");
                 world->vaisseau.x-= MOVING_STEP;
             }
 
             if(event->key.keysym.sym == SDLK_ESCAPE){
             //On indique la fin du jeu
-            printf("La touche ECHAP est appuyée\n");
             world->gameover = 1;
             }
 
             if(event->key.keysym.sym == SDLK_z){
             //On indique la fin du jeu
-            printf("La touche Z est appuyée\n");
             world->vy=world->vy+1;
             }
 
             if(event->key.keysym.sym == SDLK_s){
             //On indique la fin du jeu
-            printf("La touche S est appuyée\n");
             world->vy=world->vy-1;
             }
             out_of_screen(world);
