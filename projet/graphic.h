@@ -94,5 +94,5 @@ void init(SDL_Window **window, SDL_Renderer ** renderer, textures_t *textures, w
  * \param textures Les textures.
  * \param world Le monde.
  */
-void apply_walls(SDL_Renderer **renderer,textures_t *textures,world_t * world);
+void apply_walls(SDL_Renderer *renderer,textures_t *textures,world_t * world);
 #endif

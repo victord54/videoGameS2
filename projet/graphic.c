@@ -100,8 +100,8 @@ void init(SDL_Window **window, SDL_Renderer ** renderer, textures_t *textures, w
     init_textures(*renderer,textures);
 }
 
-void apply_walls(SDL_Renderer ** renderer, textures_t *textures, world_t * world){
-     for(int i=0;i<METEORITE_WALL_NUMBER;i++){  
+void apply_walls(SDL_Renderer *renderer, textures_t *textures, world_t * world){
+    for(int i=0;i<METEORITE_WALL_NUMBER;i++){  
 	    apply_wall(textures,renderer,world, world->mur[i].x,world->mur[i].y,world->mur[i].h/METEORITE_SIZE,world->mur[i].w/METEORITE_SIZE);
     }
 }
