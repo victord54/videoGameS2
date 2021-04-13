@@ -15,7 +15,7 @@
  * \brief Programme principal qui implémente la boucle du jeu.
  * \param argc Taille du tableau argv.
  * \param argv Pointeur vers un tableau de char de taille argc.
- * \return 0, si il n'y a pas eu d'erreurs.
+ * \return int 0 s'il n'y a pas eu d'erreurs.
  */
 int main( int argc, char* argv[] )
 {
@@ -29,11 +29,11 @@ int main( int argc, char* argv[] )
     init(&window,&renderer,&textures,&world,&menu);
     
     while(menu.menuover==0){
-        // Gestion des évènement 
+        // Gestion des évènement
         handle_events_menu(&event,&world,&menu);
 
-        // affichage du menu
-        //apply_menu(renderer,&textures);
+        // Affichage du menu
+        // apply_menu(renderer,&textures);
         
         // Rafraichissement de l'écran
         //refresh_graphics_menu(&renderer,&menu,&textures);
@@ -59,7 +59,6 @@ int main( int argc, char* argv[] )
     }
     
     // Nettoyage final
-    pause(2500);
     clean(window,renderer,&textures,&world);
     
     

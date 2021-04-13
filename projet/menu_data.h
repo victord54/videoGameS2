@@ -1,7 +1,7 @@
 /**
  * @file menu_data.h
  * @author Victor Dallé / Yann Periney
- * @brief Module de gestion des évènements du jeu.
+ * @brief En-tête du module de gestion des évènements du menu du jeu.
  * @version 0.1
  * @date 2021-04-13
  * 

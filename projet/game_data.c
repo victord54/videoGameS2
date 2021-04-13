@@ -118,24 +118,27 @@ void handle_sprites_collision(world_t *world,sprite_t *sp1, sprite_t *sp2, int *
 }
 
 void init_walls(world_t *world){
+
+    // Taille d'un ecran 9*14
+    // Position x du mur, position y du mur, nombre de meteore en x, nombre de meteore en y ,numero de l'ecran 
     
-        //taille d'un ecran 9*14
-        //position x du mur, position y du mur, nombre de meteore en x, nombre de meteore en y ,numero de l'ecran 
-    
-            //Placement meteorite niveau 1
-        //Ecran 1
+    /* ===== Placement meteorite niveau 1 ===== */
+    // Écran 1
     init_sprite_meteore(&world->mur[0],0,2,3,6,0);
     init_sprite_meteore(&world->mur[1],6,2,3,6,0);
-        //Ecran 2
+
+    // Écran 2
     init_sprite_meteore(&world->mur[2],0,3,6,3,1);
     init_sprite_meteore(&world->mur[3],3,9,6,3,1);
-        //Ecran 3
+
+    // Écran 3
     init_sprite_meteore(&world->mur[4],0,1,3,1,2);
     init_sprite_meteore(&world->mur[5],6,1,3,1,2);
     init_sprite_meteore(&world->mur[6],3,5,6,3,2);
     init_sprite_meteore(&world->mur[7],6,8,3,6,2);
     init_sprite_meteore(&world->mur[8],0,11,3,3,2);
-        //Ecran 4
+
+    // Écran 4
     init_sprite_meteore(&world->mur[9],2,0,2,1,3);
     init_sprite_meteore(&world->mur[10],0,4,2,1,3);
     init_sprite_meteore(&world->mur[11],2,8,2,1,3);
@@ -143,10 +146,10 @@ void init_walls(world_t *world){
     init_sprite_meteore(&world->mur[13],4,0,1,13,3);
     init_sprite_meteore(&world->mur[14],5,4,3,1,3);
     init_sprite_meteore(&world->mur[15],7,13,2,1,3);
-    
 }
 
 void update_walls(world_t *world){
+    // Update de la postion y de tous les sprite du mur de météorites
     for(int i=0;i<METEORITE_WALL_NUMBER;i++){
         world->mur[i].y=world->vy+world->mur[i].y;
     }
@@ -154,9 +157,11 @@ void update_walls(world_t *world){
 
 int is_finish(world_t *world)
 {
+    // Si il y a eu une collision et que le vaisseau est au niveau de la ligne d'arrivée
     if (world->gameover && world->vaisseau.y <= world->arrival.y+FINISH_LINE_HEIGHT)
-        return 1;
+        return 1; // 1 = gagné
+    // Si il y a eu collision et que le vaisseau est en dessous de la ligne d'arrivée (graphiquement)
     else if (world->gameover && world->vaisseau.y > world->arrival.y+FINISH_LINE_HEIGHT)
-        return 2;
+        return 2; // 2 = perdu
     return 0;
 }

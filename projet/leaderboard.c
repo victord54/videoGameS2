@@ -9,29 +9,29 @@
  * 
  */
 
-#include "log.h"
+#include "leaderboard.h"
 
 void record(int time)
 {
     FILE* fichier = NULL;
 
-    fichier = fopen("log_games.txt","a");
+    fichier = fopen("leaderboard.txt","a");
     char nom[20];
     char *enter = NULL;
 
-    if (fichier != NULL)
+    if (fichier != NULL) // Si on a réussi à charger le fichier on peut continuer
     {
         printf("Quel est votre nom ? ");
-        if (fgets(nom,20, stdin) != NULL)
+        if (fgets(nom,20, stdin) != NULL) // Saisie et verification de la saisie
         {
-            enter = strchr(nom, '\n');
+            enter = strchr(nom, '\n'); // On cherche le dernier caractère qui est un saut de ligne
             if (enter != NULL)
-                *enter = '\0';
+                *enter = '\0'; // On le remplace par un caractère de fin
         }
         
         fprintf(fichier, "%s a fini le niveau en %d secondes.\n", nom, time);
         fclose(fichier);
     }
     else
-        printf("Impossible d'ouvir le fichier log_games.txt\n");
+        printf("Impossible d'ouvir le fichier leaderboard.txt\n");
 }
