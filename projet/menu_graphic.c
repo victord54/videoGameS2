@@ -11,3 +11,9 @@
 
 
 #include "menu_graphic.h"
+
+void apply_menu(SDL_Renderer *renderer, SDL_Texture *texture){
+    if(texture != NULL){
+      apply_texture(texture, renderer, 0, 0);
+    }
+}

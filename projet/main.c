@@ -33,10 +33,10 @@ int main( int argc, char* argv[] )
         handle_events_menu(&event,&world,&menu);
 
         // affichage du menu
-        apply_menu(&renderer,&textures);
+        //apply_menu(renderer,&textures);
         
         // Rafraichissement de l'écran
-        refresh_graphics_menu(renderer,&menu,&textures);
+        //refresh_graphics_menu(&renderer,&menu,&textures);
     }
 
 
