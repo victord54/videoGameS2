@@ -8,11 +8,11 @@ Pour les éviter, vous devez vous déplacer avec les touches ci-dessous.
 ## Comment jouer ?
 
 * Déplacements
-	* Touche **Z** : Ralentir le jeu
-	* Touche **S** : Accélérer le jeu
+	* Touche **S** : Ralentir le jeu
+	* Touche **Z** : Accélérer le jeu
 	* Touche **Q** : Se déplacer à gauche
 	* Touche **D** : Se déplacer à droite
-* Sortir du jeu
+	* Sortir du jeu
 	* Touche **Echap**
 
 ## Fin du jeu

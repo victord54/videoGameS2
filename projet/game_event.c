@@ -40,10 +40,19 @@ void init_sprite_meteore(sprite_t *sprite, int x, int y, int w, int h,int screen
 	sprite->h=h*METEORITE_SIZE;
 }
 
-void init_data(world_t * world){
+void init_data(world_t * world,menu_t *menu){
     // On n'est pas à la fin du jeu
-    world->gameover = 0;
+    world->gameover=0;
+    // Le sprite doit être visible
     world->make_disappear=0;
+    // On est pas a la fin du menu
+    menu->menuover=0;
+    
+    menu->menunumber=2;
+
+    menu->currentmenu=0;
+
+
 
 	// Initialisation du vaisseau
 	init_sprite(&world->vaisseau,SCREEN_WIDTH/2 - SHIP_SIZE/2,SCREEN_HEIGHT - SHIP_SIZE*2,SHIP_SIZE,SHIP_SIZE);
