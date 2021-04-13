@@ -60,26 +60,29 @@ void refresh_graphics(SDL_Renderer *renderer, world_t *world,textures_t *texture
    	apply_sprite(renderer, textures->arrival,&world->arrival,0);
     apply_walls(renderer,textures,world);
     currentTime = SDL_GetTicks();
-        if (!world->gameover)
-        {
-            lastTime = currentTime;
-            sprintf(str, "Time : %d",currentTime/1000);
-            apply_text(renderer, 0, 0, 200, 60, str, textures->font);
-        }
-        else if (world->gameover && world->vaisseau.y <= world->arrival.y+FINISH_LINE_HEIGHT)
-        {
-            lastTime = currentTime/1000;
-            apply_text(renderer, SCREEN_WIDTH/2-50, SCREEN_HEIGHT/2-30, 100, 60, "Win !", textures->font);
-            record(lastTime);
-        }
-        else if (world->gameover)
-        {
-            lastTime = currentTime;
-            apply_text(renderer, SCREEN_WIDTH/2-50, SCREEN_HEIGHT/2-30, 100, 60, "Lost !", textures->font);
-        }
-    
+    if (!world->gameover)
+    {
+        lastTime = currentTime;
+        sprintf(str, "Time : %d",currentTime/1000);
+        apply_text(renderer, 0, 0, 200, 60, str, textures->font);
+    }
+
+    if (world->gameover && world->vaisseau.y <= world->arrival.y+FINISH_LINE_HEIGHT)
+    {
+        lastTime = currentTime/1000;
+        apply_text(renderer, SCREEN_WIDTH/2-50, SCREEN_HEIGHT/2-30, 100, 60, "Win !", textures->font);
+    }
+    else if (world->gameover && world->vaisseau.y > world->arrival.y+FINISH_LINE_HEIGHT)
+    {
+        lastTime = currentTime;
+        apply_text(renderer, SCREEN_WIDTH/2-50, SCREEN_HEIGHT/2-30, 100, 60, "Lost !", textures->font);
+    }
+
     // on met à jour l'écran
     update_screen(renderer);
+
+    if (world->gameover && world->vaisseau.y <= world->arrival.y+FINISH_LINE_HEIGHT)
+        record(lastTime);
 }
 
 void clean_data(world_t *world){
