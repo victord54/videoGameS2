@@ -29,11 +29,14 @@ int main( int argc, char* argv[] )
     init(&window,&renderer,&textures,&world,&menu);
     
     while(menu.menuover==0){
-
-
+        // Gestion des évènement 
         handle_events_menu(&event,&world,&menu);
+
+        // affichage du menu
         apply_menu(&renderer,&textures);
         
+        // Rafraichissement de l'écran
+        refresh_graphics_menu(renderer,&menu,&textures);
     }
 
 
