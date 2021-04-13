@@ -14,7 +14,7 @@
 
 #include "param.h"
 #include "sdl2-light.h"
-#include "game_event.h"
+#include "game_data.h"
 #include "sdl2-ttf-light.h"
 #include "log.h"
 

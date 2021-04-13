@@ -20,7 +20,7 @@
 
 #include <SDL2/SDL.h>
 #include "param.h"
-#include "game_event.h"
+#include "game_data.h"
 
 void handle_events(SDL_Event *event,world_t *world);
 
