@@ -10,7 +10,43 @@
  */
 
 #include "handle_event.h"
-
+void handle_events_menu(SDL_Event *event,menu_t *menu){
+    //Uint8 *keystates;
+    while( SDL_PollEvent(event)){
+        
+        //Si l'utilisateur a cliqué sur le X de la fenêtre
+        if(event->type == SDL_QUIT){
+            //On indique la fin du jeu
+            world->gameover = 1;
+            menu->menuover = 1;
+        }
+       
+        //si une touche est appuyée
+        if(event->type == SDL_KEYDOWN){
+            //si la touche appuyée est 'z'
+            if(event->key.keysym.sym == SDLK_z){
+                
+            }
+            //si la touche appuyée est 's'
+            if(event->key.keysym.sym == SDLK_s){
+                
+            }
+            //si la touche appuyée est 'Up'
+            if(event->key.keysym.sym == SDLK_UP){
+                
+            }
+            //si la touche appuyée est 'Down'
+            if(event->key.keysym.sym == SDLK_DOWN){
+                /* Déplacement cadre vers le bas */
+            }
+            if(event->key.keysym.sym == SDLK_ESCAPE){
+                //On indique la fin du jeu
+                world->gameover = 1;
+                menu->menuover = 1;
+            }
+        }
+    }
+}
 void handle_events(SDL_Event *event, world_t *world){
     //Uint8 *keystates;
     while( SDL_PollEvent(event)){

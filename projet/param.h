@@ -118,6 +118,23 @@ struct world_s{
  */
 typedef struct world_s world_t;
 
+
+/**
+ * \brief Représentation du menu du jeu.
+*/
+struct menu_s{
+  int menuover; /*!< Champ indiquant si l'on est à la fin du menu. */
+  int menunumber; /*!< Nombre de menu. */
+  int currentmenu; /*!< Le menu actuellement sélectionnais. */
+  int optionnumber; /*!< Nombre d'option sur le menu. */
+  int currentoption; /*!< Option actullement séléctionnais. */
+};
+/**
+ * \brief Type qui correspond aux données du menu.
+ */
+typedef struct world_s menu_t;
+
+
 /* ====================== END STRUCT ====================== */
 /* ========================= LIB ========================== */
 

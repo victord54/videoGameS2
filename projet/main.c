@@ -24,10 +24,18 @@ int main( int argc, char* argv[] )
     textures_t textures;
     SDL_Renderer *renderer;
     SDL_Window *window;
-
     // Initialisation du jeu
     init(&window,&renderer,&textures,&world);
     
+    while(){
+        
+
+    }
+
+
+
+
+
     while(!is_game_over(&world)){ // Tq le jeu n'est pas fini
         
         // Gestion des évènements

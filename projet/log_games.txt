@@ -1,0 +1,8 @@
+<<<<<<< HEAD
+Victor a fini le niveau en 16 secondes.
+Igor a fini le niveau en 18 secondes.
+Victor a fini le niveau en 19 secondes.
+victor a fini le niveau en 24 secondes.
+Yann a fini le niveau en 12 secondes.
+=======
+>>>>>>> 74676882108e8f55a3caa7f8f6cb6bd2edce5021

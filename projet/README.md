@@ -12,7 +12,7 @@ Pour les éviter, vous devez vous déplacer avec les touches ci-dessous.
 	* Touche **S** : Ralentir le jeu
 	* Touche **Q** : Se déplacer à gauche
 	* Touche **D** : Se déplacer à droite
-* Sortir du jeu
+	* Sortir du jeu
 	* Touche **Echap**
 
 ## Fin du jeu

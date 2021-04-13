@@ -54,8 +54,9 @@ void init_sprite_meteore(sprite_t *sprite, int x, int y, int w, int h,int screen
 /**
  * \brief La fonction initialise les données du monde du jeu.
  * \param world Les données du monde.
+ * \param menu Les données du menu.
  */
-void init_data(world_t * world);
+void init_data(world_t * world,menu_t *menu);
 
 /**
  * \brief Fonction qui detecte si le vaisseau est hors de l'écran.
