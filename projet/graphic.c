@@ -40,6 +40,12 @@ void apply_background(SDL_Renderer *renderer, SDL_Texture *texture){
     }
 }
 
+void apply_menu(SDL_Renderer *renderer, SDL_Texture *texture)
+{
+    if (texture != NULL)
+        apply_texture(texture, renderer, 0, 0);
+}
+
 void apply_wall(textures_t *textures,SDL_Renderer *renderer,world_t *world,int x,int y,int height,int width){
     for (int i = 0; i < height; i++){
      		for (int j = 0; j < width; j++){
