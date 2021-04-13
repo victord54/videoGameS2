@@ -16,7 +16,7 @@
 
 #include <SDL2/SDL.h>
 #include "param.h"
-#include "game_event.h"
+#include "game_data.h"
 
 /**
  * \brief La fonction gère les évènements ayant eu lieu dans le menu et qui n'ont pas encore été traités.

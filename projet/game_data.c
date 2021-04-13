@@ -9,7 +9,7 @@
  * 
  */
 
-#include "game_event.h"
+#include "game_data.h"
 
 int is_game_over(world_t *world){
     return world->gameover;

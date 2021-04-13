@@ -10,7 +10,7 @@
  */
 
 #include "param.h"
-#include "game_event.h"
+#include "game_data.h"
 
 /**
  * \brief Fonction qui affiche les coordonnées d'un sprite.

@@ -18,7 +18,7 @@
 
 #include "sdl2-light.h"
 #include "param.h"
-#include "game_event.h"
+#include "game_data.h"
 #include "graphic.h"
 #include "handle_event.h"
 #include "log.h"
