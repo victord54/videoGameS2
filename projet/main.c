@@ -21,15 +21,19 @@ int main( int argc, char* argv[] )
 {
     SDL_Event event;
     world_t world;
+    menu_t menu;
     textures_t textures;
     SDL_Renderer *renderer;
     SDL_Window *window;
     // Initialisation du jeu
-    init(&window,&renderer,&textures,&world);
+    init(&window,&renderer,&textures,&world,&menu);
     
-    while(){
-        
+    while(menu.menuover==0){
 
+
+        handle_events_menu(&event,&world,&menu);
+        apply_menu(&renderer,&textures);
+        
     }
 
 

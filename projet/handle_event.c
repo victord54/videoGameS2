@@ -10,7 +10,7 @@
  */
 
 #include "handle_event.h"
-void handle_events_menu(SDL_Event *event,menu_t *menu){
+void handle_events_menu(SDL_Event *event,world_t *world,menu_t *menu){
     //Uint8 *keystates;
     while( SDL_PollEvent(event)){
         
@@ -41,7 +41,7 @@ void handle_events_menu(SDL_Event *event,menu_t *menu){
             }
             if(event->key.keysym.sym == SDLK_ESCAPE){
                 //On indique la fin du jeu
-                world->gameover = 1;
+                world->gameover = 0;
                 menu->menuover = 1;
             }
         }

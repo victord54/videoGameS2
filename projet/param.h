@@ -132,7 +132,7 @@ struct menu_s{
 /**
  * \brief Type qui correspond aux données du menu.
  */
-typedef struct world_s menu_t;
+typedef struct menu_s menu_t;
 
 
 /* ====================== END STRUCT ====================== */
