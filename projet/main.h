@@ -22,6 +22,7 @@
 #include "graphic.h"
 #include "handle_event.h"
 #include "log.h"
-
+#include "menu_data.h"
+#include "menu_graphic.h"
 
 #endif

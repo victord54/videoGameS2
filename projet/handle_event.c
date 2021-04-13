@@ -41,7 +41,7 @@ void handle_events_menu(SDL_Event *event,world_t *world,menu_t *menu){
             }
             if(event->key.keysym.sym == SDLK_ESCAPE){
                 //On indique la fin du jeu
-                world->gameover = 0;
+                world->gameover = 1;
                 menu->menuover = 1;
             }
         }
