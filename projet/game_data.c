@@ -16,15 +16,15 @@ int is_game_over(world_t *world){
 }
 
 void update_data(world_t *world){
-    world->arrival.y += world->vy;
-    update_walls(world);
+    world->arrival.y += world->vy; // Fait descendre la ligne d'arrivée
+    update_walls(world); // Fait descendre les murs
 
-        //On utilise not_disappear quand la collision ne doit pas changer l'affichage
+    //On utilise not_disappear quand la collision ne doit pas changer l'affichage
     int not_disappear;
     for(int i=0;i<METEORITE_WALL_NUMBER;i++){
-        handle_sprites_collision(world, &world->mur[i], &world->vaisseau,&world->make_disappear);
+        handle_sprites_collision(world, &world->mur[i], &world->vaisseau,&world->make_disappear); // Vérifie une collision sur le nombre de murs du tableau pour faire disparaitre le vaisseau
     }
-    handle_sprites_collision(world, &world->arrival, &world->vaisseau,&not_disappear);
+    handle_sprites_collision(world, &world->arrival, &world->vaisseau,&not_disappear); // Vérifie la collision avec la ligne d'arrivée pour ne pas faire disparaître le vaisseau
 }
 
 void init_sprite(sprite_t *sprite, int x, int y, int w, int h){
@@ -69,12 +69,12 @@ void init_data(world_t * world,menu_t *menu){
 
 void out_of_screen(world_t *world)
 {
-    if (world->vaisseau.x < 0)
+    if (world->vaisseau.x < 0) // Si le vaisseau sort à gauche on le replace
     {
         world->vaisseau.x = 0;
     }
 
-    if (world->vaisseau.x + SHIP_SIZE > SCREEN_WIDTH)
+    if (world->vaisseau.x + SHIP_SIZE > SCREEN_WIDTH) // Si le vaisseau sort à droite on le replace
     {
         world->vaisseau.x = SCREEN_WIDTH - SHIP_SIZE;
     }
@@ -91,17 +91,17 @@ int sprites_collide(sprite_t *sp1, sprite_t *sp2){
     w2=sp2->w;
     h2=sp2->h;
     
-    if ((x2 > x1 && x2 < x1 + w1) || (x2 + w2 > x1 && x2 + w2 < x1 + w1))
+    if ((x2 > x1 && x2 < x1 + w1) || (x2 + w2 > x1 && x2 + w2 < x1 + w1)) // Si le coté gauche ou droit du sprite2 est entre les cotés du sprite1
     {
         col_x = 1;
     }
 
-    if ((y2 > y1 && y2 < y1 + h1) || (y2 + h2 > y1 && y2 + h2 < y1 + h1))
+    if ((y2 > y1 && y2 < y1 + h1) || (y2 + h2 > y1 && y2 + h2 < y1 + h1)) // Si le coté sup ou inf du sprite2 est entre les cotés sup et inf du sprite1
     {
         col_y = 1;
     }
     
-    if (col_x && col_y)
+    if (col_x && col_y) // Si il y a une collision en x et en y
     {
         return 1;
     }
@@ -149,4 +149,13 @@ void update_walls(world_t *world){
     for(int i=0;i<METEORITE_WALL_NUMBER;i++){
         world->mur[i].y=world->vy+world->mur[i].y;
     }
+}
+
+int is_finish(world_t *world)
+{
+    if (world->gameover && world->vaisseau.y <= world->arrival.y+FINISH_LINE_HEIGHT)
+        return 1;
+    else if (world->gameover && world->vaisseau.y > world->arrival.y+FINISH_LINE_HEIGHT)
+        return 2;
+    return 0;
 }

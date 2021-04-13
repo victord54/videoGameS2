@@ -94,4 +94,12 @@ void init_walls(world_t *world);
  */
 void update_walls(world_t *world);
 
+/**
+ * @brief Fonction qui teste si on a gagné.
+ * 
+ * @param world Le monde.
+ * @return int
+ */
+int is_finish(world_t *world);
+
 #endif
