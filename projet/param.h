@@ -127,9 +127,10 @@ typedef struct world_s world_t;
 struct menu_s{
   int menuover; /*!< Champ indiquant si l'on est à la fin du menu. */
   int menunumber; /*!< Nombre de menu. */
-  int currentmenu; /*!< Le menu actuellement sélectionnais. */
+  int currentmenu; /*!< Le menu actuellement sélectionné. */
   int optionnumber; /*!< Nombre d'option sur le menu. */
-  int currentoption; /*!< Option actullement séléctionnais. */
+  int currentoption; /*!< Option actuellement sélectionnée. */
+  int time; /*!< Sauvegarde le temps d'execution du menu. */
 };
 /**
  * \brief Type qui correspond aux données du menu.

@@ -52,7 +52,7 @@ void apply_wall(textures_t *textures,SDL_Renderer *renderer,world_t *world,int x
 	}
 }
 
-void refresh_graphics(SDL_Renderer *renderer, world_t *world,textures_t *textures){
+void refresh_graphics(SDL_Renderer *renderer, world_t *world,textures_t *textures, menu_t *menu){
     int lastTime = 0, currentTime; // Variables liées au timer
     char str[20]; // String pour formater le texte affiché à l'écran
     currentTime = SDL_GetTicks(); // Donne la valeur en milisecondes du temps d'éxécution de la librairie SDL
@@ -67,19 +67,19 @@ void refresh_graphics(SDL_Renderer *renderer, world_t *world,textures_t *texture
 
     if (!world->gameover) // Affichage du temps à l'écran
     {
-        lastTime = currentTime;
+        lastTime = currentTime - menu->time;
         sprintf(str, "Time : %d",lastTime/1000); // La division par 1000 sert à n'afficher que les secondes
         apply_text(renderer, 0, 0, 200, 60, str, textures->font);
     }
 
     if (is_finish(world) == 1) // Si on a gagné
     {
-        lastTime = currentTime/1000;
+        lastTime = (currentTime - menu->time)/1000;
         apply_text(renderer, SCREEN_WIDTH/2-50, SCREEN_HEIGHT/2-30, 100, 60, "Win !", textures->font);
     }
     if (is_finish(world) == 2) // Si on a perdu
     {
-        lastTime = currentTime;
+        lastTime = currentTime - menu->time;
         apply_text(renderer, SCREEN_WIDTH/2-50, SCREEN_HEIGHT/2-30, 100, 60, "Lost !", textures->font);
     }
 

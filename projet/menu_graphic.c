@@ -15,8 +15,8 @@
 
 void refresh_menu_graphics(SDL_Renderer *renderer, menu_t *menu, textures_t *textures){
 
-  int lastTime = 0, currentTime; // Variables liées au timer
-  currentTime = SDL_GetTicks();
+  menu->time = SDL_GetTicks(); // Variable liée au timer
+
 
   // On vide le renderer
   clear_renderer(renderer);

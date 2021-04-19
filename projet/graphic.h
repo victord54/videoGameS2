@@ -66,8 +66,9 @@ void apply_wall(textures_t *textures,SDL_Renderer *renderer,world_t *world,int x
  * \param renderer Le renderer lié à l'écran de jeu.
  * \param world Les données du monde.
  * \param textures Les textures.
+ * \param menu Utile pour gérer le timer
  */
-void refresh_graphics(SDL_Renderer *renderer, world_t *world,textures_t *textures);
+void refresh_graphics(SDL_Renderer *renderer, world_t *world,textures_t *textures, menu_t *menu);
 
 /**
  * \brief La fonction nettoie les données du monde.
