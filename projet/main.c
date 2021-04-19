@@ -62,6 +62,8 @@ int main( int argc, char* argv[] )
     }
     
     // Nettoyage final
+    print_end(renderer, &textures);
+    pause(3000);
     clean(window,renderer,&textures,&world);
     
     

@@ -102,4 +102,13 @@ void init(SDL_Window **window, SDL_Renderer ** renderer, textures_t *textures, w
  * \param world Le monde.
  */
 void apply_walls(SDL_Renderer *renderer,textures_t *textures,world_t * world);
+
+/**
+ * @brief FOnction qui applique un background à la fin du jeu
+ * 
+ * @param renderer 
+ * @param textures 
+ */
+void print_end(SDL_Renderer *renderer, textures_t *textures);
+
 #endif

@@ -26,6 +26,7 @@ void init_textures(SDL_Renderer *renderer, textures_t *textures){
     textures->meteorite = load_image("ressources/meteorite.bmp",renderer);
     textures->font = load_font("ressources/arial.ttf",14);
     textures->menu_background = load_image("ressources/menu0.bmp",renderer);
+    textures->fin = load_image("ressources/fin.bmp", renderer);
 }
 
 void apply_sprite(SDL_Renderer *renderer, SDL_Texture *texture, sprite_t *sprite,int make_disappear){
@@ -76,6 +77,7 @@ void refresh_graphics(SDL_Renderer *renderer, world_t *world,textures_t *texture
     {
         lastTime = (currentTime - menu->time)/1000;
         apply_text(renderer, SCREEN_WIDTH/2-50, SCREEN_HEIGHT/2-30, 100, 60, "Win !", textures->font);
+
     }
     if (is_finish(world) == 2) // Si on a perdu
     {
@@ -119,4 +121,11 @@ void apply_walls(SDL_Renderer *renderer, textures_t *textures, world_t * world){
         // Applique la texture autant de fois qu'il a de murs de météorites
 	    apply_wall(textures,renderer,world, world->mur[i].x,world->mur[i].y,world->mur[i].h/METEORITE_SIZE,world->mur[i].w/METEORITE_SIZE);
     }
+}
+
+void print_end(SDL_Renderer *renderer, textures_t *textures)
+{
+    clear_renderer(renderer);
+    apply_background(renderer, textures->fin);
+    update_screen(renderer);
 }
