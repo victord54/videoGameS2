@@ -15,6 +15,7 @@ void clean_textures(textures_t *textures){
     clean_texture(textures->vaisseau);
     clean_texture(textures->arrival);
     clean_texture(textures->meteorite);
+    clean_texture(textures->menu_background);
     clean_font(textures->font);
 }
 
@@ -24,7 +25,7 @@ void init_textures(SDL_Renderer *renderer, textures_t *textures){
     textures->arrival = load_image("ressources/finish_line.bmp",renderer);
     textures->meteorite = load_image("ressources/meteorite.bmp",renderer);
     textures->font = load_font("ressources/arial.ttf",14);
-
+    textures->menu_background = load_image("ressources/menu0.bmp",renderer);
 }
 
 void apply_sprite(SDL_Renderer *renderer, SDL_Texture *texture, sprite_t *sprite,int make_disappear){

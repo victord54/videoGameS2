@@ -36,7 +36,10 @@ int main( int argc, char* argv[] )
         // apply_menu(renderer,&textures);
         
         // Rafraichissement de l'écran
-        //refresh_graphics_menu(&renderer,&menu,&textures);
+        refresh_menu_graphics(renderer,&menu,&textures);
+
+        // Pause de 8 ms pour controler la vitesse de rafraichissement
+        pause(8);
     }
 
 

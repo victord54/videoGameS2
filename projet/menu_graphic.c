@@ -11,9 +11,19 @@
 
 
 #include "menu_graphic.h"
+#include "graphic.h"
 
-void apply_menu(SDL_Renderer *renderer, SDL_Texture *texture){
-    if(texture != NULL){
-      apply_texture(texture, renderer, 0, 0);
-    }
+void refresh_menu_graphics(SDL_Renderer *renderer, menu_t *menu, textures_t *textures){
+
+  int lastTime = 0, currentTime; // Variables liées au timer
+  currentTime = SDL_GetTicks();
+
+  // On vide le renderer
+  clear_renderer(renderer);
+
+  // Application des textures dans le renderer
+	apply_background(renderer, textures->menu_background);
+
+  // on met à jour l'écran
+  update_screen(renderer);
 }

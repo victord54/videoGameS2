@@ -23,17 +23,9 @@
  * @brief Fonction qui applique la texture du menu sur le renderer lié à l'écran de jeu.
  * 
  * @param renderer Le renderer.
- * @param texture La texture liée au fond.
- */
-void apply_menu(SDL_Renderer *renderer, SDL_Texture *texture);
-
-/**
- * @brief Fonction qui applique la texture du menu sur le renderer lié à l'écran de jeu.
- * 
- * @param renderer Le renderer.
  * @param menu Paramétre du menu.
  * @param texture La texture liée au fond.
  */
-void refresh_graphics_menu(SDL_Renderer *renderer,menu_t *menu,SDL_Texture *textures);
+void refresh_menu_graphics(SDL_Renderer *renderer, menu_t *menu, textures_t *textures);
 
 #endif

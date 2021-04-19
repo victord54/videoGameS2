@@ -78,11 +78,12 @@
  * \brief Représentation pour stocker les textures nécessaires à l'affichage graphique.
 */
 struct textures_s{
-    SDL_Texture* background; /*!< Texture liée à l'image du fond de l'écran. */
-    SDL_Texture* vaisseau; /*!< Texture liée à l'image du vaisseau. */
-    SDL_Texture* arrival; /*!< Texture liée à l'image de la ligne d'arrivée. */
-    SDL_Texture* meteorite; /*!< Texture liée à l'image d'un météorite. */
-    TTF_Font* font; /*!< Texture liée à la police utilisée. */
+    SDL_Texture *background; /*!< Texture liée à l'image du fond de l'écran. */
+    SDL_Texture *vaisseau; /*!< Texture liée à l'image du vaisseau. */
+    SDL_Texture *arrival; /*!< Texture liée à l'image de la ligne d'arrivée. */
+    SDL_Texture *meteorite; /*!< Texture liée à l'image d'un météorite. */
+    TTF_Font *font; /*!< Texture liée à la police utilisée. */
+    SDL_Texture *menu_background; /*!< Texture liée au background du menu. */
 };
 /**
  * \brief Type qui correspond aux textures du jeu.
@@ -104,7 +105,7 @@ struct sprite_s{
 typedef struct sprite_s sprite_t;
 
 /**
- * \brief Représentation du monde du jeu.
+ * \brief Représentation des données du monde.
 */
 struct world_s{
     int gameover; /*!< Champ indiquant si l'on est à la fin du jeu. */
@@ -121,7 +122,7 @@ typedef struct world_s world_t;
 
 
 /**
- * \brief Représentation du menu du jeu.
+ * \brief Représentation des données du menu.
 */
 struct menu_s{
   int menuover; /*!< Champ indiquant si l'on est à la fin du menu. */
