@@ -19,6 +19,12 @@
 #include "game_data.h"
 
 /**
+ * \brief La fonction qui gère les évènement celon le menu et les option choissi.
+ * \param menu Les données du menu.
+ */
+void menuselection(menu_t *menu);
+
+/**
  * \brief La fonction gère les évènements ayant eu lieu dans le menu et qui n'ont pas encore été traités.
  * \param event Paramètre qui contient les événements.
  * \param world Les données du monde.
@@ -31,5 +37,7 @@ void handle_events_menu(SDL_Event *event,world_t *world,menu_t *menu);
  * \param world Les données du monde.
  */
 void handle_events(SDL_Event *event,world_t *world);
+
+
 
 #endif

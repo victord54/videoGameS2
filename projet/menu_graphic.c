@@ -22,8 +22,37 @@ void refresh_menu_graphics(SDL_Renderer *renderer, menu_t *menu, textures_t *tex
   clear_renderer(renderer);
 
   // Application des textures dans le renderer
-	apply_background(renderer, textures->menu_background);
+  apply_background(renderer, textures->menu_background);
 
+  // Application de la texture de séléction
+  apply_select(renderer,menu,textures);
   // on met à jour l'écran
   update_screen(renderer);
+}
+
+void apply_select(SDL_Renderer *renderer, menu_t *menu, textures_t *textures){
+    switch(menu->currentmenu){
+            //Menu principale 
+        case 1:
+            switch(menu->currentoption){
+                    //Jouer
+                case 1:
+                    apply_texture(textures->menu1_select,renderer,36,143);
+                break;
+                    //Regle
+                case 2:
+                    apply_texture(textures->menu1_select,renderer,36,253);
+                break;
+                default:
+                break;
+            }
+        break;
+
+        //Menu 2 (Régle)
+
+        //Menu 3 (Niveaux ??)
+
+        default:
+        break;
+    }
 }

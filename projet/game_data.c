@@ -48,13 +48,14 @@ void init_data(world_t * world,menu_t *menu){
     world->make_disappear=0;
     // On est pas a la fin du menu
     menu->menuover=0;
-    
-    menu->menunumber=2;
-
-    menu->currentmenu=0;
-
-
-
+    // On définit le nombre total de menu 
+    menu->menunumber=1;
+    // On commence au premier menu
+    menu->currentmenu=1;
+    // On définit le nombre d'option du premier menu
+    menu->optionnumber=2;
+    // On est a la premiére option du menu
+    menu->currentoption=1;
 	// Initialisation du vaisseau
 	init_sprite(&world->vaisseau,SCREEN_WIDTH/2 - SHIP_SIZE/2,SCREEN_HEIGHT - SHIP_SIZE*2,SHIP_SIZE,SHIP_SIZE);
 

@@ -84,6 +84,7 @@ struct textures_s{
     SDL_Texture *meteorite; /*!< Texture liée à l'image d'un météorite. */
     TTF_Font *font; /*!< Texture liée à la police utilisée. */
     SDL_Texture *menu_background; /*!< Texture liée au background du menu. */
+    SDL_Texture *menu1_select; /*!< Texture liée a la selection pour le menu 1. */
     SDL_Texture *fin; /*!< Texture liée à la fin du jeu. */
 };
 /**

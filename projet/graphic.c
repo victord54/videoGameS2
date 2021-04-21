@@ -26,6 +26,7 @@ void init_textures(SDL_Renderer *renderer, textures_t *textures){
     textures->meteorite = load_image("ressources/meteorite.bmp",renderer);
     textures->font = load_font("ressources/arial.ttf",14);
     textures->menu_background = load_image("ressources/menu0.bmp",renderer);
+    textures->menu1_select = load_image("ressources/menu1_select.bmp",renderer);
     textures->fin = load_image("ressources/fin.bmp", renderer);
 }
 

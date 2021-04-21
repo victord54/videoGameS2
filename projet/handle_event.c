@@ -10,6 +10,40 @@
  */
 
 #include "handle_event.h"
+
+void menuselection(menu_t *menu){
+    switch(menu->currentmenu){
+            //Menu principale 
+        case 1:
+            switch(menu->currentoption){
+                    //Jouer
+                case 1:
+                        //On quitte le menu pour lancer le jeux
+                    menu->menuover = 1;
+                break;
+                    //Regle
+                case 2:
+                    //Afficher l'écran des régle  
+                break;
+
+                default:
+                break;
+            }
+        break;
+
+        //Menu 2 (Régle)
+
+        //Menu 3 (Niveaux ??)
+
+
+        default:
+        break;
+
+
+    }
+
+}
+
 void handle_events_menu(SDL_Event *event,world_t *world,menu_t *menu){
     while( SDL_PollEvent(event)){
         
@@ -23,20 +57,32 @@ void handle_events_menu(SDL_Event *event,world_t *world,menu_t *menu){
         // Si une touche est appuyée
         if(event->type == SDL_KEYDOWN){
             if(event->key.keysym.sym == SDLK_z){
-                // Action
+                if(menu->currentoption>1){
+                    menu->currentoption--;
+                }
             }
             if(event->key.keysym.sym == SDLK_s){
-                // Action
+                if(menu->currentoption<menu->optionnumber){
+                    menu->currentoption++;
+                }
             }
             if(event->key.keysym.sym == SDLK_UP){
-                // Action
+                if(menu->currentoption>1){
+                    menu->currentoption--;
+                }
             }
             if(event->key.keysym.sym == SDLK_DOWN){
-                // Action
+                if(menu->currentoption<menu->optionnumber){
+                    menu->currentoption++;
+                }
             }
             if(event->key.keysym.sym == SDLK_ESCAPE){
-                // On indique la fin du jeu
+                // On indique la fin du programme
+                world->gameover = 1;
                 menu->menuover = 1;
+            }
+            if(event->key.keysym.sym == SDLK_RETURN){
+                menuselection(menu);
             }
         }
     }
@@ -76,3 +122,6 @@ void handle_events(SDL_Event *event, world_t *world){
         }
     }
 }
+
+
+
