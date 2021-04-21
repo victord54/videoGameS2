@@ -22,7 +22,7 @@
  * \brief La fonction qui gère les évènement celon le menu et les option choissi.
  * \param menu Les données du menu.
  */
-void menuselection(menu_t *menu);
+void menu_selection(menu_t *menu);
 
 /**
  * \brief La fonction gère les évènements ayant eu lieu dans le menu et qui n'ont pas encore été traités.

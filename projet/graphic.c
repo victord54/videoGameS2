@@ -66,7 +66,7 @@ void refresh_graphics(SDL_Renderer *renderer, world_t *world,textures_t *texture
 	apply_sprite(renderer, textures->vaisseau, &world->vaisseau,world->make_disappear);
    	apply_sprite(renderer, textures->arrival,&world->arrival,0);
     apply_walls(renderer,textures,world);
-    if(menu->quitte==0){
+    if(menu->quitte==0){ //N'affiche pas si l'on ferme la fenétre 
         if (!world->gameover) // Affichage du temps à l'écran
         {
             lastTime = currentTime - menu->time;
@@ -85,7 +85,6 @@ void refresh_graphics(SDL_Renderer *renderer, world_t *world,textures_t *texture
             lastTime = currentTime - menu->time;
             apply_text(renderer, SCREEN_WIDTH/2-50, SCREEN_HEIGHT/2-30, 100, 60, "Lost !", textures->font);
         }
-
         // on met à jour l'écran
         update_screen(renderer);
 
@@ -93,7 +92,6 @@ void refresh_graphics(SDL_Renderer *renderer, world_t *world,textures_t *texture
         {
             record(lastTime);
         }
-    
         if (is_finish(world) == 2)
         {
             pause(2000);
@@ -107,6 +105,7 @@ void clean_data(world_t *world){
 
 void clean(SDL_Window *window, SDL_Renderer * renderer, textures_t *textures, world_t * world){
     clean_data(world);
+    clean_data(menu);
     clean_textures(textures);
     clean_sdl(renderer,window);
 }

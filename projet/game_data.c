@@ -22,9 +22,11 @@ void update_data(world_t *world){
     //On utilise not_disappear quand la collision ne doit pas changer l'affichage
     int not_disappear;
     
+    //collision avec les métèorite 
     for(int i=0;i<METEORITE_WALL_NUMBER;i++){
         handle_sprites_collision(world, &world->mur[i], &world->vaisseau,&world->make_disappear); // Vérifie une collision sur le nombre de murs du tableau pour faire disparaitre le vaisseau
     }
+    //collision avec ligne d'arrivé
     handle_sprites_collision(world, &world->arrival, &world->vaisseau,&not_disappear); // Vérifie la collision avec la ligne d'arrivée pour ne pas faire disparaître le vaisseau
 }
 

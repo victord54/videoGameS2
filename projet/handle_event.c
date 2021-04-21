@@ -11,7 +11,7 @@
 
 #include "handle_event.h"
 
-void menuselection(menu_t *menu){
+void menu_selection(menu_t *menu){
     switch(menu->currentmenu){
             //Menu principale 
         case 1:
@@ -83,7 +83,7 @@ void handle_events_menu(SDL_Event *event,world_t *world,menu_t *menu){
                 menu->quitte = 1;
             }
             if(event->key.keysym.sym == SDLK_RETURN){
-                menuselection(menu);
+                menu_selection(menu);
             }
         }
     }
