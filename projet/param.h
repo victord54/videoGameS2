@@ -111,11 +111,14 @@ typedef struct sprite_s sprite_t;
 */
 struct world_s{
     int gameover; /*!< Champ indiquant si l'on est à la fin du jeu. */
+    int levelstart; /*!< Indique le début d'un niveaux. */
     sprite_t vaisseau; /*!< Information du vaisseau. */
     sprite_t arrival; /*!< Information de la ligne d'arrivée. */
     int vy; /*!< Vitesse de déplacement verticale. */
     sprite_t mur[MAX_METEORITE_WALL_NUMBER]; /*!< Informations sur un mur d'astéroides. */
     int make_disappear; /*!< Informe si le vaisseau doit être visible ou pas */
+    int levelnbr; /*< Information sur le nombre de niveaux. */
+    int level; /*< Informe du niveaux a afficher. */
 };
 /**
  * \brief Type qui correspond aux données du monde.

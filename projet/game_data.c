@@ -21,13 +21,17 @@ void update_data(world_t *world){
 
     //On utilise not_disappear quand la collision ne doit pas changer l'affichage
     int not_disappear;
+    int next_level=0;
     
     //collision avec les métèorite 
     for(int i=0;i<METEORITE_WALL_NUMBER;i++){
-        handle_sprites_collision(world, &world->mur[i], &world->vaisseau,&world->make_disappear); // Vérifie une collision sur le nombre de murs du tableau pour faire disparaitre le vaisseau
+        handle_sprites_collision(world, &world->mur[i], &world->vaisseau,&world->make_disappear,&next_level); // Vérifie une collision sur le nombre de murs du tableau pour faire disparaitre le vaisseau
     }
     //collision avec ligne d'arrivé
-    handle_sprites_collision(world, &world->arrival, &world->vaisseau,&not_disappear); // Vérifie la collision avec la ligne d'arrivée pour ne pas faire disparaître le vaisseau
+    handle_sprites_collision(world, &world->arrival, &world->vaisseau,&not_disappear,&next_level); // Vérifie la collision avec la ligne d'arrivée pour ne pas faire disparaître le vaisseau
+    if(next_level){
+        newlevel(world);
+    }
 }
 
 void init_sprite(sprite_t *sprite, int x, int y, int w, int h){
@@ -46,8 +50,14 @@ void init_sprite_meteore(sprite_t *sprite, int x, int y, int w, int h,int screen
 void init_data(world_t * world,menu_t *menu){
     // On n'est pas à la fin du jeu
     world->gameover=0;
+    //On commence un niveau
+    world->levelstart=1;
     // Le sprite doit être visible
     world->make_disappear=0;
+    // Nombre de niveaux
+    world->levelnbr=2;
+    // On commence au niveau 1
+    world->level=1;
     // On est pas a la fin du menu
     menu->menuover=0;
     // On définit le nombre total de menu 
@@ -114,11 +124,14 @@ int sprites_collide(sprite_t *sp1, sprite_t *sp2){
     return 0;
 }
 
-void handle_sprites_collision(world_t *world,sprite_t *sp1, sprite_t *sp2, int *make_disappear){
+void handle_sprites_collision(world_t *world,sprite_t *sp1, sprite_t *sp2, int *make_disappear,int *next_level){
     if (sprites_collide(sp1,sp2)){
         world->vy=0;
         world->gameover = 1;
         *make_disappear=1;
+        if((world->level<world->levelnbr)&&(is_finish(world)==1)){
+            *next_level=1;
+        }
     }
 }
 
@@ -127,30 +140,83 @@ void init_walls(world_t *world){
     // Taille d'un ecran 9*14
     // Position x du mur, position y du mur, nombre de meteore en x, nombre de meteore en y ,numero de l'ecran 
     
-    /* ===== Placement meteorite niveau 1 ===== */
-    // Écran 1
-    init_sprite_meteore(&world->mur[0],0,2,3,6,0);
-    init_sprite_meteore(&world->mur[1],6,2,3,6,0);
+    switch(world->level){
+        case 1:
+            /* ===== Placement meteorite niveau 1 ===== */
+                // Écran 1
+            init_sprite_meteore(&world->mur[0],0,2,3,6,0);
+            init_sprite_meteore(&world->mur[1],6,2,3,6,0);
 
-    // Écran 2
-    init_sprite_meteore(&world->mur[2],0,3,6,3,1);
-    init_sprite_meteore(&world->mur[3],3,9,6,3,1);
+                // Écran 2
+            init_sprite_meteore(&world->mur[2],0,3,6,3,1);
+            init_sprite_meteore(&world->mur[3],3,9,6,3,1);
 
-    // Écran 3
-    init_sprite_meteore(&world->mur[4],0,1,3,1,2);
-    init_sprite_meteore(&world->mur[5],6,1,3,1,2);
-    init_sprite_meteore(&world->mur[6],3,5,6,3,2);
-    init_sprite_meteore(&world->mur[7],6,8,3,6,2);
-    init_sprite_meteore(&world->mur[8],0,11,3,3,2);
+                // Écran 3
+            init_sprite_meteore(&world->mur[4],0,1,3,1,2);
+            init_sprite_meteore(&world->mur[5],6,1,3,1,2);
+            init_sprite_meteore(&world->mur[6],3,5,6,3,2);
+            init_sprite_meteore(&world->mur[7],6,8,3,6,2);
+            init_sprite_meteore(&world->mur[8],0,11,3,3,2);
+                // Écran 4
+            init_sprite_meteore(&world->mur[9],2,0,2,1,3);
+            init_sprite_meteore(&world->mur[10],0,4,2,1,3);
+            init_sprite_meteore(&world->mur[11],2,8,2,1,3);
+            init_sprite_meteore(&world->mur[12],0,13,2,3,3);
+            init_sprite_meteore(&world->mur[13],4,0,1,13,3);
+            init_sprite_meteore(&world->mur[14],5,4,3,1,3);
+            init_sprite_meteore(&world->mur[15],7,13,2,3,3);
+        break;
+        case 2:
+            /* ===== Placement meteorite niveau 2 ===== */
+                // Écran 1
+            init_sprite_meteore(&world->mur[0],3,2,3,3,0);
+            init_sprite_meteore(&world->mur[1],4,4,1,3,0);
+                // Écran 2
+            init_sprite_meteore(&world->mur[2],0,5,3,8,1);
+            init_sprite_meteore(&world->mur[3],6,5,3,8,1);
+                // Écran 3
+            init_sprite_meteore(&world->mur[4],0,1,3,1,2);
+            init_sprite_meteore(&world->mur[5],6,1,3,1,2);
+            init_sprite_meteore(&world->mur[6],3,5,6,3,2);
+            init_sprite_meteore(&world->mur[7],6,8,3,6,2);
+            init_sprite_meteore(&world->mur[8],0,11,3,3,2);
+                // Écran 4
+            init_sprite_meteore(&world->mur[9],2,0,2,1,3);
+            init_sprite_meteore(&world->mur[10],0,4,2,1,3);
+            init_sprite_meteore(&world->mur[11],2,8,2,1,3);
+            init_sprite_meteore(&world->mur[12],0,13,2,3,3);
+            init_sprite_meteore(&world->mur[13],4,0,1,13,3);
+            init_sprite_meteore(&world->mur[14],5,4,3,1,3);
+            init_sprite_meteore(&world->mur[15],7,13,2,3,3);
+        break;
+        default:
+            /* ===== Placement meteorite niveau 1 ===== */
+                // Écran 1
+            init_sprite_meteore(&world->mur[0],0,2,3,6,0);
+            init_sprite_meteore(&world->mur[1],6,2,3,6,0);
 
-    // Écran 4
-    init_sprite_meteore(&world->mur[9],2,0,2,1,3);
-    init_sprite_meteore(&world->mur[10],0,4,2,1,3);
-    init_sprite_meteore(&world->mur[11],2,8,2,1,3);
-    init_sprite_meteore(&world->mur[12],0,13,2,3,3);
-    init_sprite_meteore(&world->mur[13],4,0,1,13,3);
-    init_sprite_meteore(&world->mur[14],5,4,3,1,3);
-    init_sprite_meteore(&world->mur[15],7,13,2,3,3);
+                // Écran 2
+            init_sprite_meteore(&world->mur[2],0,3,6,3,1);
+            init_sprite_meteore(&world->mur[3],3,9,6,3,1);
+
+                // Écran 3
+            init_sprite_meteore(&world->mur[4],0,1,3,1,2);
+            init_sprite_meteore(&world->mur[5],6,1,3,1,2);
+            init_sprite_meteore(&world->mur[6],3,5,6,3,2);
+            init_sprite_meteore(&world->mur[7],6,8,3,6,2);
+            init_sprite_meteore(&world->mur[8],0,11,3,3,2);
+
+                // Écran 4
+            init_sprite_meteore(&world->mur[9],2,0,2,1,3);
+            init_sprite_meteore(&world->mur[10],0,4,2,1,3);
+            init_sprite_meteore(&world->mur[11],2,8,2,1,3);
+            init_sprite_meteore(&world->mur[12],0,13,2,3,3);
+            init_sprite_meteore(&world->mur[13],4,0,1,13,3);
+            init_sprite_meteore(&world->mur[14],5,4,3,1,3);
+            init_sprite_meteore(&world->mur[15],7,13,2,3,3);
+        break;
+    }
+    
 }
 
 void update_walls(world_t *world){
@@ -169,4 +235,20 @@ int is_finish(world_t *world)
     else if (world->gameover && world->vaisseau.y > world->arrival.y+FINISH_LINE_HEIGHT)
         return 2; // 2 = perdu
     return 0;
+}
+
+void newlevel(world_t *world){
+    world->gameover=0;
+    //On commence un nouveaux niveaux
+    world->levelstart=1;
+    // On charche le prochain niveaux
+    world->level++;
+    // Initialisation du vaisseau
+    init_sprite(&world->vaisseau,SCREEN_WIDTH/2 - SHIP_SIZE/2,SCREEN_HEIGHT - SHIP_SIZE*2,SHIP_SIZE,SHIP_SIZE);
+    // Initialisation de la vy
+    world->vy = INITIAL_SPEED;
+    // Initialisation de la ligne d'arrivée
+    init_sprite(&world->arrival,0,FINISH_LINE_HEIGHT-SCREEN_HEIGHT*3-METEORITE_SIZE,SCREEN_WIDTH,FINISH_LINE_HEIGHT);
+    // Initialisation d'un mur de météorites.
+    init_walls(world);
 }

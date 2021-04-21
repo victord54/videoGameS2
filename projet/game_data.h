@@ -80,7 +80,7 @@ int sprites_collide(sprite_t *sp1, sprite_t *sp2);
  * \param sp2 second prite 
  * \param make_disappear détermine la visibilité du premie sprite de la fonction
  */
-void handle_sprites_collision(world_t *world,sprite_t *sp1, sprite_t *sp2,int *make_disappear);
+void handle_sprites_collision(world_t *world,sprite_t *sp1, sprite_t *sp2,int *make_disappear,int *next_level);
 
 /**
  * \brief Fonction qui change initalise les murs
@@ -98,8 +98,13 @@ void update_walls(world_t *world);
  * @brief Fonction qui teste si on a gagné.
  * 
  * @param world Le monde.
- * @return int
+ * @return 1 si on a gagnier 2 si on a perdu.
  */
 int is_finish(world_t *world);
 
+/**
+ * \brief Fonction qui charge le prochain niveaux.
+ * \param world Structure des données du monde.
+ */
+void newlevel(world_t *world);
 #endif
