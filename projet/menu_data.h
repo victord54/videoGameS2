@@ -18,4 +18,17 @@
 
 /* ========== FONCTIONS ========== */
 
+/**
+ * \brief La fonction indique si le menu est fini.
+ * \param menu Les données du menu.
+ * \return 1 si le jeu est fini, 0 sinon.
+ */
+int is_menu_over(menu_t *menu);
+
+/**
+ * \brief La fonction indique si on a quitter par menu.
+ * \param menu Les données du menu.
+ * \return 1 si le jeu est fini, 0 sinon.
+ */
+int is_menu_quitte(menu_t *menu);
 #endif

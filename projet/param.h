@@ -133,6 +133,7 @@ struct menu_s{
   int optionnumber; /*!< Nombre d'option sur le menu. */
   int currentoption; /*!< Option actuellement sélectionnée. */
   int time; /*!< Sauvegarde le temps d'execution du menu. */
+  int quitte; /*!< Informe si l'on affiche l'ecran de fin. */
 };
 /**
  * \brief Type qui correspond aux données du menu.

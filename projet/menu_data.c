@@ -11,3 +11,11 @@
 
 
 #include "menu_data.h"
+
+int is_menu_over(menu_t *menu){
+    return menu->menuover;
+}
+
+int is_menu_quitte(menu_t *menu){
+    return menu->quitte;
+}

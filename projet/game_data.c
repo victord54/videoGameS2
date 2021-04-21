@@ -56,6 +56,8 @@ void init_data(world_t * world,menu_t *menu){
     menu->optionnumber=2;
     // On est a la premiére option du menu
     menu->currentoption=1;
+    // On affiche le menu de base.
+    menu->quitte=0;
 	// Initialisation du vaisseau
 	init_sprite(&world->vaisseau,SCREEN_WIDTH/2 - SHIP_SIZE/2,SCREEN_HEIGHT - SHIP_SIZE*2,SHIP_SIZE,SHIP_SIZE);
 
@@ -143,10 +145,10 @@ void init_walls(world_t *world){
     init_sprite_meteore(&world->mur[9],2,0,2,1,3);
     init_sprite_meteore(&world->mur[10],0,4,2,1,3);
     init_sprite_meteore(&world->mur[11],2,8,2,1,3);
-    init_sprite_meteore(&world->mur[12],0,13,2,1,3);
+    init_sprite_meteore(&world->mur[12],0,13,2,3,3);
     init_sprite_meteore(&world->mur[13],4,0,1,13,3);
     init_sprite_meteore(&world->mur[14],5,4,3,1,3);
-    init_sprite_meteore(&world->mur[15],7,13,2,1,3);
+    init_sprite_meteore(&world->mur[15],7,13,2,3,3);
 }
 
 void update_walls(world_t *world){

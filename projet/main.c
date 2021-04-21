@@ -28,12 +28,9 @@ int main( int argc, char* argv[] )
     // Initialisation du jeu
     init(&window,&renderer,&textures,&world,&menu);
     
-    while(menu.menuover==0){
+    while(!is_menu_over(&menu)){
         // Gestion des évènement
         handle_events_menu(&event,&world,&menu);
-
-        // Affichage du menu
-        // apply_menu(renderer,&textures);
         
         // Rafraichissement de l'écran
         refresh_menu_graphics(renderer,&menu,&textures);
@@ -41,15 +38,10 @@ int main( int argc, char* argv[] )
         // Pause de 8 ms pour controler la vitesse de rafraichissement
         pause(8);
     }
-
-
-
-
-
     while(!is_game_over(&world)){ // Tq le jeu n'est pas fini
         
         // Gestion des évènements
-        handle_events(&event,&world);
+        handle_events(&event,&world,&menu);
    
         // Mise à jour des données liée à la physique du monde
         update_data(&world);
@@ -60,12 +52,13 @@ int main( int argc, char* argv[] )
         // Pause de 8 ms pour controler la vitesse de rafraichissement
         pause(8);
     }
-    
+    while(!is_menu_quitte(&menu)){
+        print_end(renderer, &textures);
+        pause(3000);
+        menu.quitte=1;
+    }
     // Nettoyage final
-    print_end(renderer, &textures);
-    pause(3000);
     clean(window,renderer,&textures,&world);
-    
     
     return 0;
 }

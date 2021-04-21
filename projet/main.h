@@ -18,11 +18,12 @@
 
 #include "sdl2-light.h"
 #include "param.h"
+#include "menu_data.h"
+#include "menu_graphic.h"
 #include "game_data.h"
 #include "graphic.h"
 #include "handle_event.h"
 #include "leaderboard.h"
-#include "menu_data.h"
-#include "menu_graphic.h"
+
 
 #endif

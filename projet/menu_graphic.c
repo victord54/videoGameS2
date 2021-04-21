@@ -17,7 +17,6 @@ void refresh_menu_graphics(SDL_Renderer *renderer, menu_t *menu, textures_t *tex
 
   menu->time = SDL_GetTicks(); // Variable liée au timer
 
-
   // On vide le renderer
   clear_renderer(renderer);
 
@@ -47,11 +46,14 @@ void apply_select(SDL_Renderer *renderer, menu_t *menu, textures_t *textures){
                 break;
             }
         break;
+        	//Menu 2 (Régle)
+        case 2:
 
-        //Menu 2 (Régle)
-
-        //Menu 3 (Niveaux ??)
-
+        break;
+        	//Menu 3 (Niveaux)
+        case 3:
+        	
+        break;
         default:
         break;
     }

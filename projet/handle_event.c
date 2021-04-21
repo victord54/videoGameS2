@@ -29,19 +29,18 @@ void menuselection(menu_t *menu){
                 default:
                 break;
             }
+         break;
+            //Menu 2 (Régle)
+        case 2:
+
         break;
-
-        //Menu 2 (Régle)
-
-        //Menu 3 (Niveaux ??)
-
-
+            //Menu 3 (Niveaux)
+        case 3:
+            
+        break;
         default:
         break;
-
-
     }
-
 }
 
 void handle_events_menu(SDL_Event *event,world_t *world,menu_t *menu){
@@ -52,6 +51,7 @@ void handle_events_menu(SDL_Event *event,world_t *world,menu_t *menu){
             // On indique la fin du jeu
             world->gameover = 1;
             menu->menuover = 1;
+            menu->quitte = 1;
         }
        
         // Si une touche est appuyée
@@ -80,6 +80,7 @@ void handle_events_menu(SDL_Event *event,world_t *world,menu_t *menu){
                 // On indique la fin du programme
                 world->gameover = 1;
                 menu->menuover = 1;
+                menu->quitte = 1;
             }
             if(event->key.keysym.sym == SDLK_RETURN){
                 menuselection(menu);
@@ -87,13 +88,14 @@ void handle_events_menu(SDL_Event *event,world_t *world,menu_t *menu){
         }
     }
 }
-void handle_events(SDL_Event *event, world_t *world){
+void handle_events(SDL_Event *event, world_t *world,menu_t *menu){
     while( SDL_PollEvent(event)){
         
         // Si l'utilisateur a cliqué sur le X de la fenêtre
         if(event->type == SDL_QUIT){
             // On indique la fin du jeu
             world->gameover = 1;
+            menu->quitte = 1;
         }
        
         // Si une touche est appuyée
@@ -101,22 +103,35 @@ void handle_events(SDL_Event *event, world_t *world){
             if(event->key.keysym.sym == SDLK_d){
                 world->vaisseau.x+= MOVING_STEP;
             }
+            if(event->key.keysym.sym == SDLK_RIGHT){
+                world->vaisseau.x+= MOVING_STEP;
+            }
 
             if(event->key.keysym.sym == SDLK_q){
                 world->vaisseau.x-= MOVING_STEP;
             }
-
-            if(event->key.keysym.sym == SDLK_ESCAPE){
-                //On indique la fin du jeu
-                world->gameover = 1;
+            if(event->key.keysym.sym == SDLK_LEFT){
+                world->vaisseau.x-= MOVING_STEP;
             }
 
             if(event->key.keysym.sym == SDLK_z){
                 world->vy=world->vy+1;
             }
+            if(event->key.keysym.sym == SDLK_UP){
+                world->vy=world->vy+1;
+            }
 
             if(event->key.keysym.sym == SDLK_s){
-            world->vy=world->vy-1;
+                world->vy=world->vy-1;
+            }
+            if(event->key.keysym.sym == SDLK_DOWN){
+                world->vy=world->vy-1;
+            }
+
+            if(event->key.keysym.sym == SDLK_ESCAPE){
+                //On indique la fin du jeu
+                world->gameover = 1;
+                menu->quitte = 1;
             }
             out_of_screen(world);
         }

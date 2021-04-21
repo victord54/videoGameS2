@@ -66,37 +66,38 @@ void refresh_graphics(SDL_Renderer *renderer, world_t *world,textures_t *texture
 	apply_sprite(renderer, textures->vaisseau, &world->vaisseau,world->make_disappear);
    	apply_sprite(renderer, textures->arrival,&world->arrival,0);
     apply_walls(renderer,textures,world);
+    if(menu->quitte==0){
+        if (!world->gameover) // Affichage du temps à l'écran
+        {
+            lastTime = currentTime - menu->time;
+            sprintf(str, "Time : %d",lastTime/1000); // La division par 1000 sert à n'afficher que les secondes
+            apply_text(renderer, 0, 0, 200, 60, str, textures->font);
+        }
 
-    if (!world->gameover) // Affichage du temps à l'écran
-    {
-        lastTime = currentTime - menu->time;
-        sprintf(str, "Time : %d",lastTime/1000); // La division par 1000 sert à n'afficher que les secondes
-        apply_text(renderer, 0, 0, 200, 60, str, textures->font);
-    }
+        if (is_finish(world)==1) // Si on a gagné
+        {
+            lastTime = (currentTime - menu->time)/1000;
+            apply_text(renderer, SCREEN_WIDTH/2-50, SCREEN_HEIGHT/2-30, 100, 60, "Win !", textures->font);
 
-    if (is_finish(world) == 1) // Si on a gagné
-    {
-        lastTime = (currentTime - menu->time)/1000;
-        apply_text(renderer, SCREEN_WIDTH/2-50, SCREEN_HEIGHT/2-30, 100, 60, "Win !", textures->font);
+        }
+        if (is_finish(world) == 2) // Si on a perdu
+        {
+            lastTime = currentTime - menu->time;
+            apply_text(renderer, SCREEN_WIDTH/2-50, SCREEN_HEIGHT/2-30, 100, 60, "Lost !", textures->font);
+        }
 
-    }
-    if (is_finish(world) == 2) // Si on a perdu
-    {
-        lastTime = currentTime - menu->time;
-        apply_text(renderer, SCREEN_WIDTH/2-50, SCREEN_HEIGHT/2-30, 100, 60, "Lost !", textures->font);
-    }
+        // on met à jour l'écran
+        update_screen(renderer);
 
-    // on met à jour l'écran
-    update_screen(renderer);
-
-    if (is_finish(world) == 1) // Si on a gagné, on inscrit le nom du joueur pour enregistrer le score
-    {
-        record(lastTime);
-    }
+        if (is_finish(world) == 1) // Si on a gagné, on inscrit le nom du joueur pour enregistrer le score
+        {
+            record(lastTime);
+        }
     
-    if (is_finish(world) == 2)
-    {
-        pause(2000);
+        if (is_finish(world) == 2)
+        {
+            pause(2000);
+        }
     }
 }
 

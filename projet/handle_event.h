@@ -36,7 +36,7 @@ void handle_events_menu(SDL_Event *event,world_t *world,menu_t *menu);
  * \param event Paramètre qui contient les événements.
  * \param world Les données du monde.
  */
-void handle_events(SDL_Event *event,world_t *world);
+void handle_events(SDL_Event *event,world_t *world,menu_t *menu);
 
 
 
