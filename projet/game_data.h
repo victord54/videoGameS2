@@ -35,8 +35,9 @@ int is_program_over(program_t* program);
 /**
  * \brief La fonction met à jour les données en tenant compte de la physique du monde.
  * \param world Les données du monde.
+ * \param menu Les données du menu.
  */
-void update_data(world_t *world);
+void update_data(world_t *world,menu_t *menu);
 
 /**
  * \brief La fonction initialise les données d'un sprite selon les valeurs entrées.

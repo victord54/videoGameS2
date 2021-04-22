@@ -42,6 +42,7 @@ int main( int argc, char* argv[] )
             // Pause de 8 ms pour controler la vitesse de rafraichissement
             pause(8);
         }
+        menu->currentmenu=3;
         while(!is_game_over(&world)){ // Tq le jeu n'est pas fini
         
             // Gestion des évènements
