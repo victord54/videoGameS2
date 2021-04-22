@@ -62,7 +62,7 @@ void apply_select(SDL_Renderer *renderer, menu_t *menu, textures_t *textures){
         break;
         	//Menu 2 (Règles)
         case 2:
-
+          apply_texture(textures->menu1_select,renderer,36,353);
         break;
         	//Menu 3 (Niveau)
         case 3:

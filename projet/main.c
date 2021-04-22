@@ -48,7 +48,7 @@ int main( int argc, char* argv[] )
             handle_events(&event,&world,&menu,&program);
    
             // Mise à jour des données liée à la physique du monde
-            update_data(&world);
+            update_data(&world, &menu);
 
             // Rafraichissement de l'écran
             refresh_graphics(renderer, &world, &textures, &menu);

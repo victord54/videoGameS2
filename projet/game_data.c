@@ -20,7 +20,7 @@ int is_program_over(program_t* program){
 }
 
 
-void update_data(world_t *world){
+void update_data(world_t *world, menu_t *menu){
     world->arrival.y += world->vy; // Fait descendre la ligne d'arrivée
     update_walls(world); // Fait descendre les murs
 
