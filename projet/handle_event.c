@@ -13,15 +13,15 @@
 
 void menu_selection(menu_t *menu,program_t *program){
     switch(menu->currentmenu){
-            //Menu principale 
+            //Menu principal
         case 1:
             switch(menu->currentoption){
                     //Jouer
                 case 1:
-                        //On quitte le menu pour lancer le jeux
+                        //On quitte le menu pour lancer le jeu
                     menu->currentmenu = 3;
                 break;
-                    //Regle
+                    //Règle
                 case 2:
                     menu->currentmenu = 2;
                 break;
@@ -30,14 +30,14 @@ void menu_selection(menu_t *menu,program_t *program){
                 break;
             }
          break;
-            //Menu 2 (Régle)
+            //Menu 2 (Règles)
         case 2:
             menu->currentmenu = 1;
         break;
-            //Menu 3 (Niveaux)
+            //Menu 3 (Niveau)
         case 3:
             switch(menu->currentoption){
-                    //Jouer au niveaux
+                    //Jouer au niveau
                 case 1:
                     menu->menuover = 1;
                     program->mode = 0;
@@ -52,7 +52,7 @@ void menu_selection(menu_t *menu,program_t *program){
                 break;
             }
         break;
-            //Menu 4 (Fin de jeux)
+            //Menu 4 (Fin du jeu)
         case 4:
             switch(menu->currentoption){
                     //Restart

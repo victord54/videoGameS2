@@ -154,9 +154,8 @@ void level_start(SDL_Renderer *renderer,world_t *world,textures_t *textures){
 
     sprintf(str, "Niveau %d",world->level);
     /*
-        Pour chaque text on doit clear le renderer et le re remplir 1 par 1,
-        pour avoir un nouveaux text
-
+        Pour chaque texte on doit clear le renderer et le re-remplir 1 par 1,
+        pour avoir un nouveaux texte
     */
     apply_text(renderer, SCREEN_WIDTH/2-50, SCREEN_HEIGHT/2-30, 100, 60, str,textures->font);
     update_screen(renderer);

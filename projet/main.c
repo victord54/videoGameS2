@@ -60,7 +60,6 @@ int main( int argc, char* argv[] )
         
         init_menu(&menu,4);
         while((!is_menu_over(&menu))&&(!is_menu_quitte(&menu))){
-            printf("Menu actuelle=%d\n",menu.currentmenu);
             // Gestion des évènement
             handle_events_menu(&event,&world,&menu,&program);
             // Rafraichissement de l'écran
@@ -84,8 +83,7 @@ int main( int argc, char* argv[] )
             print_end_b(renderer, &textures);
             pause(3000);
         }
-        else
-            printf("world.gameover = %d\nworld.y = %d\n",world.gameover, world.vaisseau.y);
+        
     }
     // Nettoyage final
     clean(window,renderer,&textures,&world);
