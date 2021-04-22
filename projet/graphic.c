@@ -141,7 +141,7 @@ void print_end(SDL_Renderer *renderer, textures_t *textures)
 
 void level_start(SDL_Renderer *renderer,world_t *world,textures_t *textures){
     char str[20]; // String pour formater le texte affiché à l'écran
-    sprintf(str, "Niveaux %d",world->level);
+    sprintf(str, "Niveau %d",world->level);
     apply_text(renderer, SCREEN_WIDTH/2-50, SCREEN_HEIGHT/2-30, 100, 60, str,textures->font);
     update_screen(renderer);
     pause(1000);
