@@ -23,7 +23,7 @@ void menu_selection(menu_t *menu,program_t *program){
                 break;
                     //Règle
                 case 2:
-                    menu;
+                    menu->currentmenu = 2;
                 break;
 
                 default:
@@ -32,7 +32,7 @@ void menu_selection(menu_t *menu,program_t *program){
          break;
             //Menu 2 (Règles)
         case 2:
-            menu->currentmenu = 3;
+            menu->currentmenu = 1;
         break;
             //Menu 3 (Niveau)
         case 3:

@@ -38,17 +38,18 @@ int main( int argc, char* argv[] )
         
             // Rafraichissement de l'écran
             refresh_menu_graphics(renderer,&menu,&textures);
-
+            
             // Pause de 8 ms pour controler la vitesse de rafraichissement
             pause(8);
         }
+        
         while(!is_game_over(&world)){ // Tq le jeu n'est pas fini
         
             // Gestion des évènements
             handle_events(&event,&world,&menu,&program);
    
             // Mise à jour des données liée à la physique du monde
-            update_data(&world, &menu);
+            update_data(&world,&menu);
 
             // Rafraichissement de l'écran
             refresh_graphics(renderer, &world, &textures, &menu);
@@ -82,8 +83,7 @@ int main( int argc, char* argv[] )
             print_end_b(renderer, &textures);
             pause(3000);
         }
-        else
-            printf("world.gameover = %d\nworld.y = %d\n",world.gameover, world.vaisseau.y);
+        
     }
     // Nettoyage final
     clean(window,renderer,&textures,&world);
