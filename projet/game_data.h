@@ -126,8 +126,9 @@ void init_world(world_t *world);
 /**
  * \brief La fonction initialise les données du menu.
  * \param menu Structure des données du menu.
+ * \param menu_nbr Défini quel menu doit être initialiser
 */ 
-void init_menu(menu_t *menu);
+void init_menu(menu_t *menu,int menu_nbr);
 
 /**
  * \brief La fonction initialise les données du program.

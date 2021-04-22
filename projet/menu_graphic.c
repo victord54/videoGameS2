@@ -38,8 +38,6 @@ void apply_menu(SDL_Renderer *renderer, menu_t *menu, textures_t *textures){
       default:
         apply_background(renderer, textures->background);  
       break;
-
-
     }
 }
 

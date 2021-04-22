@@ -54,7 +54,7 @@ void init_sprite_meteore(sprite_t *sprite, int x, int y, int w, int h,int screen
 
 void init_data(world_t * world,menu_t *menu,program_t *program){
     init_world(world);
-    init_menu(menu);
+    init_menu(menu,1);
     init_program(program);
 }
 
@@ -249,19 +249,33 @@ void init_world(world_t* world){
     init_walls(world);
 }
 
-void init_menu(menu_t* menu){
-    // On est pas a la fin du menu
-    menu->menuover=0;
-    // On définit le nombre total de menu 
-    menu->menunumber=4;
-    // On commence au premier menu
-    menu->currentmenu=1;
-    // On définit le nombre d'option du premier menu
-    menu->optionnumber=2;
-    // On est a la premiére option du menu
-    menu->currentoption=1;
-    // On affiche le menu de base.
-    menu->quitte=0;
+void init_menu(menu_t* menu,int menu_nbr){
+    switch(menu_nbr){
+        case 1:
+            // On est pas a la fin du menu
+            menu->menuover=0;
+            // On définit le nombre total de menu 
+            menu->menunumber=4;
+            // On cest au menu 1
+            menu->currentmenu=1;
+            // On définit le nombre d'option du menu
+            menu->optionnumber=2;
+            // On est a la premiére option du menu
+            menu->currentoption=1;
+            // On affiche le menu de base.
+            menu->quitte=0;
+        break;
+        case 4:
+            // On est pas a la fin du menu
+            menu->menuover=0;
+            // On cest au menu 4
+            menu->currentmenu=4;
+            // On définit le nombre d'option du menu
+            menu->optionnumber=2;
+            // On est a la premiére option du menu
+            menu->currentoption=1;
+        break;
+    }
 }
 
 void init_program(program_t *program){

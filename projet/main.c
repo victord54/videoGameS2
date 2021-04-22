@@ -57,11 +57,8 @@ int main( int argc, char* argv[] )
             pause(8);
         }
 
-        menu.menuover=0;
-        menu.currentmenu=4;
-        menu.optionnumber=2;
-        menu.currentoption=1;
-        while(!is_menu_over(&menu)){
+        init_menu(&menu,4);
+        while((!is_menu_over(&menu))&&(!is_menu_quitte(&menu))){
             // Gestion des évènement
             handle_events_menu(&event,&world,&menu,&program);
             // Rafraichissement de l'écran
