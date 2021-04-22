@@ -27,7 +27,6 @@ void refresh_menu_graphics(SDL_Renderer *renderer, menu_t *menu, textures_t *tex
 }
 
 void apply_menu(SDL_Renderer *renderer, menu_t *menu, textures_t *textures){
-  printf("Menu actuelle=%d\n",menu->currentmenu);
     switch(menu->currentmenu){
       case 1:
         apply_background(renderer, textures->menu_background); // Affichage jouer + règles
@@ -42,7 +41,6 @@ void apply_menu(SDL_Renderer *renderer, menu_t *menu, textures_t *textures){
         apply_background(renderer, textures->menu_replay); // Affichage du background seul
       break;
     }
-  printf("Menu actuelle=%d\n",menu->currentmenu);  
 }
 
 void apply_select(SDL_Renderer *renderer, menu_t *menu, textures_t *textures){
