@@ -29,14 +29,16 @@ void refresh_menu_graphics(SDL_Renderer *renderer, menu_t *menu, textures_t *tex
 void apply_menu(SDL_Renderer *renderer, menu_t *menu, textures_t *textures){
     switch(menu->currentmenu){
       case 1:
-        apply_background(renderer, textures->menu_background);  
+        apply_background(renderer, textures->menu_background); // Affichage jouer + règles
       break;
       case 2:
-        //apply_background(renderer, textures->menu_restart);
-        apply_background(renderer, textures->background);  
+        apply_background(renderer, textures->rules); // Affichage des règles
       break;
+      case 3:
+        apply_background(renderer, textures->menu_replay); // Affichage de rejouer + quitter
+
       default:
-        apply_background(renderer, textures->background);  
+        apply_background(renderer, textures->background); // Juste background
       break;
     }
 }
