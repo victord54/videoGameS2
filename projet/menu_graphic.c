@@ -38,7 +38,7 @@ void apply_menu(SDL_Renderer *renderer, menu_t *menu, textures_t *textures){
         apply_background(renderer, textures->menu_replay); // Affichage de rejouer + quitter
 
       default:
-        apply_background(renderer, textures->background); // Affichage du background seul
+        apply_background(renderer, textures->menu_replay); // Affichage du background seul
       break;
     }
 }
