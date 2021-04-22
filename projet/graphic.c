@@ -24,7 +24,7 @@ void init_textures(SDL_Renderer *renderer, textures_t *textures){
     textures->vaisseau = load_image("ressources/spaceship.bmp",renderer);
     textures->arrival = load_image("ressources/finish_line.bmp",renderer);
     textures->meteorite = load_image("ressources/meteorite.bmp",renderer);
-    textures->font = load_font("ressources/arial.ttf",14);
+    textures->font = load_font("ressources/nasa.ttf",14);
     textures->menu_background = load_image("ressources/menu0.bmp",renderer);
     textures->menu1_select = load_image("ressources/menu1_select.bmp",renderer);
     textures->menu_replay = load_image("ressources/replay.bmp",renderer);
