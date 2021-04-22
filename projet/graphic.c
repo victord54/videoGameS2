@@ -28,6 +28,7 @@ void init_textures(SDL_Renderer *renderer, textures_t *textures){
     textures->menu_background = load_image("ressources/menu0.bmp",renderer);
     textures->menu1_select = load_image("ressources/menu1_select.bmp",renderer);
     textures->fin = load_image("ressources/fin.bmp", renderer);
+    textures->finb = load_image("ressources/finb.bmp",renderer);
 }
 
 void apply_sprite(SDL_Renderer *renderer, SDL_Texture *texture, sprite_t *sprite,int make_disappear){
@@ -136,6 +137,13 @@ void print_end(SDL_Renderer *renderer, textures_t *textures)
 {
     clear_renderer(renderer);
     apply_background(renderer, textures->fin);
+    update_screen(renderer);
+}
+
+void print_end_b(SDL_Renderer *renderer, textures_t *textures)
+{
+    clear_renderer(renderer);
+    apply_background(renderer, textures->finb);
     update_screen(renderer);
 }
 

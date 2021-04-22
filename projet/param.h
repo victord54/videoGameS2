@@ -85,7 +85,8 @@ struct textures_s{
     TTF_Font *font; /*!< Texture liée à la police utilisée. */
     SDL_Texture *menu_background; /*!< Texture liée au background du menu. */
     SDL_Texture *menu1_select; /*!< Texture liée a la selection pour le menu 1. */
-    SDL_Texture *fin; /*!< Texture liée à la fin du jeu. */
+    SDL_Texture *fin; /*!< Texture liée à la fin du jeu. (si on a gagné) */
+    SDL_Texture *finb; /*!< Texture liée à la fin du jeu (si on a perdu) */
 };
 /**
  * \brief Type qui correspond aux textures du jeu.

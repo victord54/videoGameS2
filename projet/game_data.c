@@ -209,7 +209,6 @@ int is_finish(world_t *world)
     // Si il y a eu collision et que le vaisseau est en dessous de la ligne d'arrivée (graphiquement)
     else if (world->gameover && world->vaisseau.y > world->arrival.y+FINISH_LINE_HEIGHT)
         return 2; // 2 = perdu
-    return 0;
 }
 
 void newlevel(world_t *world){

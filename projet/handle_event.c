@@ -41,11 +41,13 @@ void menu_selection(menu_t *menu,program_t *program){
                 case 1:
                     menu->menuover = 1;
                     program->mode = 0;
+                    menu->currentmenu=3;
                 break;
                     //Jouer infini
                 case 2:
                     menu->menuover = 1;
                     program->mode = 1;
+                    menu->currentmenu=3;
                 break;
 
                 default:

@@ -105,12 +105,20 @@ void init(SDL_Window **window, SDL_Renderer ** renderer, textures_t *textures, w
 void apply_walls(SDL_Renderer *renderer,textures_t *textures,world_t * world);
 
 /**
- * @brief Fonction qui applique un background à la fin du jeu
+ * @brief Fonction qui applique un background à la fin du jeu si on a gagné
  * 
- * @param renderer 
- * @param textures 
+ * @param renderer Le renderer.
+ * @param textures Les textures.
  */
 void print_end(SDL_Renderer *renderer, textures_t *textures);
+
+/**
+ * @brief Fonction qui applique un background à la fin du jeu si on a perdu
+ * 
+ * @param renderer Le renderer.
+ * @param textures Les textures.
+ */
+void print_end_b(SDL_Renderer *renderer, textures_t *textures);
 
 
 /**
