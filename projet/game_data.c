@@ -100,11 +100,11 @@ int sprites_collide(sprite_t *sp1, sprite_t *sp2){
 }
 
 void handle_sprites_collision(world_t *world,sprite_t *sp1, sprite_t *sp2, int *make_disappear,int *next_level){
-    if (sprites_collide(sp1,sp2)){
+    if (sprites_collide(sp1,sp2)){ // Si il y a collision en x et en y
         world->vy=0;
         world->gameover = 1;
         *make_disappear=1;
-        if((world->level<world->levelnbr)&&(is_finish(world)==1)){
+        if((world->level<world->levelnbr)&&(is_finish(world)==1)){ // Si on est pas au dernier niveau et qu'on a gagné on passe au niveau suivant
             *next_level=1;
         }
     }
@@ -215,7 +215,7 @@ void newlevel(world_t *world){
     world->gameover=0;
     //On commence un nouveaux niveaux
     world->levelstart=1;
-    // On charche le prochain niveaux
+    // On charge le prochain niveaux
     world->level++;
     // Initialisation du vaisseau
     init_sprite(&world->vaisseau,SCREEN_WIDTH/2 - SHIP_SIZE/2,SCREEN_HEIGHT - SHIP_SIZE*2,SHIP_SIZE,SHIP_SIZE);
@@ -223,7 +223,7 @@ void newlevel(world_t *world){
     world->vy = INITIAL_SPEED;
     // Initialisation de la ligne d'arrivée
     init_sprite(&world->arrival,0,FINISH_LINE_HEIGHT-SCREEN_HEIGHT*3-METEORITE_SIZE,SCREEN_WIDTH,FINISH_LINE_HEIGHT);
-    // Initialisation d'un mur de météorites.
+    // Initialisation d'un mur de météorites
     init_walls(world);
 }
 
@@ -288,10 +288,10 @@ void init_menu(menu_t* menu,int menu_nbr){
 }
 
 void init_program(program_t *program){
-    // On est pas a la fin du program
+    // On est pas a la fin du jeu
     program->programover=0;
-    // On ne rédémare pas le jeux au départ.
+    // On ne rédémarre pas le jeu au départ.
     program->restart=0;
-    // On début le program en mode 0 (normal)
+    // On débute le programme en mode 0 (normal)
     program->mode=0;
 }

@@ -38,21 +38,21 @@ void apply_menu(SDL_Renderer *renderer, menu_t *menu, textures_t *textures){
         apply_background(renderer, textures->menu_replay); // Affichage de rejouer + quitter
 
       default:
-        apply_background(renderer, textures->background); // Juste background
+        apply_background(renderer, textures->background); // Affichage du background seul
       break;
     }
 }
 
 void apply_select(SDL_Renderer *renderer, menu_t *menu, textures_t *textures){
     switch(menu->currentmenu){
-            //Menu principale 
+            //Menu principal
         case 1:
             switch(menu->currentoption){
                     //Jouer
                 case 1:
                     apply_texture(textures->menu1_select,renderer,36,143);
                 break;
-                    //Regle
+                    //Règles
                 case 2:
                     apply_texture(textures->menu1_select,renderer,36,253);
                 break;
@@ -60,15 +60,15 @@ void apply_select(SDL_Renderer *renderer, menu_t *menu, textures_t *textures){
                 break;
             }
         break;
-        	//Menu 2 (Régle)
+        	//Menu 2 (Règles)
         case 2:
 
         break;
-        	//Menu 3 (Niveaux)
+        	//Menu 3 (Niveau)
         case 3:
         	
         break;
-          //Menu 4 (restart)
+          //Menu 4 (Restart)
         case 4:
           switch(menu->currentoption){
                     //Restart
