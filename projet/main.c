@@ -56,7 +56,7 @@ int main( int argc, char* argv[] )
             // Pause de 8 ms pour controler la vitesse de rafraichissement
             pause(8);
         }
-
+        
         init_menu(&menu,4);
         while((!is_menu_over(&menu))&&(!is_menu_quitte(&menu))){
             // Gestion des évènement
@@ -65,15 +65,25 @@ int main( int argc, char* argv[] )
             refresh_menu_graphics(renderer,&menu,&textures);
             // Pause de 8 ms pour controler la vitesse de rafraichissement
             pause(8);
-            if(program.restart=1){
+            if(program.restart==1){
                 init_world(&world);
             }
         }
     }
     if(!is_menu_quitte(&menu)){
         // Affichage de l'écran de fin
-        print_end(renderer, &textures);
-        pause(3000);
+        if (is_finish(&world) == 1)
+        {
+            print_end(renderer, &textures);
+            pause(3000);
+        }
+        else if (is_finish(&world) == 2)
+        {
+            print_end_b(renderer, &textures);
+            pause(3000);
+        }
+        else
+            printf("world.gameover = %d\nworld.y = %d\n",world.gameover, world.vaisseau.y);
     }
     // Nettoyage final
     clean(window,renderer,&textures,&world);
