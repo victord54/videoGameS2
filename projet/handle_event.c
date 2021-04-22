@@ -19,7 +19,7 @@ void menu_selection(menu_t *menu,program_t *program){
                     //Jouer
                 case 1:
                         //On quitte le menu pour lancer le jeux
-                    menu->menuover = 1;
+                    menu->currentmenu = 3;
                 break;
                     //Regle
                 case 2:
@@ -36,7 +36,23 @@ void menu_selection(menu_t *menu,program_t *program){
         break;
             //Menu 3 (Niveaux)
         case 3:
-            
+            switch(menu->currentoption){
+                    //Jouer au niveaux
+                case 1:
+                    menu->menuover = 1;
+                    program->mode = 0;
+                    menu->currentmenu=3;
+                break;
+                    //Jouer infini
+                case 2:
+                    menu->menuover = 1;
+                    program->mode = 1;
+                    menu->currentmenu=3;
+                break;
+
+                default:
+                break;
+            }
         break;
             //Menu 4 (Fin de jeux)
         case 4:

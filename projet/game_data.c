@@ -264,6 +264,16 @@ void init_menu(menu_t* menu,int menu_nbr){
             // On affiche le menu de base.
             menu->quitte=0;
         break;
+        case 3:
+            // On est pas a la fin du menu
+            menu->menuover=0;
+            // On cest au menu 3
+            menu->currentmenu=3;
+            // On définit le nombre d'option du menu
+            menu->optionnumber=3;
+            // On est a la premiére option du menu
+            menu->currentoption=1;
+        break;
         case 4:
             // On est pas a la fin du menu
             menu->menuover=0;
@@ -282,4 +292,6 @@ void init_program(program_t *program){
     program->programover=0;
     // On ne rédémare pas le jeux au départ.
     program->restart=0;
+    // On début le program en mode 0 (normal)
+    program->mode=0;
 }
