@@ -78,7 +78,7 @@ int main( int argc, char* argv[] )
             print_end(renderer, &textures);
             pause(3000);
         }
-        else if (is_finish(&world) == 2)
+        else
         {
             print_end_b(renderer, &textures);
             pause(3000);
