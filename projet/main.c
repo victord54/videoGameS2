@@ -65,7 +65,7 @@ int main( int argc, char* argv[] )
             refresh_menu_graphics(renderer,&menu,&textures);
             // Pause de 8 ms pour controler la vitesse de rafraichissement
             pause(8);
-            if(program.restart=1){
+            if(program.restart==1){
                 init_world(&world);
             }
         }

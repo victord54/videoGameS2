@@ -149,6 +149,7 @@ typedef struct menu_s menu_t;
 struct program_s{
   int programover; /*!< Champ indiquand la fin du programme. */
   int restart; /*!< Champ indiquand le redémarage du jeux. */
+  int mode; /*!< Champ indiquand le mode de jeux. */
 };
 /**
  * \brief Type qui correspond aux données du programme.
