@@ -15,6 +15,11 @@ int is_game_over(world_t *world){
     return world->gameover;
 }
 
+int is_program_over(program_t* program){
+    return program->programover;
+}
+
+
 void update_data(world_t *world){
     world->arrival.y += world->vy; // Fait descendre la ligne d'arrivée
     update_walls(world); // Fait descendre les murs
@@ -41,46 +46,16 @@ void init_sprite(sprite_t *sprite, int x, int y, int w, int h){
 	sprite->h=h;
 }
 void init_sprite_meteore(sprite_t *sprite, int x, int y, int w, int h,int screen_nbr){
-	sprite->x=x*METEORITE_SIZE;
+	sprite->x=x*METEORITE_SIZE+6;
 	sprite->y=y*METEORITE_SIZE-SCREEN_HEIGHT*screen_nbr;
 	sprite->w=w*METEORITE_SIZE;
 	sprite->h=h*METEORITE_SIZE;
 }
 
-void init_data(world_t * world,menu_t *menu){
-    // On n'est pas à la fin du jeu
-    world->gameover=0;
-    //On commence un niveau
-    world->levelstart=1;
-    // Le sprite doit être visible
-    world->make_disappear=0;
-    // Nombre de niveaux
-    world->levelnbr=2;
-    // On commence au niveau 1
-    world->level=1;
-    // On est pas a la fin du menu
-    menu->menuover=0;
-    // On définit le nombre total de menu 
-    menu->menunumber=1;
-    // On commence au premier menu
-    menu->currentmenu=1;
-    // On définit le nombre d'option du premier menu
-    menu->optionnumber=2;
-    // On est a la premiére option du menu
-    menu->currentoption=1;
-    // On affiche le menu de base.
-    menu->quitte=0;
-	// Initialisation du vaisseau
-	init_sprite(&world->vaisseau,SCREEN_WIDTH/2 - SHIP_SIZE/2,SCREEN_HEIGHT - SHIP_SIZE*2,SHIP_SIZE,SHIP_SIZE);
-
-    // Initialisation de la ligne d'arrivée
-    init_sprite(&world->arrival,0,FINISH_LINE_HEIGHT-SCREEN_HEIGHT*3-METEORITE_SIZE,SCREEN_WIDTH,FINISH_LINE_HEIGHT);
-
-    // Initialisation de la vy
-    world->vy = INITIAL_SPEED;
-
-    // Initialisation d'un mur de météorites.
-    init_walls(world);
+void init_data(world_t * world,menu_t *menu,program_t *program){
+    init_world(world);
+    init_menu(menu);
+    init_program(program);
 }
 
 void out_of_screen(world_t *world)
@@ -251,4 +226,47 @@ void newlevel(world_t *world){
     init_sprite(&world->arrival,0,FINISH_LINE_HEIGHT-SCREEN_HEIGHT*3-METEORITE_SIZE,SCREEN_WIDTH,FINISH_LINE_HEIGHT);
     // Initialisation d'un mur de météorites.
     init_walls(world);
+}
+
+void init_world(world_t* world){
+    // On n'est pas à la fin du jeu
+    world->gameover=0;
+    //On commence un niveau
+    world->levelstart=1;
+    // Le sprite doit être visible
+    world->make_disappear=0;
+    // Nombre de niveaux
+    world->levelnbr=2;
+    // On commence au niveau 1
+    world->level=1;
+    // Initialisation de la vy
+    world->vy = INITIAL_SPEED;
+    // Initialisation du vaisseau
+    init_sprite(&world->vaisseau,SCREEN_WIDTH/2 - SHIP_SIZE/2,SCREEN_HEIGHT - SHIP_SIZE*2,SHIP_SIZE,SHIP_SIZE);
+    // Initialisation de la ligne d'arrivée
+    init_sprite(&world->arrival,0,FINISH_LINE_HEIGHT-SCREEN_HEIGHT*3-METEORITE_SIZE,SCREEN_WIDTH,FINISH_LINE_HEIGHT);
+    // Initialisation d'un mur de météorites.
+    init_walls(world);
+}
+
+void init_menu(menu_t* menu){
+    // On est pas a la fin du menu
+    menu->menuover=0;
+    // On définit le nombre total de menu 
+    menu->menunumber=4;
+    // On commence au premier menu
+    menu->currentmenu=1;
+    // On définit le nombre d'option du premier menu
+    menu->optionnumber=2;
+    // On est a la premiére option du menu
+    menu->currentoption=1;
+    // On affiche le menu de base.
+    menu->quitte=0;
+}
+
+void init_program(program_t *program){
+    // On est pas a la fin du program
+    program->programover=0;
+    // On ne rédémare pas le jeux au départ.
+    program->restart=0;
 }

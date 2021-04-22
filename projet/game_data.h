@@ -25,6 +25,14 @@
 int is_game_over(world_t *world);
 
 /**
+ * \brief La fonction indique si le programme est fini.
+ * \param program Les données du program.
+ * \return 1 si le jeu est fini, 0 sinon.
+ */
+int is_program_over(program_t* program);
+
+
+/**
  * \brief La fonction met à jour les données en tenant compte de la physique du monde.
  * \param world Les données du monde.
  */
@@ -52,11 +60,12 @@ void init_sprite(sprite_t *sprite, int x, int y, int w, int h);
 void init_sprite_meteore(sprite_t *sprite, int x, int y, int w, int h,int screen_nbr);
 
 /**
- * \brief La fonction initialise les données du monde du jeu.
+ * \brief La fonction initialise les données.
  * \param world Les données du monde.
  * \param menu Les données du menu.
+ * \param program Les données du program.
  */
-void init_data(world_t * world,menu_t *menu);
+void init_data(world_t * world,menu_t *menu,program_t *program);
 
 /**
  * \brief Fonction qui detecte si le vaisseau est hors de l'écran.
@@ -107,4 +116,23 @@ int is_finish(world_t *world);
  * \param world Structure des données du monde.
  */
 void newlevel(world_t *world);
+
+/**
+ * \brief La fonction initialise les données du monde.
+ * \param world Structure des données du monde.
+*/ 
+void init_world(world_t *world);
+
+/**
+ * \brief La fonction initialise les données du menu.
+ * \param menu Structure des données du menu.
+*/ 
+void init_menu(menu_t *menu);
+
+/**
+ * \brief La fonction initialise les données du program.
+ * \param program Structure des données du monde.
+*/ 
+void init_program(program_t *program);
+
 #endif

@@ -118,9 +118,9 @@ void clean(SDL_Window *window, SDL_Renderer * renderer, textures_t *textures, wo
     clean_sdl(renderer,window);
 }
 
-void init(SDL_Window **window, SDL_Renderer ** renderer,textures_t *textures, world_t * world,menu_t *menu){
+void init(SDL_Window **window, SDL_Renderer ** renderer,textures_t *textures, world_t * world,menu_t *menu,program_t *program){
     init_sdl(window,renderer,SCREEN_WIDTH, SCREEN_HEIGHT);
-    init_data(world,menu);
+    init_data(world,menu,program);
     init_ttf();
     init_textures(*renderer,textures);
 }

@@ -11,7 +11,7 @@
 
 #include "handle_event.h"
 
-void menu_selection(menu_t *menu){
+void menu_selection(menu_t *menu,program_t *program){
     switch(menu->currentmenu){
             //Menu principale 
         case 1:
@@ -38,12 +38,29 @@ void menu_selection(menu_t *menu){
         case 3:
             
         break;
+            //Menu 4 (Fin de jeux)
+        case 4:
+            switch(menu->currentoption){
+                    //Restart
+                case 1:
+                    program->restart=1;
+                    menu->menuover=1;
+                break;
+                    //Quitter
+                case 2:
+                    program->programover=1;
+                    menu->menuover=1;
+                break;
+                default:
+                break;
+            }
+        break;
         default:
         break;
     }
 }
 
-void handle_events_menu(SDL_Event *event,world_t *world,menu_t *menu){
+void handle_events_menu(SDL_Event *event,world_t *world,menu_t *menu,program_t *program){
     while( SDL_PollEvent(event)){
         
         // Si l'utilisateur a cliqué sur le X de la fenêtre
@@ -52,6 +69,7 @@ void handle_events_menu(SDL_Event *event,world_t *world,menu_t *menu){
             world->gameover = 1;
             menu->menuover = 1;
             menu->quitte = 1;
+            program->programover=1;
         }
        
         // Si une touche est appuyée
@@ -81,14 +99,15 @@ void handle_events_menu(SDL_Event *event,world_t *world,menu_t *menu){
                 world->gameover = 1;
                 menu->menuover = 1;
                 menu->quitte = 1;
+                program->programover=1;
             }
             if(event->key.keysym.sym == SDLK_RETURN){
-                menu_selection(menu);
+                menu_selection(menu,program);
             }
         }
     }
 }
-void handle_events(SDL_Event *event, world_t *world,menu_t *menu){
+void handle_events(SDL_Event *event, world_t *world,menu_t *menu,program_t *program){
     while( SDL_PollEvent(event)){
         
         // Si l'utilisateur a cliqué sur le X de la fenêtre
@@ -96,6 +115,7 @@ void handle_events(SDL_Event *event, world_t *world,menu_t *menu){
             // On indique la fin du jeu
             world->gameover = 1;
             menu->quitte = 1;
+            program->programover=1;
         }
        
         // Si une touche est appuyée
@@ -132,6 +152,7 @@ void handle_events(SDL_Event *event, world_t *world,menu_t *menu){
                 //On indique la fin du jeu
                 world->gameover = 1;
                 menu->quitte = 1;
+                program->programover=1;
             }
             out_of_screen(world);
         }

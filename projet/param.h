@@ -53,7 +53,7 @@
 /**
  * \brief Pas de déplacement horizontal du vaisseau.
 */
-#define MOVING_STEP 10
+#define MOVING_STEP 16
 
 
 /**
@@ -143,6 +143,17 @@ struct menu_s{
  */
 typedef struct menu_s menu_t;
 
+/**
+ * \brief Réprésentation des données du programme.
+*/
+struct program_s{
+  int programover; /*!< Champ indiquand la fin du programme. */
+  int restart; /*!< Champ indiquand le redémarage du jeux. */
+};
+/**
+ * \brief Type qui correspond aux données du programme.
+ */
+typedef struct program_s program_t;
 
 /* ====================== END STRUCT ====================== */
 /* ========================= LIB ========================== */

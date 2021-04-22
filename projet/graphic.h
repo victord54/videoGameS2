@@ -89,12 +89,12 @@ void clean(SDL_Window *window, SDL_Renderer * renderer, textures_t *textures, wo
  * \brief La fonction initialise le jeu: initialisation de la partie graphique (SDL), chargement des textures, initialisation des données.
  * \param window La fenêtre du jeu.
  * \param renderer Le renderer.
-
  * \param textures Les textures.
  * \param world Le monde.
  * \param menu Le menu.
+ * \param program Les données du programme 
  */
-void init(SDL_Window **window, SDL_Renderer ** renderer, textures_t *textures, world_t * world,menu_t *menu);
+void init(SDL_Window **window, SDL_Renderer ** renderer, textures_t *textures, world_t * world,menu_t *menu,program_t* program);
 
 /**
  * \brief La fonction applique la texture des murs
@@ -105,7 +105,7 @@ void init(SDL_Window **window, SDL_Renderer ** renderer, textures_t *textures, w
 void apply_walls(SDL_Renderer *renderer,textures_t *textures,world_t * world);
 
 /**
- * @brief FOnction qui applique un background à la fin du jeu
+ * @brief Fonction qui applique un background à la fin du jeu
  * 
  * @param renderer 
  * @param textures 
