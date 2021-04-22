@@ -38,18 +38,18 @@ int main( int argc, char* argv[] )
         
             // Rafraichissement de l'écran
             refresh_menu_graphics(renderer,&menu,&textures);
-
+            
             // Pause de 8 ms pour controler la vitesse de rafraichissement
             pause(8);
         }
-        menu->currentmenu=3;
+        
         while(!is_game_over(&world)){ // Tq le jeu n'est pas fini
         
             // Gestion des évènements
             handle_events(&event,&world,&menu,&program);
    
             // Mise à jour des données liée à la physique du monde
-            update_data(&world);
+            update_data(&world,&menu);
 
             // Rafraichissement de l'écran
             refresh_graphics(renderer, &world, &textures, &menu);
@@ -60,6 +60,7 @@ int main( int argc, char* argv[] )
         
         init_menu(&menu,4);
         while((!is_menu_over(&menu))&&(!is_menu_quitte(&menu))){
+            printf("Menu actuelle=%d\n",menu.currentmenu);
             // Gestion des évènement
             handle_events_menu(&event,&world,&menu,&program);
             // Rafraichissement de l'écran

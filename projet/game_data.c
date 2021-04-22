@@ -20,9 +20,10 @@ int is_program_over(program_t* program){
 }
 
 
-void update_data(world_t *world){
+void update_data(world_t *world,menu_t *menu){
     world->arrival.y += world->vy; // Fait descendre la ligne d'arrivée
     update_walls(world); // Fait descendre les murs
+    menu->currentmenu=4;
 
     //On utilise not_disappear quand la collision ne doit pas changer l'affichage
     int not_disappear;
@@ -209,6 +210,7 @@ int is_finish(world_t *world)
     // Si il y a eu collision et que le vaisseau est en dessous de la ligne d'arrivée (graphiquement)
     else if (world->gameover && world->vaisseau.y > world->arrival.y+FINISH_LINE_HEIGHT)
         return 2; // 2 = perdu
+    return 0;
 }
 
 void newlevel(world_t *world){
