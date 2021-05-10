@@ -172,6 +172,3 @@ void handle_events(SDL_Event *event, world_t *world,menu_t *menu,program_t *prog
         }
     }
 }
-
-
-

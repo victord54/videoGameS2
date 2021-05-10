@@ -119,77 +119,15 @@ void init_walls(world_t *world){
     switch(world->level){
         case 1:
             /* ===== Placement meteorite niveau 1 ===== */
-                // Écran 1
-            init_sprite_meteore(&world->mur[0],0,2,3,6,0);
-            init_sprite_meteore(&world->mur[1],6,2,3,6,0);
-
-                // Écran 2
-            init_sprite_meteore(&world->mur[2],0,3,6,3,1);
-            init_sprite_meteore(&world->mur[3],3,9,6,3,1);
-
-                // Écran 3
-            init_sprite_meteore(&world->mur[4],0,1,3,1,2);
-            init_sprite_meteore(&world->mur[5],6,1,3,1,2);
-            init_sprite_meteore(&world->mur[6],3,5,6,3,2);
-            init_sprite_meteore(&world->mur[7],6,8,3,6,2);
-            init_sprite_meteore(&world->mur[8],0,11,3,3,2);
-                // Écran 4
-            init_sprite_meteore(&world->mur[9],2,0,2,1,3);
-            init_sprite_meteore(&world->mur[10],0,4,2,1,3);
-            init_sprite_meteore(&world->mur[11],2,8,2,1,3);
-            init_sprite_meteore(&world->mur[12],0,13,2,3,3);
-            init_sprite_meteore(&world->mur[13],4,0,1,13,3);
-            init_sprite_meteore(&world->mur[14],5,4,3,1,3);
-            init_sprite_meteore(&world->mur[15],7,13,2,3,3);
+            level_1(world);
         break;
         case 2:
             /* ===== Placement meteorite niveau 2 ===== */
-                // Écran 1
-            init_sprite_meteore(&world->mur[0],3,2,3,3,0);
-            init_sprite_meteore(&world->mur[1],4,4,1,3,0);
-                // Écran 2
-            init_sprite_meteore(&world->mur[2],0,5,3,8,1);
-            init_sprite_meteore(&world->mur[3],6,5,3,8,1);
-                // Écran 3
-            init_sprite_meteore(&world->mur[4],0,1,3,1,2);
-            init_sprite_meteore(&world->mur[5],6,1,3,1,2);
-            init_sprite_meteore(&world->mur[6],3,5,6,3,2);
-            init_sprite_meteore(&world->mur[7],6,8,3,6,2);
-            init_sprite_meteore(&world->mur[8],0,11,3,3,2);
-                // Écran 4
-            init_sprite_meteore(&world->mur[9],2,0,2,1,3);
-            init_sprite_meteore(&world->mur[10],0,4,2,1,3);
-            init_sprite_meteore(&world->mur[11],2,8,2,1,3);
-            init_sprite_meteore(&world->mur[12],0,13,2,3,3);
-            init_sprite_meteore(&world->mur[13],4,0,1,13,3);
-            init_sprite_meteore(&world->mur[14],5,4,3,1,3);
-            init_sprite_meteore(&world->mur[15],7,13,2,3,3);
+            level_2(world);
         break;
         default:
             /* ===== Placement meteorite niveau 1 ===== */
-                // Écran 1
-            init_sprite_meteore(&world->mur[0],0,2,3,6,0);
-            init_sprite_meteore(&world->mur[1],6,2,3,6,0);
-
-                // Écran 2
-            init_sprite_meteore(&world->mur[2],0,3,6,3,1);
-            init_sprite_meteore(&world->mur[3],3,9,6,3,1);
-
-                // Écran 3
-            init_sprite_meteore(&world->mur[4],0,1,3,1,2);
-            init_sprite_meteore(&world->mur[5],6,1,3,1,2);
-            init_sprite_meteore(&world->mur[6],3,5,6,3,2);
-            init_sprite_meteore(&world->mur[7],6,8,3,6,2);
-            init_sprite_meteore(&world->mur[8],0,11,3,3,2);
-
-                // Écran 4
-            init_sprite_meteore(&world->mur[9],2,0,2,1,3);
-            init_sprite_meteore(&world->mur[10],0,4,2,1,3);
-            init_sprite_meteore(&world->mur[11],2,8,2,1,3);
-            init_sprite_meteore(&world->mur[12],0,13,2,3,3);
-            init_sprite_meteore(&world->mur[13],4,0,1,13,3);
-            init_sprite_meteore(&world->mur[14],5,4,3,1,3);
-            init_sprite_meteore(&world->mur[15],7,13,2,3,3);
+            level_1(world);
         break;
     }
     
@@ -296,4 +234,59 @@ void init_program(program_t *program){
     program->restart=0;
     // On débute le programme en mode 0 (normal)
     program->mode=0;
+}
+
+
+void level_1(world_t *world)
+{
+    // Écran 1
+    init_sprite_meteore(&world->mur[0],0,2,3,6,0);
+    init_sprite_meteore(&world->mur[1],6,2,3,6,0);
+
+    // Écran 2
+    init_sprite_meteore(&world->mur[2],0,3,6,3,1);
+    init_sprite_meteore(&world->mur[3],3,9,6,3,1);
+
+    // Écran 3
+    init_sprite_meteore(&world->mur[4],0,1,3,1,2);
+    init_sprite_meteore(&world->mur[5],6,1,3,1,2);
+    init_sprite_meteore(&world->mur[6],3,5,6,3,2);
+    init_sprite_meteore(&world->mur[7],6,8,3,6,2);
+    init_sprite_meteore(&world->mur[8],0,11,3,3,2);
+    
+    // Écran 4
+    init_sprite_meteore(&world->mur[9],2,0,2,1,3);
+    init_sprite_meteore(&world->mur[10],0,4,2,1,3);
+    init_sprite_meteore(&world->mur[11],2,8,2,1,3);
+    init_sprite_meteore(&world->mur[12],0,13,2,3,3);
+    init_sprite_meteore(&world->mur[13],4,0,1,13,3);
+    init_sprite_meteore(&world->mur[14],5,4,3,1,3);
+    init_sprite_meteore(&world->mur[15],7,13,2,3,3);
+}
+
+void level_2(world_t *world)
+{
+    // Écran 1
+    init_sprite_meteore(&world->mur[0],3,2,3,3,0);
+    init_sprite_meteore(&world->mur[1],4,4,1,3,0);
+    
+    // Écran 2
+    init_sprite_meteore(&world->mur[2],0,5,3,8,1);
+    init_sprite_meteore(&world->mur[3],6,5,3,8,1);
+
+    // Écran 3
+    init_sprite_meteore(&world->mur[4],0,1,3,1,2);
+    init_sprite_meteore(&world->mur[5],6,1,3,1,2);
+    init_sprite_meteore(&world->mur[6],3,5,6,3,2);
+    init_sprite_meteore(&world->mur[7],6,8,3,6,2);
+    init_sprite_meteore(&world->mur[8],0,11,3,3,2);
+    
+    // Écran 4
+    init_sprite_meteore(&world->mur[9],2,0,2,1,3);
+    init_sprite_meteore(&world->mur[10],0,4,2,1,3);
+    init_sprite_meteore(&world->mur[11],2,8,2,1,3);
+    init_sprite_meteore(&world->mur[12],0,13,2,3,3);
+    init_sprite_meteore(&world->mur[13],4,0,1,13,3);
+    init_sprite_meteore(&world->mur[14],5,4,3,1,3);
+    init_sprite_meteore(&world->mur[15],7,13,2,3,3);
 }

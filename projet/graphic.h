@@ -129,4 +129,15 @@ void print_end_b(SDL_Renderer *renderer, textures_t *textures);
  * \param menu Le menu.
  */
 void level_start(SDL_Renderer *renderer,world_t *world,textures_t *textures);
+
+/**
+ * @brief Gère le timer et l'état de win ou de lose.
+ * 
+ * @param menu Le menu.
+ * @param textures Les textures.
+ * @param renderer Le renderer.
+ * @param world Les données du monde.
+ */
+void timerWinLoseState(menu_t *menu, textures_t *textures, SDL_Renderer *renderer, world_t *world);
+
 #endif

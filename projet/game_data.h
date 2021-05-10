@@ -137,4 +137,17 @@ void init_menu(menu_t *menu,int menu_nbr);
 */ 
 void init_program(program_t *program);
 
+/**
+ * @brief Fonction qui initialise tous les murs du niveau 1.
+ * 
+ * @param world Les données du monde.
+ */
+void level_1(world_t *world);
+
+/**
+ * @brief Fonction qui initialise tous les murs du niveau 2.
+ * 
+ * @param world Les données du monde.
+ */
+void level_2(world_t *world);
 #endif
