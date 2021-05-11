@@ -131,6 +131,14 @@ void print_end_b(SDL_Renderer *renderer, textures_t *textures);
 void level_start(SDL_Renderer *renderer,world_t *world,textures_t *textures);
 
 /**
+ * \brief La fonction auxiliaire qui rafréchi l'écran
+ * \param renderer Le renderer.
+ * \param textures Les textures.
+ * \param world Le monde.
+ * \param menu Le menu.
+ */
+void level_start_aux(SDL_Renderer *renderer,world_t *world,textures_t *textures);
+/**
  * @brief Gère le timer et l'état de win ou de lose.
  * 
  * @param menu Le menu.

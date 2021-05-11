@@ -116,55 +116,21 @@ void level_start(SDL_Renderer *renderer,world_t *world,textures_t *textures){
     char str[20]; // String pour formater le texte affiché à l'écran
 
     sprintf(str, "Niveau %d",world->level);
-    /*
-        Pour chaque texte on doit clear le renderer et le re-remplir 1 par 1,
-        pour avoir un nouveaux texte
-    */
-    apply_text(renderer, SCREEN_WIDTH/2-50, SCREEN_HEIGHT/2-30, 100, 60, str,textures->font);
-    update_screen(renderer);
-    pause(1000);
-    clear_renderer(renderer);
-    apply_background(renderer, textures->background);
-    apply_sprite(renderer, textures->vaisseau, &world->vaisseau,world->make_disappear);
-    apply_sprite(renderer, textures->arrival,&world->arrival,0);
-    apply_walls(renderer,textures,world);
-    apply_text(renderer, 0, 0, 200, 60,"Time : 0", textures->font);
+    apply_text(renderer, SCREEN_WIDTH/2-50, SCREEN_HEIGHT/2-30, 100, 60,str, textures->font);
+    level_start_aux(renderer,world,textures);
 
-    apply_text(renderer, SCREEN_WIDTH/2-40, SCREEN_HEIGHT/2-30, 60, 60, "3", textures->font);
-    update_screen(renderer);
-    pause(1000);
-    clear_renderer(renderer);
-    apply_background(renderer, textures->background);
-    apply_sprite(renderer, textures->vaisseau, &world->vaisseau,world->make_disappear);
-    apply_sprite(renderer, textures->arrival,&world->arrival,0);
-    apply_walls(renderer,textures,world);
-    apply_text(renderer, 0, 0, 200, 60,"Time : 0", textures->font);
-
-    apply_text(renderer, SCREEN_WIDTH/2-40, SCREEN_HEIGHT/2-30, 60, 60, "2", textures->font);
-    update_screen(renderer);
-    pause(1000);
-    clear_renderer(renderer);
-    apply_background(renderer, textures->background);
-    apply_sprite(renderer, textures->vaisseau, &world->vaisseau,world->make_disappear);
-    apply_sprite(renderer, textures->arrival,&world->arrival,0);
-    apply_walls(renderer,textures,world);
-    apply_text(renderer, 0, 0, 200, 60,"Time : 0", textures->font);
-
-
-    apply_text(renderer, SCREEN_WIDTH/2-40, SCREEN_HEIGHT/2-30, 60, 60, "1", textures->font);
-    update_screen(renderer);
-    pause(1000);
-    clear_renderer(renderer);
-    apply_background(renderer, textures->background);
-    apply_sprite(renderer, textures->vaisseau, &world->vaisseau,world->make_disappear);
-    apply_sprite(renderer, textures->arrival,&world->arrival,0);
-    apply_walls(renderer,textures,world);
-    apply_text(renderer, 0, 0, 200, 60,"Time : 0", textures->font);
-
-
+    for(int i=3;i>0;i--){
+        sprintf(str,"%d",i);
+        apply_text(renderer, SCREEN_WIDTH/2-40, SCREEN_HEIGHT/2-30, 60, 60,str, textures->font);level_start_aux(renderer,world,textures);
+    }
+    
     apply_text(renderer, SCREEN_WIDTH/2-50, SCREEN_HEIGHT/2-30, 100, 60, "GO!", textures->font);
+    level_start_aux(renderer,world,textures);
+}
+void level_start_aux(SDL_Renderer *renderer,world_t *world,textures_t *textures){
+    printf("test");
     update_screen(renderer);
-    pause(300);
+    pause(1000);
     clear_renderer(renderer);
     apply_background(renderer, textures->background);
     apply_sprite(renderer, textures->vaisseau, &world->vaisseau,world->make_disappear);
@@ -172,6 +138,7 @@ void level_start(SDL_Renderer *renderer,world_t *world,textures_t *textures){
     apply_walls(renderer,textures,world);
     apply_text(renderer, 0, 0, 200, 60,"Time : 0", textures->font);
 }
+
 
 void timerWinLoseState(menu_t *menu, textures_t *textures, SDL_Renderer *renderer, world_t *world)
 {
