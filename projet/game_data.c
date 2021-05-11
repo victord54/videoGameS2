@@ -46,6 +46,7 @@ void init_sprite(sprite_t *sprite, int x, int y, int w, int h){
 	sprite->w=w;
 	sprite->h=h;
 }
+
 void init_sprite_meteore(sprite_t *sprite, int x, int y, int w, int h,int screen_nbr){
 	sprite->x=x*METEORITE_SIZE+6;
 	sprite->y=y*METEORITE_SIZE-SCREEN_HEIGHT*screen_nbr;
@@ -289,4 +290,10 @@ void level_2(world_t *world)
     init_sprite_meteore(&world->mur[13],4,0,1,13,3);
     init_sprite_meteore(&world->mur[14],5,4,3,1,3);
     init_sprite_meteore(&world->mur[15],7,13,2,3,3);
+}
+
+void endless_mode()
+{
+    endless_t screen[ENDLESS_MODE_BLOC_NUMBER];
+    screen[0].coord[0].x = 
 }

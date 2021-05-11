@@ -70,6 +70,12 @@
  */
 #define METEORITE_WALL_NUMBER 16
 
+/**
+ * @brief Nombre de blocs pour le mode infini
+ * 
+ */
+#define ENDLESS_MODE_BLOC_NUMBER 10
+
 /* ====================== END DEFINE ====================== */
 
 /* ======================== STRUCT ======================== */
@@ -103,6 +109,7 @@ struct sprite_s{
 	int y; /*!< Position du sprite sur y. */
 	int w; /*!< Largeur du sprite. */
 	int h; /*!< Hauteur du sprite. */
+  int num_screen; /*!< Ecran ou apparait le sprite. */
 };
 /**
  * \brief Type qui correspond à une texture.
@@ -120,8 +127,9 @@ struct world_s{
     int vy; /*!< Vitesse de déplacement verticale. */
     sprite_t mur[MAX_METEORITE_WALL_NUMBER]; /*!< Informations sur un mur d'astéroides. */
     int make_disappear; /*!< Informe si le vaisseau doit être visible ou pas */
-    int levelnbr; /*< Information sur le nombre de niveaux. */
-    int level; /*< Informe du niveaux a afficher. */
+    int levelnbr; /*!< Information sur le nombre de niveaux. */
+    int level; /*!< Informe du niveaux a afficher. */
+    endless_t endless_level[ENDLESS_MODE_BLOC_NUMBER]; /*!< Contient tous les blocs de météorites possibles. */
 };
 /**
  * \brief Type qui correspond aux données du monde.
@@ -158,6 +166,23 @@ struct program_s{
  * \brief Type qui correspond aux données du programme.
  */
 typedef struct program_s program_t;
+
+/**
+ * @brief Structure pour avoir les infos d'un bloc de murs.
+ * 
+ */
+struct endless_s
+{
+  int debut; /*!< position du début du bloc. */
+  int fin; /*!< position de la fin du bloc. */ 
+  sprite_t coord[20]; /*!< Coordonnées du sprite. */
+};
+/**
+ * @brief Type qui correspond aux infos d'un bloc
+ * 
+ */
+typedef struct endless_s endless_t;
+
 
 /* ====================== END STRUCT ====================== */
 /* ========================= LIB ========================== */
