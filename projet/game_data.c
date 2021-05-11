@@ -294,6 +294,16 @@ void level_2(world_t *world)
 
 void endless_mode()
 {
-    endless_t screen[ENDLESS_MODE_BLOC_NUMBER];
-    screen[0].coord[0].x = 
+    endless_t bloc[ENDLESS_MODE_SCREEN_NUMBER];
+}
+
+void init_endless(endless_t *bloc, int debut, int fin ,int x, int y, int w, int h, int screen)
+{
+    bloc->coord->x = x;
+    bloc->coord->y = y;
+    bloc->coord->w = w;
+    bloc->coord->h = h;
+    bloc->coord->num_screen = screen;
+    bloc->debut = debut;
+    bloc->fin = fin;
 }

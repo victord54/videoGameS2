@@ -76,6 +76,12 @@
  */
 #define ENDLESS_MODE_BLOC_NUMBER 10
 
+/**
+ * @brief Nombre d'écrans pour le mode infini
+ * 
+ */
+#define ENDLESS_MODE_SCREEN_NUMBER 10
+
 /* ====================== END DEFINE ====================== */
 
 /* ======================== STRUCT ======================== */
@@ -176,6 +182,7 @@ struct endless_s
   int debut; /*!< position du début du bloc. */
   int fin; /*!< position de la fin du bloc. */ 
   sprite_t coord[20]; /*!< Coordonnées du sprite. */
+  int meteore_number; /*!< Nombre de météores dans le bloc. */
 };
 /**
  * @brief Type qui correspond aux infos d'un bloc
