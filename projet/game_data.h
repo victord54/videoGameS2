@@ -150,4 +150,22 @@ void level_1(world_t *world);
  * @param world Les données du monde.
  */
 void level_2(world_t *world);
+
+/**
+    \brief Fonction qui initialise le mode endless.
+*/
+void endless_mode();
+
+/**
+ * \brief Fonction qui initialise les bloc du mode endless.
+ * \param bloc Un bloc du mode endless.
+ * \param debut indique les entrées du bloc.
+ * \param fin indique les sorties du bloc.
+ * \param x Coordonnée x du sprite.
+ * \param y Coordonnée y du sprite.
+ * \param w Largeur du sprite.
+ * \param h Hauteur du sprite.
+ * \param meteore_number nombre de météore dans le bloc.
+*/
+void init_endless_bloc(endless_t *bloc, int debut, int fin ,int x, int y, int w, int h, int screen,int meteore_number);
 #endif

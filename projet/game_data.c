@@ -297,13 +297,29 @@ void endless_mode()
     endless_t bloc[ENDLESS_MODE_SCREEN_NUMBER];
 }
 
-void init_endless(endless_t *bloc, int debut, int fin ,int x, int y, int w, int h, int screen)
+void init_endless_bloc(endless_t *bloc, int debut, int fin ,int x, int y, int w, int h,int meteore_number)
 {
     bloc->coord->x = x;
     bloc->coord->y = y;
     bloc->coord->w = w;
     bloc->coord->h = h;
-    bloc->coord->num_screen = screen;
     bloc->debut = debut;
     bloc->fin = fin;
 }
+    
+        //Ecran vide
+    screen[ecran].coord[0].x =0; 
+    screen[ecran].coord[0].y =0;
+    screen[ecran].coord[0].w =0;
+    screen[ecran].coord[0].h =0;
+    screen[ecran].meteore_number=0;
+    screen[ecran].debut=0;
+    screen[ecran].fin=0;
+        //Colone gauche vide
+    screen[ecran].coord[0].x =0; 
+    screen[ecran].coord[0].y =0;
+    screen[ecran].coord[0].w =0;
+    screen[ecran].coord[0].h =0;
+    screen[ecran].meteore_number=0;
+    screen[ecran].debut=0;
+    screen[ecran].fin=0; 
