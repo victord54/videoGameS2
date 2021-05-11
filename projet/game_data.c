@@ -61,14 +61,14 @@ void init_data(world_t * world,menu_t *menu,program_t *program){
 
 void out_of_screen(world_t *world)
 {
-    if (world->vaisseau.x < 0) // Si le vaisseau sort à gauche on le replace
+    if (world->vaisseau.x < 6) // Si le vaisseau sort à gauche on le replace
     {
-        world->vaisseau.x = 0;
+        world->vaisseau.x = 6;
     }
 
-    if (world->vaisseau.x + SHIP_SIZE > SCREEN_WIDTH) // Si le vaisseau sort à droite on le replace
+    if (world->vaisseau.x + SHIP_SIZE > SCREEN_WIDTH-6) // Si le vaisseau sort à droite on le replace
     {
-        world->vaisseau.x = SCREEN_WIDTH - SHIP_SIZE;
+        world->vaisseau.x = SCREEN_WIDTH - SHIP_SIZE-6;
     }
 }
 
