@@ -80,7 +80,7 @@
  * @brief Nombre d'écrans pour le mode infini
  * 
  */
-#define ENDLESS_MODE_SCREEN_NUMBER 10
+#define ENDLESS_MODE_SCREEN_NUMBER 12
 
 /* ====================== END DEFINE ====================== */
 

@@ -159,6 +159,7 @@ void endless_mode();
 /**
  * \brief Fonction qui initialise les bloc du mode endless.
  * \param bloc Un bloc du mode endless.
+ * \param meteore_groupe Le groupe de météore qui sera initialiser.
  * \param debut indique les entrées du bloc.
  * \param fin indique les sorties du bloc.
  * \param x Coordonnée x du sprite.
@@ -167,5 +168,5 @@ void endless_mode();
  * \param h Hauteur du sprite.
  * \param meteore_number nombre de météore dans le bloc.
 */
-void init_endless_bloc(endless_t *bloc, int debut, int fin ,int x, int y, int w, int h, int screen,int meteore_number);
+void init_endless_bloc(endless_t *bloc, int meteore_groupe , int debut, int fin ,int x, int y, int w, int h, int screen,int meteore_number);
 #endif

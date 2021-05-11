@@ -295,31 +295,62 @@ void level_2(world_t *world)
 void endless_mode()
 {
     endless_t bloc[ENDLESS_MODE_SCREEN_NUMBER];
+        //vide
+    init_endless_bloc(*bloc[0],0,0,0,0,0,0,0,0);
+        //droite
+    init_endless_bloc(*bloc[1],1,1,1,0,0,6,14,1);
+        //milieu
+    init_endless_bloc(*bloc[2],1,2,2,0,0,3,14,2);
+    init_endless_bloc(*bloc[2],2,2,2,6,0,3,14,2);
+        //gauche
+    init_endless_bloc(*bloc[3],1,3,3,3,0,6,14,1);
+        //milieu+droite
+    init_endless_bloc(*bloc[4],1,4,4,0,0,3,14,1);
+        //gauche+droite
+    init_endless_bloc(*bloc[5],1,5,5,3,0,3,14,1);
+        //gauche+milieu
+    init_endless_bloc(*bloc[6],1,6,6,6,0,3,14,1);
+        //gauche vers milieu
+    init_endless_bloc(*bloc[7],1,3,2,0,0,3,3,3);
+    init_endless_bloc(*bloc[7],2,3,2,6,0,3,14,3);
+    init_endless_bloc(*bloc[7],3,3,2,3,11,0,0,3);
+        //gauche vers droite 
+    init_endless_bloc(*bloc[8],1,3,1,0,0,6,3,2);
+    init_endless_bloc(*bloc[8],2,3,1,3,11,6,3,2);
+        //milieu vers gauche
+    init_endless_bloc(*bloc[9],1,2,3,3,0,6,3,3);
+    init_endless_bloc(*bloc[9],2,2,3,6,3,3,11,3);
+    init_endless_bloc(*bloc[9],3,2,3,0,11,3,3,3);
+        //milieu vers droite
+    init_endless_bloc(*bloc[10],1,2,1,0,0,6,3,3);
+    init_endless_bloc(*bloc[10],2,2,1,0,3,3,11,3);
+    init_endless_bloc(*bloc[10],3,2,1,6,11,3,3,3);
+        //droite vers milieu
+    init_endless_bloc(*bloc[11],1,1,2,0,0,3,14,3);
+    init_endless_bloc(*bloc[11],2,1,2,3,11,3,3,3);
+    init_endless_bloc(*bloc[11],3,1,2,6,0,3,3,3);
+        //droite vers gauche
+    init_endless_bloc(*bloc[12],1,1,3,3,0,6,3,2);
+    init_endless_bloc(*bloc[12],2,1,3,0,11,6,3,2);
+
 }
 
-void init_endless_bloc(endless_t *bloc, int debut, int fin ,int x, int y, int w, int h,int meteore_number)
+void init_endless_bloc(endless_t *bloc,int meteore_groupe, int debut, int fin ,int x, int y, int w, int h,int meteore_number)
 {
-    bloc->coord->x = x;
-    bloc->coord->y = y;
-    bloc->coord->w = w;
-    bloc->coord->h = h;
+    bloc->coord[meteore_groupe]->x = x;
+    bloc->coord[meteore_groupe]->y = y;
+    bloc->coord[meteore_groupe]->w = w;
+    bloc->coord[meteore_groupe]->h = h;
     bloc->debut = debut;
     bloc->fin = fin;
 }
-    
-        //Ecran vide
-    screen[ecran].coord[0].x =0; 
-    screen[ecran].coord[0].y =0;
-    screen[ecran].coord[0].w =0;
-    screen[ecran].coord[0].h =0;
-    screen[ecran].meteore_number=0;
-    screen[ecran].debut=0;
-    screen[ecran].fin=0;
-        //Colone gauche vide
-    screen[ecran].coord[0].x =0; 
-    screen[ecran].coord[0].y =0;
-    screen[ecran].coord[0].w =0;
-    screen[ecran].coord[0].h =0;
-    screen[ecran].meteore_number=0;
-    screen[ecran].debut=0;
-    screen[ecran].fin=0; 
+/*
+AIDE ENTRE/SORITE   
+0 rien
+1 droite
+2 milieu
+3 gauche
+4 milieu+ droite
+5 gauche+ droite
+6 gauche+ milieu
+*/
