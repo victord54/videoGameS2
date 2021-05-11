@@ -295,15 +295,12 @@ void level_2(world_t *world)
 void endless_mode()
 {
     endless_t bloc[ENDLESS_MODE_SCREEN_NUMBER];
-        //vide
-    init_endless_bloc(*bloc[0],0,0,0,0,0,0,0,0);
-        //droite
-    init_endless_bloc(*bloc[1],1,1,1,0,0,6,14,1);
-        //milieu
-    init_endless_bloc(*bloc[2],1,2,2,0,0,3,14,2);
-    init_endless_bloc(*bloc[2],2,2,2,6,0,3,14,2);
-        //gauche
-    init_endless_bloc(*bloc[3],1,3,3,3,0,6,14,1);
+
+    bloc_0(bloc[0])
+    bloc_1(bloc[1])
+    bloc_2(bloc[2])
+    bloc_3(bloc[3])
+        //Faire une fonction pour chaque bloc et les rajouter dans le .h
         //milieu+droite
     init_endless_bloc(*bloc[4],1,4,4,0,0,3,14,1);
         //gauche+droite
@@ -344,8 +341,27 @@ void init_endless_bloc(endless_t *bloc,int meteore_groupe, int debut, int fin ,i
     bloc->debut = debut;
     bloc->fin = fin;
 }
+void bloc_0(bloc[0]){
+        //vide
+    init_endless_bloc(*bloc,0,0,0,0,0,0,0,0);
+}
+void bloc_1(bloc[1]){
+        //droite
+    init_endless_bloc(*bloc,1,1,1,0,0,6,14,1);
+}
+void bloc_2(bloc[2]){
+        //milieu
+    init_endless_bloc(*bloc,1,2,2,0,0,3,14,2);
+    init_endless_bloc(*bloc,2,2,2,6,0,3,14,2);
+}
+void bloc_3(bloc[3]){
+        //gauche
+    init_endless_bloc(*bloc,1,3,3,3,0,6,14,1);
+}
+
+
 /*
-AIDE ENTRE/SORITE   
+AIDE debut/fin   
 0 rien
 1 droite
 2 milieu
