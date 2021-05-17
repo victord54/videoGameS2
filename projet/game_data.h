@@ -181,77 +181,77 @@ void bloc_init(endless_t *bloc);
  * \brief Fonction qui initialise le bloc 1
  * \param bloc Un bloc du mode endless.
 */
-void bloc_0(endless_t *bloc[0]);
+void bloc_0(endless_t *bloc);
 
 /**
  * \brief Fonction qui initialise le bloc 1
  * \param bloc Un bloc du mode endless.
 */
-void bloc_1(endless_t *bloc[1]);
+void bloc_1(endless_t *bloc);
 
 /**
  * \brief Fonction qui initialise le bloc 2
  * \param bloc Un bloc du mode endless.
 */
-void bloc_2(endless_t *bloc[2]);
+void bloc_2(endless_t *bloc);
 
 /**
  * \brief Fonction qui initialise le bloc 3
  * \param bloc Un bloc du mode endless.
 */
-void bloc_3(endless_t *bloc[3]);
+void bloc_3(endless_t *bloc);
 
 /**
  * \brief Fonction qui initialise le bloc 4
  * \param bloc Un bloc du mode endless.
 */
-void bloc_4(endless_t *bloc[4]);
+void bloc_4(endless_t *bloc);
 
 /**
  * \brief Fonction qui initialise le bloc 5
  * \param bloc Un bloc du mode endless.
 */
-void bloc_5(endless_t *bloc[5]);
+void bloc_5(endless_t *bloc);
 
 /**
  * \brief Fonction qui initialise le bloc 6
  * \param bloc Un bloc du mode endless.
 */
-void bloc_6(endless_t *bloc[6]);
+void bloc_6(endless_t *bloc);
 
 /**
  * \brief Fonction qui initialise le bloc 7
  * \param bloc Un bloc du mode endless.
 */
-void bloc_7(endless_t *bloc[7]);
+void bloc_7(endless_t *bloc);
 
 /**
  * \brief Fonction qui initialise le bloc 8
  * \param bloc Un bloc du mode endless.
 */
-void bloc_8(endless_t *bloc[8]);
+void bloc_8(endless_t *bloc);
 
 /**
  * \brief Fonction qui initialise le bloc 9
  * \param bloc Un bloc du mode endless.
 */
-void bloc_9(endless_t *bloc[9]);
+void bloc_9(endless_t *bloc);
 
 /**
  * \brief Fonction qui initialise le bloc 10
  * \param bloc Un bloc du mode endless.
 */
-void bloc_10(endless_t *bloc[10]);
+void bloc_10(endless_t *bloc);
 
 /**
  * \brief Fonction qui initialise le bloc 11
  * \param bloc Un bloc du mode endless.
 */
-void bloc_11(endless_t *bloc[11]);
+void bloc_11(endless_t *bloc);
 
 /**
  * \brief Fonction qui initialise le bloc 12
  * \param bloc Un bloc du mode endless.
 */
-void bloc_12(endless_t *bloc[12]);
+void bloc_12(endless_t *bloc);
 #endif

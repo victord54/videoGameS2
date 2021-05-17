@@ -296,7 +296,7 @@ void endless_mode()
 {
     endless_t bloc[ENDLESS_MODE_SCREEN_NUMBER];
 
-    void bloc_init(bloc);
+    bloc_init(bloc);
 
 }
 
@@ -310,83 +310,83 @@ void init_endless_bloc(endless_t *bloc,int meteore_groupe, int debut, int fin ,i
     bloc->fin = fin;
 }
 void bloc_init(endless_t *bloc){
-    bloc_0(&bloc[0]);
-    bloc_1(&bloc[1]);
-    bloc_2(&bloc[2]);
-    bloc_3(&bloc[3]);
-    bloc_4(&bloc[4]);
-    bloc_5(&bloc[5]);
-    bloc_6(&bloc[6]);
-    bloc_7(&bloc[7]);
-    bloc_8(&bloc[8]);
-    bloc_9(&bloc[9]);
-    bloc_10(&bloc[10]);
-    bloc_11(&bloc[11]);
-    bloc_12(&bloc[12]);
+    bloc_0(bloc);
+    bloc_1(bloc);
+    bloc_2(bloc);
+    bloc_3(bloc);
+    bloc_4(bloc);
+    bloc_5(bloc);
+    bloc_6(bloc);
+    bloc_7(bloc);
+    bloc_8(bloc);
+    bloc_9(bloc);
+    bloc_10(bloc);
+    bloc_11(bloc);
+    bloc_12(bloc);
 }
 
-void bloc_0(endless_t *bloc[0]){
+void bloc_0(endless_t *bloc){
         //vide
-    init_endless_bloc(bloc,0,0,0,0,0,0,0,0);
+    init_endless_bloc(&bloc[0],0,0,0,0,0,0,0,0);
 }
-void bloc_1(endless_t *bloc[1]){
+void bloc_1(endless_t *bloc){
         //droite
-    init_endless_bloc(bloc,1,1,1,0,0,6,14,1);
+    init_endless_bloc(&bloc[1],1,1,1,0,0,6,14,1);
 }
-void bloc_2(endless_t *bloc[2]){
+void bloc_2(endless_t *bloc){
         //milieu
-    init_endless_bloc(bloc,1,2,2,0,0,3,14,2);
-    init_endless_bloc(bloc,2,2,2,6,0,3,14,2);
+    init_endless_bloc(&bloc[2],1,2,2,0,0,3,14,2);
+    init_endless_bloc(&bloc[2],2,2,2,6,0,3,14,2);
 }
-void bloc_3(endless_t *bloc[3]){
+void bloc_3(endless_t *bloc){
         //gauche
-    init_endless_bloc(bloc,1,3,3,3,0,6,14,1);
+    init_endless_bloc(&bloc[3],1,3,3,3,0,6,14,1);
 }
-void bloc_4(endless_t *bloc[4]){
+void bloc_4(endless_t *bloc){
         //milieu+droite
-    init_endless_bloc(bloc[4],1,4,4,0,0,3,14,1);
+    init_endless_bloc(&bloc[4],1,4,4,0,0,3,14,1);
 }
-void bloc_5(endless_t *bloc[5]){
+void bloc_5(endless_t *bloc){
         //gauche+droite
-    init_endless_bloc(bloc[5],1,5,5,3,0,3,14,1);
+    init_endless_bloc(&bloc[5],1,5,5,3,0,3,14,1);
 }
-void bloc_6(endless_t *bloc[6]){
+void bloc_6(endless_t *bloc){
         //gauche+milieu
-    init_endless_bloc(bloc[6],1,6,6,6,0,3,14,1);
+    init_endless_bloc(&bloc[6],1,6,6,6,0,3,14,1);
 }
-void bloc_7(endless_t *bloc[7]){
+void bloc_7(endless_t *bloc){
         //gauche vers milieu
-    init_endless_bloc(bloc[7],1,3,2,0,0,3,3,3);
-    init_endless_bloc(bloc[7],2,3,2,6,0,3,14,3);
-    init_endless_bloc(bloc[7],3,3,2,3,11,0,0,3);
+    init_endless_bloc(&bloc[7],1,3,2,0,0,3,3,3);
+    init_endless_bloc(&bloc[7],2,3,2,6,0,3,14,3);
+    init_endless_bloc(&bloc[7],3,3,2,3,11,0,0,3);
 }
-void bloc_8(endless_t *bloc[8]){
+void bloc_8(endless_t *bloc){
         //gauche vers droite 
-    init_endless_bloc(bloc[8],1,3,1,0,0,6,3,2);
-    init_endless_bloc(bloc[8],2,3,1,3,11,6,3,2);
+    init_endless_bloc(&bloc[8],1,3,1,0,0,6,3,2);
+    init_endless_bloc(&bloc[8],2,3,1,3,11,6,3,2);
 }
-void bloc_9(endless_t *bloc[9]){
+void bloc_9(endless_t *bloc){
         //milieu vers gauche
-    init_endless_bloc(bloc[9],1,2,3,3,0,6,3,3);
-    init_endless_bloc(bloc[9],2,2,3,6,3,3,11,3);
-    init_endless_bloc(bloc[9],3,2,3,0,11,3,3,3);
+    init_endless_bloc(&bloc[9],1,2,3,3,0,6,3,3);
+    init_endless_bloc(&bloc[9],2,2,3,6,3,3,11,3);
+    init_endless_bloc(&bloc[9],3,2,3,0,11,3,3,3);
 }
-void bloc_10(endless_t *bloc[10]){
+void bloc_10(endless_t *bloc){
         //milieu vers droite
-    init_endless_bloc(bloc[10],1,2,1,0,0,6,3,3);
-    init_endless_bloc(bloc[10],2,2,1,0,3,3,11,3);
-    init_endless_bloc(bloc[10],3,2,1,6,11,3,3,3);
+    init_endless_bloc(&bloc[10],1,2,1,0,0,6,3,3);
+    init_endless_bloc(&bloc[10],2,2,1,0,3,3,11,3);
+    init_endless_bloc(&bloc[10],3,2,1,6,11,3,3,3);
 }
-void bloc_11(endless_t *bloc[11]){
+void bloc_11(endless_t *bloc){
         //droite vers milieu
-    init_endless_bloc(bloc[11],1,1,2,0,0,3,14,3);
-    init_endless_bloc(bloc[11],2,1,2,3,11,3,3,3);
-    init_endless_bloc(bloc[11],3,1,2,6,0,3,3,3);
+    init_endless_bloc(&bloc[11],1,1,2,0,0,3,14,3);
+    init_endless_bloc(&bloc[11],2,1,2,3,11,3,3,3);
+    init_endless_bloc(&bloc[11],3,1,2,6,0,3,3,3);
 }
-void bloc_12(endless_t *bloc[12]){
+void bloc_12(endless_t *bloc){
         //droite vers gauche
-    init_endless_bloc(bloc[12],1,1,3,3,0,6,3,2);
-    init_endless_bloc(bloc[12],2,1,3,0,11,6,3,2);
+    init_endless_bloc(&bloc[12],1,1,3,3,0,6,3,2);
+    init_endless_bloc(&bloc[12],2,1,3,0,11,6,3,2);
 }
 
 
