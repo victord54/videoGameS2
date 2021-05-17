@@ -101,6 +101,7 @@ struct textures_s{
     SDL_Texture *menu_replay; /*!< Texture liée au replay du jeu. */
     SDL_Texture *fin; /*!< Texture liée à la fin du jeu. (si on a gagné) */
     SDL_Texture *finb; /*!< Texture liée à la fin du jeu (si on a perdu) */
+    SDL_Texture *menu1_background; /*!< Texture liée au choix du niveau. */
 };
 /**
  * \brief Type qui correspond aux textures du jeu.

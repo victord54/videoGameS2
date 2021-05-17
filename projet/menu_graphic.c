@@ -34,6 +34,8 @@ void apply_menu(SDL_Renderer *renderer, menu_t *menu, textures_t *textures){
       case 2:
         apply_background(renderer, textures->rules); // Affichage des règles
       break;
+      case 3:
+        apply_background(renderer, textures->menu1_background);
       case 4:
         apply_background(renderer, textures->menu_replay); // Affichage de rejouer + quitter
       break;        
