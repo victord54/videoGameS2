@@ -401,14 +401,23 @@ AIDE debut/fin
 
 void update_endless(&world,&menu){
     int temp=0;
+
     //menu rejouer 
     menu->currentmenu=4;
-    //update bloc meteore
-        //suprimer ancien bloc
-        //génération nouveaux bloc
-        //update bloc actuel
 
-        //update collision 
+    //update bloc meteore (A faire)
+        //suprimer ancien bloc(sauf sur premier écran)
+        //génération nouveaux bloc(selon l'ecran et le bloc)
+
+
+    //update bloc actuel
+    for(int i=0;i<&world->actual_bloc[0]->meteore_number;i++){
+        &world->actual_bloc[0]->coord[i]->y=&world->actual_bloc[0]->coord[i]->y+world->vy;
+    }
+    for(int i=0;i<&world->actual_bloc[1]->meteore_number;i++){
+        &world->actual_bloc[0]->coord[i]->y=&world->actual_bloc[1]->coord[i]->y+world->vy;
+    }
+    //update collision 
     for(int i=0;i<&world->actual_bloc[0]->meteore_number;i++){
         handle_sprites_collision(world,&world->actual_bloc[0]->coord[i],&world->vaisseau,&world->make_disappear,&temp);
     }
