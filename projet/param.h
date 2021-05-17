@@ -153,7 +153,7 @@ struct world_s{
     int make_disappear; /*!< Informe si le vaisseau doit être visible ou pas */
     int levelnbr; /*!< Information sur le nombre de niveaux. */
     int level; /*!< Informe du niveaux a afficher. */
-    endless_t endless_level[ENDLESS_MODE_BLOC_NUMBER]; /*!< Contient tous les blocs de météorites possibles. */
+    endless_t actual_bloc[1]; /*!< Informe des blocs actuel a afficher. */
 };
 /**
  * \brief Type qui correspond aux données du monde.

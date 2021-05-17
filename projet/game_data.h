@@ -18,7 +18,7 @@
 /* ========== FONCTIONS ========== */
 
 /**
- * \brief La fonction indique si le jeu est fini en fonction des données du monde.
+ * \brief La fonction indique si le jeu est fini en fonction des données du monde en mode normale.
  * \param world Les données du monde.
  * \return 1 si le jeu est fini, 0 sinon.
  */
@@ -154,7 +154,7 @@ void level_2(world_t *world);
 /**
     \brief Fonction qui initialise le mode endless.
 */
-void endless_mode();
+void endless_mode(endless_t *bloc);
 
 /**
  * \brief Fonction qui initialise les bloc du mode endless.
@@ -254,4 +254,12 @@ void bloc_11(endless_t *bloc);
  * \param bloc Un bloc du mode endless.
 */
 void bloc_12(endless_t *bloc);
+
+/**
+ * \brief La fonction met à jour les données en tenant compte de la physique du monde en mode infinie.
+ * \param world Les données du monde.
+ * \param menu Les données du menu.
+ */
+void update_endless(&world,&menu);
+
 #endif

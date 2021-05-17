@@ -4,7 +4,7 @@
  * @brief Module de gestion des évènements du jeu.
  * @version 0.1
  * @date 2021-04-01
- * 
+ * Mise à jour des données liée à la physique du monde mode normal
  * @copyright Copyright (c) 2021
  * 
  */
@@ -106,7 +106,7 @@ void handle_sprites_collision(world_t *world,sprite_t *sp1, sprite_t *sp2, int *
         world->vy=0;
         world->gameover = 1;
         *make_disappear=1;
-        if((world->level<world->levelnbr)&&(is_finish(world)==1)){ // Si on est pas au dernier niveau et qu'on a gagné on passe au niveau suivant
+        if((world->level<world->levelnbr)&&(is_finish(world)==1)&&(world->mode==0)){ // Si on est pas au dernier niveau et qu'on a gagné on passe au niveau suivant
             *next_level=1;
         }
     }
@@ -292,9 +292,8 @@ void level_2(world_t *world)
     init_sprite_meteore(&world->mur[15],7,13,2,3,3);
 }
 
-void endless_mode()
+void endless_mode(endless_t *bloc)
 {
-    endless_t bloc[ENDLESS_MODE_SCREEN_NUMBER];
 
     bloc_init(bloc);
 
@@ -389,7 +388,6 @@ void bloc_12(endless_t *bloc){
     init_endless_bloc(&bloc[12],2,1,3,0,11,6,3,2);
 }
 
-
 /*
 AIDE debut/fin   
 0 rien
@@ -400,3 +398,21 @@ AIDE debut/fin
 5 gauche+ droite
 6 gauche+ milieu
 */
+
+void update_endless(&world,&menu){
+    int temp=0;
+    //menu rejouer 
+    menu->currentmenu=4;
+    //update bloc meteore
+        //suprimer ancien bloc
+        //génération nouveaux bloc
+        //update bloc actuel
+
+        //update collision 
+    for(int i=0;i<&world->actual_bloc[0]->meteore_number;i++){
+        handle_sprites_collision(world,&world->actual_bloc[0]->coord[i],&world->vaisseau,&world->make_disappear,&temp);
+    }
+    for(int i=0;i<&world->actual_bloc[1]->meteore_number;i++){
+        handle_sprites_collision(world,&world->actual_bloc[1]->coord[i],&world->vaisseau,&world->make_disappear,&temp);
+    }
+}

@@ -24,12 +24,14 @@ int main( int argc, char* argv[] )
     menu_t menu;
     textures_t textures;
     program_t program;
+    endless_t bloc[ENDLESS_MODE_SCREEN_NUMBER];
 
     SDL_Renderer *renderer;
     SDL_Window *window;
     SDL_Event event;
         // Initialisation du jeu
         init(&window,&renderer,&textures,&world,&menu,&program);
+        endless_mode(bloc);
     while(!is_program_over(&program)){
         
         while((!is_menu_over(&menu))&&(program.restart==0)){
@@ -47,9 +49,18 @@ int main( int argc, char* argv[] )
         
             // Gestion des évènements
             handle_events(&event,&world,&menu,&program);
-   
-            // Mise à jour des données liée à la physique du monde
-            update_data(&world,&menu);
+
+            switch(program.mode){
+                case 0:
+                    // Mise à jour des données liée à la physique du monde mode normal
+                    update_data(&world,&menu);
+                break;
+                case 1:
+                    // Mise à jour des données liée à la physique du monde mode infinie
+                    update_endless(&world,&menu);
+                break;
+            }
+            
 
             // Rafraichissement de l'écran
             refresh_graphics(renderer, &world, &textures, &menu);
