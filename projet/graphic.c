@@ -31,6 +31,7 @@ void init_textures(SDL_Renderer *renderer, textures_t *textures){
     textures->rules = load_image("ressources/regles.bmp",renderer);
     textures->fin = load_image("ressources/fin.bmp",renderer);
     textures->finb = load_image("ressources/finb.bmp",renderer);
+    textures->menu1_background = load_image("ressources/menu1.bmp", renderer);
 }
 
 void apply_sprite(SDL_Renderer *renderer, SDL_Texture *texture, sprite_t *sprite,int make_disappear){
