@@ -123,6 +123,23 @@ struct sprite_s{
 typedef struct sprite_s sprite_t;
 
 /**
+ * @brief Structure pour avoir les infos d'un bloc de murs.
+ * 
+ */
+struct endless_s
+{
+  int debut; /*!< position du début du bloc. */
+  int fin; /*!< position de la fin du bloc. */ 
+  sprite_t coord[20]; /*!< Coordonnées du sprite. */
+  int meteore_number; /*!< Nombre de météores dans le bloc. */
+};
+/**
+ * @brief Type qui correspond aux infos d'un bloc
+ * 
+ */
+typedef struct endless_s endless_t;
+
+/**
  * \brief Représentation des données du monde.
 */
 struct world_s{
@@ -172,24 +189,6 @@ struct program_s{
  * \brief Type qui correspond aux données du programme.
  */
 typedef struct program_s program_t;
-
-/**
- * @brief Structure pour avoir les infos d'un bloc de murs.
- * 
- */
-struct endless_s
-{
-  int debut; /*!< position du début du bloc. */
-  int fin; /*!< position de la fin du bloc. */ 
-  sprite_t coord[20]; /*!< Coordonnées du sprite. */
-  int meteore_number; /*!< Nombre de météores dans le bloc. */
-};
-/**
- * @brief Type qui correspond aux infos d'un bloc
- * 
- */
-typedef struct endless_s endless_t;
-
 
 /* ====================== END STRUCT ====================== */
 /* ========================= LIB ========================== */
