@@ -36,6 +36,7 @@ void update_data(world_t *world,menu_t *menu){
     //collision avec ligne d'arrivé
     handle_sprites_collision(world, &world->arrival, &world->vaisseau,&not_disappear,&next_level); // Vérifie la collision avec la ligne d'arrivée pour ne pas faire disparaître le vaisseau
     if(next_level){
+        printf("niveau = %d\n", world->level);
         newlevel(world);
     }
 }
