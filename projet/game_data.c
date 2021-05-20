@@ -325,6 +325,16 @@ void bloc_init(endless_t *bloc){
 }
 
 void bloc_0(endless_t *bloc){
+/*
+    AIDE debut/fin   
+    0 rien
+    1 droite
+    2 milieu
+    3 gauche
+    4 milieu+ droite
+    5 gauche+ droite
+    6 gauche+ milieu
+*/
         //vide
     init_endless_bloc(&bloc[0],0,0,0,0,0,0,0,0);
 }
@@ -388,40 +398,35 @@ void bloc_12(endless_t *bloc){
     init_endless_bloc(&bloc[12],2,1,3,0,11,6,3,2);
 }
 
-/*
-AIDE debut/fin   
-0 rien
-1 droite
-2 milieu
-3 gauche
-4 milieu+ droite
-5 gauche+ droite
-6 gauche+ milieu
-*/
-
-void update_endless(&world,&menu){
+void update_endless(world_t *world,menu_t *menu){
     int temp=0;
 
     //menu rejouer 
     menu->currentmenu=4;
 
     //update bloc meteore (A faire)
+    if(&world->vaisseau.y<&world->actual_bloc[0].coord[0].y){
+        
+    }
+    if(&world->vaisseau.y<&world->actual_bloc[1].coord[0].y){
+
+    }
         //suprimer ancien bloc(sauf sur premier écran)
         //génération nouveaux bloc(selon l'ecran et le bloc)
 
 
     //update bloc actuel
-    for(int i=0;i<&world->actual_bloc[0]->meteore_number;i++){
-        &world->actual_bloc[0]->coord[i]->y=&world->actual_bloc[0]->coord[i]->y+world->vy;
+    for(int i=0;i<world->actual_bloc[0].meteore_number;i++){
+        world->actual_bloc[0].coord[i].y = world->actual_bloc[0].coord[i].y+world->vy;
     }
-    for(int i=0;i<&world->actual_bloc[1]->meteore_number;i++){
-        &world->actual_bloc[0]->coord[i]->y=&world->actual_bloc[1]->coord[i]->y+world->vy;
+    for(int i=0;i<world->actual_bloc[1].meteore_number;i++){
+        world->actual_bloc[0].coord[i].y = world->actual_bloc[1].coord[i].y+world->vy;
     }
     //update collision 
-    for(int i=0;i<&world->actual_bloc[0]->meteore_number;i++){
-        handle_sprites_collision(world,&world->actual_bloc[0]->coord[i],&world->vaisseau,&world->make_disappear,&temp);
+    for(int i=0;i<world->actual_bloc[0].meteore_number;i++){
+        handle_sprites_collision(world,&world->actual_bloc[0].coord[i],&world->vaisseau,&world->make_disappear,&temp);
     }
-    for(int i=0;i<&world->actual_bloc[1]->meteore_number;i++){
-        handle_sprites_collision(world,&world->actual_bloc[1]->coord[i],&world->vaisseau,&world->make_disappear,&temp);
+    for(int i=0;i<world->actual_bloc[1].meteore_number;i++){
+        handle_sprites_collision(world,&world->actual_bloc[1].coord[i],&world->vaisseau,&world->make_disappear,&temp);
     }
 }

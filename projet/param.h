@@ -153,6 +153,7 @@ struct world_s{
     int make_disappear; /*!< Informe si le vaisseau doit être visible ou pas */
     int levelnbr; /*!< Information sur le nombre de niveaux. */
     int level; /*!< Informe du niveaux a afficher. */
+    int mode;
     endless_t actual_bloc[1]; /*!< Informe des blocs actuel a afficher. */
 };
 /**

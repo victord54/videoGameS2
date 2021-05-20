@@ -260,6 +260,6 @@ void bloc_12(endless_t *bloc);
  * \param world Les données du monde.
  * \param menu Les données du menu.
  */
-void update_endless(&world,&menu);
+void update_endless(world_t *world,menu_t *menu);
 
 #endif

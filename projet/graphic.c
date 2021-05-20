@@ -129,7 +129,6 @@ void level_start(SDL_Renderer *renderer,world_t *world,textures_t *textures){
     level_start_aux(renderer,world,textures);
 }
 void level_start_aux(SDL_Renderer *renderer,world_t *world,textures_t *textures){
-    printf("test");
     update_screen(renderer);
     pause(1000);
     clear_renderer(renderer);
