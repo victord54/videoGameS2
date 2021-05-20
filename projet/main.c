@@ -31,7 +31,7 @@ int main( int argc, char* argv[] )
     SDL_Event event;
         // Initialisation du jeu
         init(&window,&renderer,&textures,&world,&menu,&program);
-        endless_mode(bloc);
+        endless_mode(bloc,&world);
     while(!is_program_over(&program)){
         
         while((!is_menu_over(&menu))&&(program.restart==0)){
@@ -57,7 +57,7 @@ int main( int argc, char* argv[] )
                 break;
                 case 1:
                     // Mise à jour des données liée à la physique du monde mode infinie
-                    update_endless(&world,&menu);
+                    update_endless(&world,&menu,&bloc);
                 break;
             }
             

@@ -106,7 +106,7 @@ void handle_sprites_collision(world_t *world,sprite_t *sp1, sprite_t *sp2, int *
         world->vy=0;
         world->gameover = 1;
         *make_disappear=1;
-        if((world->level<world->levelnbr)&&(is_finish(world)==1)&&(world->mode==0)){ // Si on est pas au dernier niveau et qu'on a gagné on passe au niveau suivant
+        if((world->level<world->levelnbr)&&(is_finish(world)==1)){ // Si on est pas au dernier niveau et qu'on a gagné on passe au niveau suivant
             *next_level=1;
         }
     }
@@ -291,11 +291,15 @@ void level_2(world_t *world)
     init_sprite_meteore(&world->mur[15],7,13,2,3,3);
 }
 
-void endless_mode(endless_t *bloc)
+void endless_mode(endless_t *bloc,world_t *world)
 {
 
     bloc_init(bloc);
+    /*
+    world->actual_bloc[0]=bloc[0];
 
+    world->actual_bloc[0]=bloc[randint(1,13)];
+    */
 }
 
 void init_endless_bloc(endless_t *bloc,int meteore_groupe, int debut, int fin ,int x, int y, int w, int h,int meteore_number)
@@ -321,6 +325,8 @@ void bloc_init(endless_t *bloc){
     bloc_10(bloc);
     bloc_11(bloc);
     bloc_12(bloc);
+    
+    
 }
 
 void bloc_0(endless_t *bloc){
@@ -397,17 +403,41 @@ void bloc_12(endless_t *bloc){
     init_endless_bloc(&bloc[12],2,1,3,0,11,6,3,2);
 }
 
-void update_endless(world_t *world,menu_t *menu){
+void update_endless(world_t *world,menu_t *menu,endless_t *bloc){
     int temp=0;
 
     //menu rejouer 
     menu->currentmenu=4;
 
     //update bloc meteore (A faire)
-    if(&world->vaisseau.y<&world->actual_bloc[0].coord[0].y){
-        
+    /*
+    if(world->vaisseau.y<world->actual_bloc[0].coord[0].y){
+        if(world->actual_bloc[0]->fin==0){
+            
+            world->actual_bloc[0]==bloc[]
+        }
+        if(world->actual_bloc[0]->fin==1){
+            (0,1,4,5)
+        }
+        if(world->actual_bloc[0]->fin==2){
+            (0,2,4,6)
+        }
+        if(world->actual_bloc[0]->fin==3){
+            (0,3,5,6)
+        }
+        if(world->actual_bloc[0]->fin==4){
+            (0,1,2,4,5,6)
+        }
+        if(world->actual_bloc[0]->fin==5){
+            (0,1,3,4,5,6)
+        }
+        if(world->actual_bloc[0]->fin==6){
+            (0,2,3,4,5,6)
+        }
+    
     }
-    if(&world->vaisseau.y<&world->actual_bloc[1].coord[0].y){
+    */
+    if(world->vaisseau.y<world->actual_bloc[1].coord[0].y){
 
     }
         //suprimer ancien bloc(sauf sur premier écran)

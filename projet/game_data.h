@@ -154,7 +154,7 @@ void level_2(world_t *world);
 /**
     \brief Fonction qui initialise le mode endless.
 */
-void endless_mode(endless_t *bloc);
+void endless_mode(endless_t *bloc,world_t *world);
 
 /**
  * \brief Fonction qui initialise les bloc du mode endless.
@@ -260,6 +260,6 @@ void bloc_12(endless_t *bloc);
  * \param world Les données du monde.
  * \param menu Les données du menu.
  */
-void update_endless(world_t *world,menu_t *menu);
+void update_endless(world_t *world,menu_t *menu,endless_t *bloc);
 
 #endif
