@@ -98,6 +98,6 @@ int main( int argc, char* argv[] )
     }
     // Nettoyage final
     clean(window,renderer,&textures,&world);
-    
+    exit(0);
     return 0;
 }
