@@ -128,7 +128,6 @@ void init_walls(world_t *world){
         break;
         default:
             /* ===== Placement meteorite niveau 1 ===== */
-            level_1(world);
         break;
     }
     
