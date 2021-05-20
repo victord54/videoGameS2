@@ -430,3 +430,8 @@ void update_endless(world_t *world,menu_t *menu){
         handle_sprites_collision(world,&world->actual_bloc[1].coord[i],&world->vaisseau,&world->make_disappear,&temp);
     }
 }
+
+int random(int a, int b)
+{
+    return a + rand() % (b-a);
+}
