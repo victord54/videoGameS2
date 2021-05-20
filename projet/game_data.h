@@ -262,4 +262,12 @@ void bloc_12(endless_t *bloc);
  */
 void update_endless(world_t *world,menu_t *menu,endless_t *bloc);
 
+/**
+ * @brief Fonction qui génère un nombre aléatoire
+ * 
+ * @param a Borne inférieure incluse
+ * @param b Borne supérieure excluse
+ * @return int 
+ */
+int random(int a, int b);
 #endif

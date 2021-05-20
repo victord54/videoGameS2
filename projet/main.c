@@ -19,6 +19,7 @@
  */
 int main( int argc, char* argv[] )
 {
+    srand(time(NULL));
     // Initialisation des variables
     world_t world;
     menu_t menu;
