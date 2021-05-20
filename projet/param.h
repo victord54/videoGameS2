@@ -68,7 +68,7 @@
 /**
  * \brief Nombre de mur de météorite.
  */
-#define METEORITE_WALL_NUMBER 16
+#define METEORITE_WALL_NUMBER 17
 
 /**
  * @brief Nombre de blocs pour le mode infini
@@ -153,7 +153,7 @@ struct world_s{
     int make_disappear; /*!< Informe si le vaisseau doit être visible ou pas */
     int levelnbr; /*!< Information sur le nombre de niveaux. */
     int level; /*!< Informe du niveaux a afficher. */
-    int mode;
+    int mode; /*< Informe du mode de jeux actuel. */
     endless_t actual_bloc[1]; /*!< Informe des blocs actuel a afficher. */
 };
 /**

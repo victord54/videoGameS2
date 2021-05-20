@@ -269,5 +269,5 @@ void update_endless(world_t *world,menu_t *menu,endless_t *bloc);
  * @param b Borne supérieure excluse
  * @return int 
  */
-int random(int a, int b);
+int randint(int a, int b);
 #endif

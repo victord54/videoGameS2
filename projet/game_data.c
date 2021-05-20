@@ -36,7 +36,6 @@ void update_data(world_t *world,menu_t *menu){
     //collision avec ligne d'arrivé
     handle_sprites_collision(world, &world->arrival, &world->vaisseau,&not_disappear,&next_level); // Vérifie la collision avec la ligne d'arrivée pour ne pas faire disparaître le vaisseau
     if(next_level){
-        printf("niveau = %d\n", world->level);
         newlevel(world);
     }
 }
@@ -243,6 +242,7 @@ void level_1(world_t *world)
     // Écran 1
     init_sprite_meteore(&world->mur[0],0,2,3,6,0);
     init_sprite_meteore(&world->mur[1],6,2,3,6,0);
+    init_sprite_meteore(&world->mur[16],0,15,9,1,0);
 
     // Écran 2
     init_sprite_meteore(&world->mur[2],0,3,6,3,1);
@@ -270,6 +270,7 @@ void level_2(world_t *world)
     // Écran 1
     init_sprite_meteore(&world->mur[0],3,2,3,3,0);
     init_sprite_meteore(&world->mur[1],4,4,1,3,0);
+    init_sprite_meteore(&world->mur[16],0,15,9,1,0);
     
     // Écran 2
     init_sprite_meteore(&world->mur[2],0,5,3,8,1);
@@ -296,11 +297,11 @@ void endless_mode(endless_t *bloc,world_t *world)
 {
 
     bloc_init(bloc);
-    /*
+    
     world->actual_bloc[0]=bloc[0];
 
     world->actual_bloc[0]=bloc[randint(1,13)];
-    */
+    
 }
 
 void init_endless_bloc(endless_t *bloc,int meteore_groupe, int debut, int fin ,int x, int y, int w, int h,int meteore_number)
@@ -411,33 +412,40 @@ void update_endless(world_t *world,menu_t *menu,endless_t *bloc){
     menu->currentmenu=4;
 
     //update bloc meteore (A faire)
-    /*
-    if(world->vaisseau.y<world->actual_bloc[0].coord[0].y){
-        if(world->actual_bloc[0]->fin==0){
-            
-            world->actual_bloc[0]==bloc[]
-        }
-        if(world->actual_bloc[0]->fin==1){
-            (0,1,4,5)
-        }
-        if(world->actual_bloc[0]->fin==2){
-            (0,2,4,6)
-        }
-        if(world->actual_bloc[0]->fin==3){
-            (0,3,5,6)
-        }
-        if(world->actual_bloc[0]->fin==4){
-            (0,1,2,4,5,6)
-        }
-        if(world->actual_bloc[0]->fin==5){
-            (0,1,3,4,5,6)
-        }
-        if(world->actual_bloc[0]->fin==6){
-            (0,2,3,4,5,6)
-        }
     
+    if(world->vaisseau.y<world->actual_bloc[0].coord[0].y){
+        if(world->actual_bloc[0].fin==0){
+            world->actual_bloc[0]=bloc[randint(0,13)];
+        }
+        if(world->actual_bloc[0].fin==1){
+            //(0,1,4,5)
+            world->actual_bloc[0]=bloc[randint(0,13)];
+        }
+        if(world->actual_bloc[0].fin==2){
+            //(0,2,4,6)
+            
+            world->actual_bloc[0]=bloc[randint(0,13)];
+        }
+        if(world->actual_bloc[0].fin==3){
+            //(0,3,5,6)
+            world->actual_bloc[0]=bloc[randint(0,13)];
+            
+        }
+        if(world->actual_bloc[0].fin==4){
+            //(0,1,2,4,5,6)
+            world->actual_bloc[0]=bloc[randint(0,13)];
+           
+        }
+        if(world->actual_bloc[0].fin==5){
+            //(0,1,3,4,5,6)
+            world->actual_bloc[0]=bloc[randint(0,13)];
+        }
+        if(world->actual_bloc[0].fin==6){
+            //(0,2,3,4,5,6)
+            world->actual_bloc[0]=bloc[randint(0,13)];
+        }
     }
-    */
+    
     if(world->vaisseau.y<world->actual_bloc[1].coord[0].y){
 
     }
@@ -461,7 +469,7 @@ void update_endless(world_t *world,menu_t *menu,endless_t *bloc){
     }
 }
 
-int random(int a, int b)
+int randint(int a, int b)
 {
     return a + rand() % (b-a);
 }
