@@ -58,7 +58,11 @@ int main( int argc, char* argv[] )
                 break;
                 case 1:
                     // Mise à jour des données liée à la physique du monde mode infinie
+                    /*
+                    WIP
                     update_endless(&world,&menu,bloc);
+                    */
+                    update_data(&world,&menu);
                 break;
             }
             

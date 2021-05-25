@@ -406,67 +406,177 @@ void bloc_12(endless_t *bloc){
 }
 
 void update_endless(world_t *world,menu_t *menu,endless_t *bloc){
-    int temp=0;
+    int actuel_ending=0;
+    int temp_debut=0;
+    int temp;
 
     //menu rejouer 
     menu->currentmenu=4;
 
     //update bloc meteore (A faire)
     
-    if(world->vaisseau.y<world->actual_bloc[0].coord[0].y){
-        if(world->actual_bloc[0].fin==0){
+
+    if(world->actual_bloc[0].coord[0].y>SCREEN_HEIGHT){
+        actuel_ending=world->actual_bloc[0].fin;
+        if(actuel_ending==0){
             world->actual_bloc[0]=bloc[randint(0,13)];
         }
-        if(world->actual_bloc[0].fin==1){
-            //(0,1,4,5)
+        if(actuel_ending==1){
             world->actual_bloc[0]=bloc[randint(0,13)];
+            temp_debut=world->actual_bloc[0].debut;
+            while((temp_debut!=0)||(temp_debut!=1)||(temp_debut!=4)||(temp_debut!=5)){
+                world->actual_bloc[0]=bloc[randint(0,13)];
+            }
+            for(int i=0;i<world->actual_bloc[0].meteore_number;i++){
+                world->actual_bloc[0].coord[i].y=world->actual_bloc[0].coord[i].y+SCREEN_HEIGHT;
+            }
         }
-        if(world->actual_bloc[0].fin==2){
+        if(actuel_ending==2){
             //(0,2,4,6)
-            
             world->actual_bloc[0]=bloc[randint(0,13)];
+            temp_debut=world->actual_bloc[0].debut;
+            while((temp_debut!=0)||(temp_debut!=2)||(temp_debut!=4)||(temp_debut!=6)){
+                world->actual_bloc[0]=bloc[randint(0,13)];
+            }
+            for(int i=0;i<world->actual_bloc[0].meteore_number;i++){
+                world->actual_bloc[0].coord[i].y=world->actual_bloc[0].coord[i].y+SCREEN_HEIGHT;
+            }
         }
-        if(world->actual_bloc[0].fin==3){
+        if(actuel_ending==3){
             //(0,3,5,6)
             world->actual_bloc[0]=bloc[randint(0,13)];
-            
+            temp_debut=world->actual_bloc[0].debut;
+            while((temp_debut!=0)||(temp_debut!=3)||(temp_debut!=5)||(temp_debut!=6)){
+                world->actual_bloc[0]=bloc[randint(0,13)];
+            }
+            for(int i=0;i<world->actual_bloc[0].meteore_number;i++){
+                world->actual_bloc[0].coord[i].y=world->actual_bloc[0].coord[i].y+SCREEN_HEIGHT;
+            }
         }
-        if(world->actual_bloc[0].fin==4){
+        if(actuel_ending==4){
             //(0,1,2,4,5,6)
             world->actual_bloc[0]=bloc[randint(0,13)];
-           
+            temp_debut=world->actual_bloc[0].debut;
+            while((temp_debut!=0)||(temp_debut!=1)||(temp_debut!=2)||(temp_debut!=4)||(temp_debut!=5)||(temp_debut!=6)){
+                world->actual_bloc[0]=bloc[randint(0,13)];
+            }
+            for(int i=0;i<world->actual_bloc[0].meteore_number;i++){
+                world->actual_bloc[0].coord[i].y=world->actual_bloc[0].coord[i].y+SCREEN_HEIGHT;
+            }
         }
-        if(world->actual_bloc[0].fin==5){
+        if(actuel_ending==5){
             //(0,1,3,4,5,6)
             world->actual_bloc[0]=bloc[randint(0,13)];
+            temp_debut=world->actual_bloc[0].debut;
+            while((temp_debut!=0)||(temp_debut!=1)||(temp_debut!=3)||(temp_debut!=4)||(temp_debut!=5)||(temp_debut!=6)){
+                world->actual_bloc[0]=bloc[randint(0,13)];
+            }
+            for(int i=0;i<world->actual_bloc[0].meteore_number;i++){
+                world->actual_bloc[0].coord[i].y=world->actual_bloc[0].coord[i].y+SCREEN_HEIGHT;
+            }
         }
-        if(world->actual_bloc[0].fin==6){
+        if(actuel_ending==6){
             //(0,2,3,4,5,6)
             world->actual_bloc[0]=bloc[randint(0,13)];
+            temp_debut=world->actual_bloc[0].debut;
+            while((temp_debut!=0)||(temp_debut!=2)||(temp_debut!=3)||(temp_debut!=4)||(temp_debut!=5)||(temp_debut!=6)){
+                world->actual_bloc[0]=bloc[randint(0,13)];
+            }
+            for(int i=0;i<world->actual_bloc[0].meteore_number;i++){
+                world->actual_bloc[0].coord[i].y=world->actual_bloc[0].coord[i].y+SCREEN_HEIGHT;
+            }
         }
     }
     
-    if(world->vaisseau.y<world->actual_bloc[1].coord[0].y){
-
+    if(world->actual_bloc[1].coord[0].y>SCREEN_HEIGHT){
+        actuel_ending=world->actual_bloc[1].fin;
+        if(actuel_ending==0){
+            world->actual_bloc[0]=bloc[randint(0,13)];
+        }
+        if(actuel_ending==1){
+            world->actual_bloc[1]=bloc[randint(0,13)];
+            temp_debut=world->actual_bloc[1].debut;
+            while((temp_debut!=0)||(temp_debut!=1)||(temp_debut!=4)||(temp_debut!=5)){
+                world->actual_bloc[1]=bloc[randint(0,13)];
+            }
+            for(int i=0;i<world->actual_bloc[1].meteore_number;i++){
+                world->actual_bloc[1].coord[i].y=world->actual_bloc[1].coord[i].y+SCREEN_HEIGHT;
+            }
+        }
+        if(actuel_ending==2){
+            //(0,2,4,6)
+            world->actual_bloc[1]=bloc[randint(0,13)];
+            temp_debut=world->actual_bloc[0].debut;
+            while((temp_debut!=0)||(temp_debut!=2)||(temp_debut!=4)||(temp_debut!=6)){
+                world->actual_bloc[1]=bloc[randint(0,13)];
+            }
+            for(int i=0;i<world->actual_bloc[1].meteore_number;i++){
+                world->actual_bloc[1].coord[i].y=world->actual_bloc[1].coord[i].y+SCREEN_HEIGHT;
+            }
+        }
+        if(actuel_ending==3){
+            //(0,3,5,6)
+            world->actual_bloc[1]=bloc[randint(0,13)];
+            temp_debut=world->actual_bloc[0].debut;
+            while((temp_debut!=0)||(temp_debut!=3)||(temp_debut!=5)||(temp_debut!=6)){
+                world->actual_bloc[1]=bloc[randint(0,13)];
+            }
+            for(int i=0;i<world->actual_bloc[0].meteore_number;i++){
+                world->actual_bloc[1].coord[i].y=world->actual_bloc[1].coord[i].y+SCREEN_HEIGHT;
+            }
+        }
+        if(actuel_ending==4){
+            //(0,1,2,4,5,6)
+            world->actual_bloc[1]=bloc[randint(0,13)];
+            temp_debut=world->actual_bloc[1].debut;
+            while((temp_debut!=0)||(temp_debut!=1)||(temp_debut!=2)||(temp_debut!=4)||(temp_debut!=5)||(temp_debut!=6)){
+                world->actual_bloc[1]=bloc[randint(0,13)];
+            }
+            for(int i=0;i<world->actual_bloc[1].meteore_number;i++){
+                world->actual_bloc[1].coord[i].y=world->actual_bloc[1].coord[i].y+SCREEN_HEIGHT;
+            }
+        }
+        if(actuel_ending==5){
+            //(0,1,3,4,5,6)
+            world->actual_bloc[1]=bloc[randint(0,13)];
+            temp_debut=world->actual_bloc[1].debut;
+            while((temp_debut!=0)||(temp_debut!=1)||(temp_debut!=3)||(temp_debut!=4)||(temp_debut!=5)||(temp_debut!=6)){
+                world->actual_bloc[1]=bloc[randint(0,13)];
+            }
+            for(int i=0;i<world->actual_bloc[1].meteore_number;i++){
+                world->actual_bloc[1].coord[i].y=world->actual_bloc[1].coord[i].y+SCREEN_HEIGHT;
+            }
+        }
+        if(actuel_ending==6){
+            //(0,2,3,4,5,6)
+            world->actual_bloc[1]=bloc[randint(0,13)];
+            temp_debut=world->actual_bloc[0].debut;
+            while((temp_debut!=0)||(temp_debut!=2)||(temp_debut!=3)||(temp_debut!=4)||(temp_debut!=5)||(temp_debut!=6)){
+                world->actual_bloc[1]=bloc[randint(0,13)];
+            }
+            for(int i=0;i<world->actual_bloc[1].meteore_number;i++){
+                world->actual_bloc[1].coord[i].y=world->actual_bloc[1].coord[i].y+SCREEN_HEIGHT;
+            }
+        }
     }
-        //suprimer ancien bloc(sauf sur premier écran)
-        //génération nouveaux bloc(selon l'ecran et le bloc)
-
-
+    
     //update bloc actuel
     for(int i=0;i<world->actual_bloc[0].meteore_number;i++){
         world->actual_bloc[0].coord[i].y = world->actual_bloc[0].coord[i].y+world->vy;
     }
     for(int i=0;i<world->actual_bloc[1].meteore_number;i++){
-        world->actual_bloc[0].coord[i].y = world->actual_bloc[1].coord[i].y+world->vy;
+        world->actual_bloc[0].coord[i].y = world->actual_bloc[1].coord[i].y-world->vy;
     }
+    
     //update collision 
+    
     for(int i=0;i<world->actual_bloc[0].meteore_number;i++){
         handle_sprites_collision(world,&world->actual_bloc[0].coord[i],&world->vaisseau,&world->make_disappear,&temp);
     }
     for(int i=0;i<world->actual_bloc[1].meteore_number;i++){
         handle_sprites_collision(world,&world->actual_bloc[1].coord[i],&world->vaisseau,&world->make_disappear,&temp);
     }
+
 }
 
 int randint(int a, int b)
