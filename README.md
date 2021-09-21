@@ -18,10 +18,10 @@ Pour les éviter, vous devez vous déplacer avec les touches ci-dessous.
 ## Comment jouer ?
 
 * Déplacements
-	* Touche **Z** : Accélérer le jeu
-	* Touche **S** : Ralentir le jeu
-	* Touche **Q** : Se déplacer à gauche
-	* Touche **D** : Se déplacer à droite
+	* Touche **Z | ⇧** : Accélérer le vaisseau
+	* Touche **S | ⇩** : Ralentir le vaisseau
+	* Touche **Q | ⇦** : Se déplacer à gauche
+	* Touche **D | ⇨** : Se déplacer à droite
 	* Sortir du jeu
 	* Touche **Echap**
 
