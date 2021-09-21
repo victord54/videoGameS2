@@ -1,4 +1,4 @@
-# Règles du jeu
+# videoGameS2
 
 ## Première compilation
 ```sh
