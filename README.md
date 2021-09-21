@@ -1,5 +1,15 @@
 # Règles du jeu
 
+## Première compilation
+```sh
+git clone https://github.com/victord54/videoGameS2.git &&
+cd videoGameS2 &&
+mkdir build &&
+cd build &&
+cmake .. &&
+make
+```
+
 ## Le but du jeu
 
 L'objectif principal de ce jeu est d'atteindre la **ligne d'arrivée** tout en évitant les **météorites** qui vous barrent le passage.
