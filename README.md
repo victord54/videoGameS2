@@ -4,9 +4,6 @@
 ```sh
 git clone https://github.com/victord54/videoGameS2.git &&
 cd videoGameS2 &&
-mkdir build &&
-cd build &&
-cmake .. &&
 make
 ```
 
