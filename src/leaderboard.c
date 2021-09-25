@@ -15,7 +15,7 @@ void record(int time)
 {
     FILE* fichier = NULL;
 
-    fichier = fopen("../leaderboard.txt","a");
+    fichier = fopen("leaderboard.txt","a");
     char nom[20];
     char *enter = NULL;
 

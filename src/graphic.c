@@ -20,18 +20,18 @@ void clean_textures(textures_t *textures){
 }
 
 void init_textures(SDL_Renderer *renderer, textures_t *textures){
-    textures->background = load_image("../ressources/space-background.bmp",renderer);
-    textures->vaisseau = load_image("../ressources/spaceship.bmp",renderer);
-    textures->arrival = load_image("../ressources/finish_line.bmp",renderer);
-    textures->meteorite = load_image("../ressources/meteorite.bmp",renderer);
-    textures->font = load_font("../ressources/nasa.ttf",14);
-    textures->menu_background = load_image("../ressources/menu0.bmp",renderer);
-    textures->menu1_select = load_image("../ressources/menu1_select.bmp",renderer);
-    textures->menu_replay = load_image("../ressources/replay.bmp",renderer);
-    textures->rules = load_image("../ressources/regles.bmp",renderer);
-    textures->fin = load_image("../ressources/fin.bmp",renderer);
-    textures->finb = load_image("../ressources/finb.bmp",renderer);
-    textures->menu1_background = load_image("../ressources/menu1.bmp", renderer);
+    textures->background = load_image("ressources/space-background.bmp",renderer);
+    textures->vaisseau = load_image("ressources/spaceship.bmp",renderer);
+    textures->arrival = load_image("ressources/finish_line.bmp",renderer);
+    textures->meteorite = load_image("ressources/meteorite.bmp",renderer);
+    textures->font = load_font("ressources/nasa.ttf",14);
+    textures->menu_background = load_image("ressources/menu0.bmp",renderer);
+    textures->menu1_select = load_image("ressources/menu1_select.bmp",renderer);
+    textures->menu_replay = load_image("ressources/replay.bmp",renderer);
+    textures->rules = load_image("ressources/regles.bmp",renderer);
+    textures->fin = load_image("ressources/fin.bmp",renderer);
+    textures->finb = load_image("ressources/finb.bmp",renderer);
+    textures->menu1_background = load_image("ressources/menu1.bmp", renderer);
 }
 
 void apply_sprite(SDL_Renderer *renderer, SDL_Texture *texture, sprite_t *sprite,int make_disappear){
